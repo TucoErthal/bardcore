@@ -13,16 +13,19 @@ while True:
     wind.set_background_color([0,12,24])
 
    
-    '''
-    if keyboard.key_pressed("ESC"):
-        wind.close()'''
+
 
     for event in pygame.event.get():
+        #KeyDown
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 pygame.quit()
                 quit()
-            
+        #KeyUp    
+        if event.type == pygame.KEYUP:
+            pass  
+
+        #Quit
         if event.type == pygame.QUIT:
             pygame.quit()
             quit()
