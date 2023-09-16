@@ -1,5 +1,4 @@
 from PPlay.window import *
-from Scripts.mapGenerator import MapGenerator
 
 class Game:
     
@@ -15,8 +14,6 @@ class Game:
         self.clock = pygame.time.Clock()
 
         #Initialize Game Objects
-        self.map = MapGenerator("Images\\map.png", "Images\\missing_texture.png")
-        #self.map.add_tile("Images\\grass_top.png")
 
     def events(self):
         #Eventos
@@ -39,7 +36,6 @@ class Game:
         self.window.set_background_color([0,12,24])
         self.clock.tick(self.FPS)
 
-        self.map.draw()
 
     def update(self):
         self.window.update()
