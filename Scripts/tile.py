@@ -1,8 +1,10 @@
 from PPlay.sprite import Sprite
-from Scripts.E_tile_group import Tile_group
 
 class Tile(Sprite):
     
-    def __init__(self, file, group = Tile_group.DEFAULT):
+    def __init__(self, file, color):
         super().__init__(file)
-        self._group = group
+        self.__color = color
+
+    def get_color(self):
+        return self.__color
