@@ -1,5 +1,5 @@
 from PPlay.sprite import *
-from Scripts.tile import Tile
+from scripts.tile import Tile
 
 #ToDo: 
 # - Ver o tutorial na parte do mapa e colizao

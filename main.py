@@ -1,5 +1,5 @@
 from PPlay.window import *
-from Scripts.map import Map
+from scripts.map import Map
 
 
 
@@ -20,9 +20,9 @@ class Game:
         self.clock = pygame.time.Clock()
 
         #Initialize Game Objects
-        self.map = Map("Images\\map.png", "Images\\missing_texture.png")
-        self.map.add_tile("Images\\grass_top.png", (255, 255, 255))
-        self.map.add_tile("Images\\Flor.png", (0, 0, 0))
+        self.map = Map("assets/textures/map.png", "assets/textures/missing_texture.png")
+        self.map.add_tile("assets/textures/grass_top.png", (255, 255, 255))
+        self.map.add_tile("assets/textures/Flor.png", (0, 0, 0))
         self.map.load()
 
     def events(self):
