@@ -1,4 +1,7 @@
 from PPlay.window import *
+from Scripts.map import Map
+
+
 
 class Game:
     
@@ -8,14 +11,27 @@ class Game:
         self.__width = 802
         self.FPS = 60
 
+        #Customazing Keys
+        pygame.K_UP == pygame.K_w
+
         #Pygame/PPlay Setup
         self.window = Window(self.__width, self.__height)
         self.keyboard = self.window.get_keyboard()
         self.clock = pygame.time.Clock()
 
         #Initialize Game Objects
+        self.map = Map("Images\\map.png", "Images\\missing_texture.png")
+        self.map.add_tile("Images\\grass_top.png", (255, 255, 255))
+        self.map.add_tile("Images\\Flor.png", (0, 0, 0))
+        self.map.load()
 
     def events(self):
+        #KeyPressed
+        keyPressed = pygame.key.get_pressed()
+        
+        if keyPressed[pygame.K_UP]:
+            print('pressed')
+
         #Eventos
         for event in pygame.event.get():
             #KeyDown
@@ -31,6 +47,7 @@ class Game:
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
+        
 
     def draw(self):
         self.window.set_background_color([0,12,24])
