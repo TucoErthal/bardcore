@@ -1,4 +1,5 @@
 from PPlay.window import *
+from Scripts.elementEvoker import el_evoker
 
 class Game:
     
@@ -14,12 +15,15 @@ class Game:
         self.clock = pygame.time.Clock()
 
         #Initialize Game Objects
+        self.ev = el_evoker()
 
     def events(self):
+        
         #Eventos
         for event in pygame.event.get():
             #KeyDown
             if event.type == pygame.KEYDOWN:
+                self.ev.event(event)
                 if event.key == pygame.K_ESCAPE:
                     pygame.quit()
                     quit()
@@ -35,6 +39,8 @@ class Game:
     def draw(self):
         self.window.set_background_color([0,12,24])
         self.clock.tick(self.FPS)
+
+        self.ev.draw()
 
 
     def update(self):
