@@ -22,12 +22,15 @@ class Track:
 
     def on_beat(self, difficulty):
 
-        beat = pygame.mixer.music.get_pos()*self.bpms
+        beat = (pygame.mixer.music.get_pos()*self.bpms)%self.signature
 
         # Se o beat estiver entre 
         if beat%1 < difficulty or beat%1 > 1-difficulty:
             print("⬜", beat)
             return True
+        elif beat%0.5 < difficulty or beat%0.5 > 1-difficulty:
+            print("🟩", beat)
+            return "half"
         else:
             print("🟥", beat)
             return False

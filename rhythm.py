@@ -26,7 +26,7 @@ while True:
 
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:
-            if pong.on_beat(0.2):
+            if pong.on_beat(0.175):
                 good.draw()
             else:
                 miss.draw()
