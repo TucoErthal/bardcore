@@ -11,8 +11,9 @@ class Track:
         # x/60000 minutos
         # x*bpm/60000 beats
 
-
         self.bpms = bpm/60000
+
+
         self.signature = signature
         
         pygame.mixer.music.load(file)
@@ -22,15 +23,15 @@ class Track:
 
     def on_beat(self, difficulty):
 
-        beat = (pygame.mixer.music.get_pos()*self.bpms)%self.signature
+        self.beat_global = (pygame.mixer.music.get_pos()*self.bpms)
+        self.beat_in_bar = self.beat_global%self.signature
 
-        # Se o beat estiver entre 
-        if beat%1 < difficulty or beat%1 > 1-difficulty:
-            print("⬜", beat)
+        if self.beat_in_bar%1 < difficulty or self.beat_in_bar%1 > 1-difficulty:
+            print("⬜", self.beat_in_bar)
             return True
-        elif beat%0.5 < difficulty or beat%0.5 > 1-difficulty:
-            print("🟩", beat)
+        elif self.beat_in_bar%0.5 < difficulty or self.beat_in_bar%0.5 > 1-difficulty:
+            print("🟩", self.beat_in_bar)
             return "half"
         else:
-            print("🟥", beat)
+            print("🟥", self.beat_in_bar)
             return False

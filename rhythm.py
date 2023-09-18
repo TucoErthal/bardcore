@@ -1,7 +1,7 @@
+import pygame
 from PPlay.window import *
 from PPlay.sprite import *
 from scripts.music import *
-import pygame
 
 # CREATE WINDOW
 screen_w, screen_h = 1280, 720
@@ -26,7 +26,7 @@ while True:
 
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:
-            if pong.on_beat(0.175):
+            if pong.on_beat(0.18):
                 good.draw()
             else:
                 miss.draw()
