@@ -1,33 +1,40 @@
+from PPlay.window import *
+from PPlay.sprite import *
+from music import *
 import pygame
 
-class Track:
-    def __init__(self, window, file, bpm, signature):
+# CREATE WINDOW
+screen_w, screen_h = 1280, 720
+window = Window(screen_w, screen_h)
+window.set_title("Bardcore ðŸ¤˜")
+keyboard = window.get_keyboard()
 
-        # PARAMETERS
-        self.window = window
+# CREATE BALL
+ball = Sprite("assets/ball.png")
+ball.set_position((screen_w-ball.width)/2, (screen_h-ball.height)/2)
 
-        # em x ms
-        # tem x/1000 segundos
-        # x/60000 minutos
-        # x*bpm/60000 beats
+# MUSIC
+pong = Track(window, "assets/Pong.ogg", 110, 4)
 
+while True:
 
-        self.bpms = bpm/60000
-        self.signature = signature
-        
-        pygame.mixer.music.load(file)
-        pygame.mixer.music.play(-1)
+    pong.on_beat(0.2)
 
-        #print("FPS =", self.clock.get_fps())
+    for event in pygame.event.get():
+        if event.type == pygame.KEYDOWN:
 
-    def on_beat(self, difficulty):
+            if event.key == pygame.K_a:
+                ball.move_x(-screen_w/10*window.delta_time())
+            if event.key == pygame.K_d:
+                ball.move_x(screen_w/10*window.delta_time())
+            if event.key == pygame.K_w:  
+                ball.move_y(-screen_h/10*window.delta_time())
+            if event.key == pygame.K_s:    
+                ball.move_y(screen_h/10*window.delta_time())
+            if event.key == pygame.K_ESCAPE:    
+                pygame.quit()
+                sys.exit()
 
-        beat = pygame.mixer.music.get_pos()*self.bpms
-
-        # Se o beat estiver entre 
-        if beat%1 < difficulty:
-            print("â¬œ", beat)
-            return True
-        else:
-            print("ðŸŸ¥", beat)
-            return False
+    window.set_background_color((0,0,0))
+    ball.draw()
+    window.update()
