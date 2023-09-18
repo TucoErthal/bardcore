@@ -53,6 +53,8 @@ class Game:
         self.window.set_background_color([0,12,24])
         self.clock.tick(self.FPS)
 
+        self.map.draw()
+
 
     def update(self):
         self.window.update()
