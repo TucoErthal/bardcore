@@ -25,7 +25,7 @@ class Track:
         beat = pygame.mixer.music.get_pos()*self.bpms
 
         # Se o beat estiver entre 
-        if beat%1 < difficulty:
+        if beat%1 < difficulty or beat%1 > 1-difficulty:
             print("⬜", beat)
             return True
         else:

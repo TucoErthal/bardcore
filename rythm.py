@@ -9,32 +9,30 @@ window = Window(screen_w, screen_h)
 window.set_title("Bardcore 🤘")
 keyboard = window.get_keyboard()
 
-# CREATE BALL
-ball = Sprite("assets/ball.png")
-ball.set_position((screen_w-ball.width)/2, (screen_h-ball.height)/2)
+good = Sprite("assets/textures/gui/good.png")
+good.set_position((screen_w-good.width)/2, (screen_h-good.height)/2)
+
+miss = Sprite("assets/textures/gui/miss.png")
+miss.set_position((screen_w-miss.width)/2, (screen_h-miss.height)/2)
 
 # MUSIC
 pong = Track(window, "assets/Pong.ogg", 110, 4)
 
-while True:
+# MASTER CLOCK (FPS)
+clock = pygame.time.Clock()
 
-    pong.on_beat(0.2)
+while True:
+    clock.tick(30)
 
     for event in pygame.event.get():
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if pong.on_beat(0.2):
+                good.draw()
+            else:
+                miss.draw()
+                pygame.mixer.Sound("assets/miss.ogg").play()
         if event.type == pygame.KEYDOWN:
-
-            if event.key == pygame.K_a:
-                ball.move_x(-screen_w/10*window.delta_time())
-            if event.key == pygame.K_d:
-                ball.move_x(screen_w/10*window.delta_time())
-            if event.key == pygame.K_w:  
-                ball.move_y(-screen_h/10*window.delta_time())
-            if event.key == pygame.K_s:    
-                ball.move_y(screen_h/10*window.delta_time())
-            if event.key == pygame.K_ESCAPE:    
+            if event.key == pygame.K_ESCAPE:
                 pygame.quit()
                 sys.exit()
-
-    window.set_background_color((0,0,0))
-    ball.draw()
     window.update()
