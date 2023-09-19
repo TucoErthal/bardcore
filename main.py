@@ -5,10 +5,11 @@ from scripts.map import Map
 
 class Game:
     
+
     def __init__(self):
         #Constantes
-        self.__height = 460
-        self.__width = 802
+        self.__height = 9*70
+        self.__width = 16*70
         self.FPS = 60
 
         #Customazing Keys
