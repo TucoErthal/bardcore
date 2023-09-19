@@ -35,7 +35,6 @@ class Map:
                 color = imgMap.image.get_at((i, j))
 
                 for k in range(len(self.__tiles)):
-                    print(f'tile {k} Color: {color} tile color: {self.__tiles}')
                     if color == self.__tiles[k].get_color():
                         self.__mat[i][j] = k
 

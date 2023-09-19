@@ -1,6 +1,6 @@
 from PPlay.window import *
 from scripts.map import Map
-
+from scripts.combo_manager import Combo_manager
 #para pegar a janela -> self.display_surface = pygame.display.get_surface()
 
 class Game:
@@ -27,6 +27,8 @@ class Game:
         self.map.add_tile("assets/textures/Flor.png", (0, 0, 0))
         self.map.load()
 
+        self.ev = Combo_manager()
+
     def events(self):
         #KeyPressed
         keyPressed = pygame.key.get_pressed()
@@ -38,6 +40,7 @@ class Game:
         for event in pygame.event.get():
             #KeyDown
             if event.type == pygame.KEYDOWN:
+                self.ev.inputs(event)
                 if event.key == pygame.K_ESCAPE:
                     pygame.quit()
                     quit()
@@ -55,7 +58,8 @@ class Game:
         self.window.set_background_color([0,12,24])
         self.clock.tick(self.FPS)
 
-        self.map.draw()
+        #self.map.draw()
+        self.ev.draw()
 
 
     def update(self):
