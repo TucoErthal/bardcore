@@ -1,7 +1,7 @@
 from PPlay.window import *
 from scripts.map import Map
 
-
+#para pegar a janela -> self.display_surface = pygame.display.get_surface()
 
 class Game:
     
@@ -17,6 +17,7 @@ class Game:
 
         #Pygame/PPlay Setup
         self.window = Window(self.__width, self.__height)
+        self.window.set_title("Bardcore 🤘")
         self.keyboard = self.window.get_keyboard()
         self.clock = pygame.time.Clock()
 
