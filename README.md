@@ -63,6 +63,8 @@ Abaixo é mostrado, de forma simples, como funcionará o sistema de combos do jo
 
 ![](https://github.com/TucoErthal/bardcore/tree/main/gdd/combo.gif)
 
+![pattern](https://github.com/TucoErthal/bardcore/assets/67657590/9eff9c1f-10a7-44e0-a866-192611daad14)
+
 Quando um inimigo de elite é instanciado, um padrão rítmico (que chamaremos de compasso) aleatório* é associado a ele. Esse padrão é formado por notas e pausas que correspondem, cada uma, a uma batida da música. O primeiro ataque que o jogador fizer contra o inimigo inicia a detecção do padrão. A cada batida, a instrução apropriada deve ser respeitada pelo jogador (atirar ou esperar). Se o padrão for quebrado, ele é reiniciado. Quando a sequência é completada, o inimigo perde uma vida (representada pelo círculo vermelho acima da barra de compasso). O inimigo é derrotado quando não restar nenhuma vida.
 
 * O padrão é formado por 8 notas/pausas, e sempre começa com uma nota (para que a detecção de padrão não seja iniciada em resposta a um eventual silêncio acidental do jogador.
