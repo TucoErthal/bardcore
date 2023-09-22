@@ -15,7 +15,7 @@ Um twin stick shooter onde o jogador luta contra inimigos usando um alaúde elé
 
 Um bardo coberto por um capuz, deixando sua aparência coberta na maior parte, mostrando somente seus olhos brilhando pelo capuz. Ele utiliza um chapéu com pena, considerado o símbolo de um bardo no universo do jogo. Ele segura um alaúde mágico que utiliza como arma principal para combater os inimigos desse universo e precisa coletar cordas para restaurar a harmonia dos reinos através do seu alaúde.
 
-![[littlebard.png]]
+[[littlebard.png]]
 Arte conceito do bardo, com somente uma corda em seu alaúde.
 
 ## Controles do jogador
