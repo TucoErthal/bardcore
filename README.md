@@ -6,30 +6,30 @@ Este projeto está sendo desenvolvido por: Arthur Macabu Erthal, Luan Lopes da S
 ---
 # 2 - Highconcept
 
-Um twin stick shooter onde o jogador luta contra inimigos usando um alaúde elétrico. Atire e se mova no ritmo da música e use o poder do METAL para dominar os reinos! 
+BARDCORE é um twin-stick shooter em que o jogador age no ritmo da música. Derrote inimigos e supere contratempos para restaurar e harmonia entre os reinos! 
 
 ---
 # 3 - Gameplay e Enredo
 
 ## Aparência do personagem
 
-Um bardo coberto por um capuz, deixando sua aparência coberta na maior parte, mostrando somente seus olhos brilhando pelo capuz. Ele utiliza um chapéu com pena, considerado o símbolo de um bardo no universo do jogo. Ele segura um alaúde mágico que utiliza como arma principal para combater os inimigos desse universo e precisa coletar cordas para restaurar a harmonia dos reinos através do seu alaúde.
+O protagonista é um menestrel misterioso que veste um chapéu por cima do capuz, revelando somente os olhos. Ele porta um alaúde mágico que tem uma única corda, e batalha contra inimigos com o poder da música.
 
-![test](https://github.com/TucoErthal/bardcore/tree/main/gdd/bard.png)
-Arte conceito do bardo, com somente uma corda em seu alaúde.
+![bard](https://github.com/TucoErthal/bardcore/assets/67657590/55b45a38-dee3-40b6-8cac-a886eda0ffa8)
+Arte conceito do Bardo, o protagonista.
 
 ## Controles do jogador
 
-O jogador se move com as teclas do teclado e mira com o mouse. Ao apertar o botão do mouse esquerdo no ritmo da música, um disparo básico é disparado. Ao apetar o botão direito, as teclas de movimento se tornam teclas de combo e o jogador precisa apertar a sequência correta para empoderar os próximos disparos do jogador com um efeito especial. O jogador pode dar dash (no ritmo da música), o que o move uma certa distância mais rápido e o torna temporariamente invulnerável, para desviar os ataques inimigos.
-Ao longo do jogo, o jogador desbloqueia novos combos e notas ao pegar cordas para o seu alaúde, para empoderar os disparos do jogador com novos efeitos. Se um tipo de disparo já estiver equipado e um novo combo for feito, os efeitos dos dois tipos de disparo se combinam formando um com os dois efeitos levemente reduzidos. Disparos equipados têm um número de usos limitado.
-O jogador terá uma quantidade pequena de "hit points", ou quantos impactos que o jogador poderá levar antes de ser derrotado. Ele poderá recuperar seus hit points no meio do jogo, e se perder todos os hit points, perderá a fase e terá que começar do início.
+O jogador se move com as teclas direcionais (WASD) e controla a mira do personagem com o cursor do mouse. Pressionar o botão esquerdo do mouse ao ritmo da música faz um disparo mágico ofensivo. O botão direito do mouse, em combinação com as teclas de movimento (também no ritmo da música), permitem a execução de combos (Veja a seção sobre combos abaixo), utilizados para empoderar os próximos disparos do Bardo com efeitos especiais. Espaço/Shift podem ser usados (no ritmo da música) para que o Bardo faça uma investida horizontal, tornando-o temporariamente invulnerável a ataques inimigos.
+
+O Bardo terá uma quantidade pequena de "hit points", que representa a quantidade de acertos inimigos que podem ser tolerados antes de um game over (nesse caso o jogador deverá recomeçar a fase). Hit points poderão ser recuperados ao longo do jogo.
 
 
 ## Detalhes dos inimigos
 
 ### Inimigos comuns
 
-Terão dois tipos de inimigos comuns, atacando somente com disparos simples (também com temática musical) e sendo derrotados após uma pequena quantidade de disparos.
+Haverá dois tipos de inimigos comuns, atacando somente com disparos simples (também com temática musical) e sendo derrotados após uma pequena quantidade de disparos.
 
 Um deles terá a forma de um gato humanoide que ataca com arranhões de perto. 
 O outro terá a forma de um serval humanoide, atacando de longe com miados mágicos.
@@ -51,17 +51,13 @@ O mapa consistirá de salas de um castelo organizados como uma dungeon, onde o j
 
 ## Interface
 
-Na tela do jogador, como mostrado abaixo, o medidor de sua vida, o indicador de quantos disparos especiais o jogador tem e o indicador de quantas cordas o seu alaúde tem são mostradas numa barra escura no topo da tela, seguindo o estilo de UIs de jogos antigos. A câmera seguirá o jogador e irá se deslocar levemente na direção do mouse, permitindo que o jogador utilize-o como uma forma de olhar em volta. No mouse, terá uma mira indicando a direção que os projéteis irão a, com um temporizador para que o jogador consiga sincronizar seus inputs ao ritmo da música.
+![ScreenGDD 1](https://github.com/TucoErthal/bardcore/assets/67657590/4e5e78cb-29e9-4884-a0d7-3156af5b775d)
+A interface gráfica contará com um medidor de vida e um indicador para o número de disparos especiais restantes, entre outras métricas, localizados em uma barra na parte superior da tela, como em vários jogos arcade e de NES. A câmera seguirá o jogador, tendendo levemente para direção do cursor, permitindo que o jogador controle o campo de visão com o mouse. O cursor terá o formato de uma mira, indicando a direção para a qual os projéteis irão, e contará com um temporizador que assiste o jogador a sincronizar seus inputs com o ritmo da música.
+![crosshair](https://github.com/TucoErthal/bardcore/assets/67657590/4fec7972-a142-4b22-8a94-332dc12cdf1d)
 
-![[ScreenGDD 1.png]]
 
-Abaixo, é um gif mostrando como o ritmo será mostrado ao jogador.
-
-![](https://github.com/TucoErthal/bardcore/tree/main/gdd/crosshair.gif)
-
-Abaixo é mostrado, de forma simples, como funcionará o sistema de combos do jogo. O jogador poderá tocar melodias diferentes para empoderar seus disparos usando as teclas direcionais após abrir o menú do alaúde com o botão direito do mouse. Para cada corda que o jogador conseguir para seu alaúde, poderá desbloquear novos combos. O jogador poderá conseguir até 4 cordas para usar em combos, pois a quinta corda sinalizará o final do jogo.
-
-![](https://github.com/TucoErthal/bardcore/tree/main/gdd/combo.gif)
+![combo](https://github.com/TucoErthal/bardcore/assets/67657590/b95346f0-677f-40d5-9f7d-9ce97d347edc)
+Enquanto o botão direito do mouse se mantiver pressionado, o personagem não poderá se mover, e as teclas direcionais serão convertidas em notas. O jogador poderá tocar melodias diferentes (combos) para empoderar seus próximos disparos. Novas notas são desbloqueadas à medida que o Bardo recupera as cordas do seu alaúde. Além da corda com a qual o Bardo inicia sua jornada, o jogador pode obter 3 cordas que incrementam o sistema de combos. A obtenção da quinta corda representa o final da aventura.
 
 ![pattern](https://github.com/TucoErthal/bardcore/assets/67657590/9eff9c1f-10a7-44e0-a866-192611daad14)
 
@@ -69,55 +65,51 @@ Quando um inimigo de elite é instanciado, um padrão rítmico (que chamaremos d
 
 * O padrão é formado por 8 notas/pausas, e sempre começa com uma nota (para que a detecção de padrão não seja iniciada em resposta a um eventual silêncio acidental do jogador.
 
-![](https://github.com/TucoErthal/bardcore/tree/main/gdd/pattern.gif)
 
 ## Input
 
-W, A, S, D - teclas direcionais, serão usadas para movimentar o jogador ou tocar combos de notas no menú do alaúde.
+W, A, S, D - teclas direcionais, serão usadas para movimentar o jogador ou tocar combos de notas com o alaúde.
 
 Botão esquerdo do mouse - dispara uma nota musical onde o mouse estiver apontando.
 
-Botão direito do mouse - abre o menú do alaúde, onde o jogador pode tocar um combo de notas.
+Botão direito do mouse - Usado em combinação com as teclas direcionais para tocar combos de notas.
 
-Barra de espaço / Shift - o jogador dá um dash, permitindo desviar de ataques inimigos.
+Barra de espaço / Shift - O Bardo realiza um avanço horizontal, desviando de ataques inimigos.
 
 ESC - fecha o jogo.
 
 ---
 # 5 - Audio e música
-
-O jogo terá música original feita baseado no design do jogo e do universo dele. Os efeitos sonoros serão do domínio público.
-
-Terão 4 músicas: O tema de introdução do jogo, tema do tutorial, tema de batalha, tema para o boss.
+A trilha sonora do jogo consistirá em 4+ composições originais adequadas aos cenários mencionados, com inspiração nas trilhas de jogos da era NES / SNES. Usaremos efeitos sonoros de domínio público. As músicas planejadas são:
+* Tema de introdução do jogo (Abertura, tela de início)
+* Música da zona de tutorial
+* Tema de combate principal
+* Trilha de combate contra o boss.
 
 ---
 # 6 - Arte Conceito e referências
 
+Everhood serviu como ponto de partida para o projeto. A forma como o jogo integra elementos de música e ritmo com o combate, assim como a estética e a atmosfera do jogo, serviram de inspiração.
+![ss_f809bba93b1dc91ff39a091ed78d02102303623a 1920x1080](https://github.com/TucoErthal/bardcore/assets/67657590/12ecf433-9808-4b4a-ba40-11def55afae5)
 
-A inspiração para os gráficos do jogo é o jogo Shovel Knight, como a resolução da arte e o UI do jogo.
-
-![](https://github.com/TucoErthal/bardcore/tree/main/gdd/shovel-knight-screen_20-1.png)
-
-Abaixo, os jogos Crypt of the Necrodancer e Bullets Per Minute são as principais fontes de inspiração para as mecânicas de ritmo do jogo, incluindo ideias como o indicador de ritmo na tela do jogador.
-
-![](https://github.com/TucoErthal/bardcore/tree/main/gdd/maxresdefault.jpg)
-![](https://github.com/TucoErthal/bardcore/tree/main/gdd/ss_39c531e1831491b2140a3bdf36cf70ee342a1e6d.1920x1080.jpg)
+Shovel Knight serviu como inspiração estética. Adotaremos como referência a resolução de 400x225 que o jogo utiliza, e o teremos como inspiração para o design da interface gráfica.
+![shovel-knight-screen_20-1](https://github.com/TucoErthal/bardcore/assets/67657590/e81d7229-9e17-48e2-aae7-6366901daf83)
 
 
-O jogo Enter the Gungeon é outra referência para a dinâmica de ação do gameplay, com o sistema de combate rápido onde a mira do jogador move a câmera.
+Os jogos Crypt of the Necrodancer e BPM: Bullets Per Minute são as principais fontes de inspiração em termos de gameplay. Dentre os elementos desse jogo, incorporaremos o indicador de ritmo no cursor do jogador
+![crypt](https://github.com/TucoErthal/bardcore/assets/67657590/4ed32941-43f1-488b-a415-585ec6eebda2)
+![ss_39c531e1831491b2140a3bdf36cf70ee342a1e6d 1920x1080](https://github.com/TucoErthal/bardcore/assets/67657590/a83d6915-6fa7-4efb-808e-da1afab88034)
 
-![](https://github.com/TucoErthal/bardcore/tree/main/gdd/PREVIEW_SCREENSHOT1_109467.webp)
 
+O jogo Enter the Gungeon motivou a inclusão de elementos de ação que conferirão maior dinamismo ao jogo, como a perspectiva e a movimentação da câmera e do cursor.
+![enter-the-gungeon-switch-switch-spel-nintendo-eshop-europe-wallpaper-4](https://github.com/TucoErthal/bardcore/assets/67657590/8197b617-b836-45bf-89a6-3c5b3a26aa0d)
 
-Por fim, o jogo Everhood foi o pontapé inicial da ideia desse jogo, usando música como um meio de combate.
-
-![](https://github.com/TucoErthal/bardcore/tree/main/gdd/ss_f809bba93b1dc91ff39a091ed78d02102303623a.1920x1080.jpg)
 
 
 ---
 # 7 - Ideias adicionais e observações
 
-Muitas mecânicas no jogo ainda serão ajustadas de acordo com a gameplay, com o intuito de criar uma experiência melhor e mais balanceada. Parâmetros como a vida do jogador, quantos disparos especiais ele recebe, quais tipos de disparos especiais serão disponíveis, o comportamento de inimigos, o layout do mapa, entre outros fatores podem sofrer diversas mudanças até o final do seu desenvolvimento. As artes mostradas neste documento de desenvolvimento não são finais e sofrerão refinamento até que se torne um produto satisfatório.
+Muitas mecânicas ainda estão sendo avaliadas e estão sujeitas a mudanças no curso do desensolvimento do jogo. Parâmetros como a vida do jogador, quantos disparos especiais ele recebe, assim como o comportamento dos inimigos, serão ajustados de acordo com playtesting, com o intuito de criar uma experiência justa e divertida. As artes exibidas neste documento de desenvolvimento não são finais e serão refinadas e reiteradas até que os resultados sejam satisfatórios.
 
 Entre algumas das ideias que temos para o jogo, estão:
 ### Algumas ideias para tipos de disparo
