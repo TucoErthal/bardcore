@@ -15,7 +15,7 @@ Um twin stick shooter onde o jogador luta contra inimigos usando um alaúde elé
 
 Um bardo coberto por um capuz, deixando sua aparência coberta na maior parte, mostrando somente seus olhos brilhando pelo capuz. Ele utiliza um chapéu com pena, considerado o símbolo de um bardo no universo do jogo. Ele segura um alaúde mágico que utiliza como arma principal para combater os inimigos desse universo e precisa coletar cordas para restaurar a harmonia dos reinos através do seu alaúde.
 
-![[littlebard.png]]
+![](https://github.com/TucoErthal/bardcore/tree/main/gdd/bard.png)
 Arte conceito do bardo, com somente uma corda em seu alaúde.
 
 ## Controles do jogador
@@ -57,17 +57,17 @@ Na tela do jogador, como mostrado abaixo, o medidor de sua vida, o indicador de 
 
 Abaixo, é um gif mostrando como o ritmo será mostrado ao jogador.
 
-![[GDDtest.gif]]
+![](https://github.com/TucoErthal/bardcore/tree/main/gdd/crosshair.gif)
 
 Abaixo é mostrado, de forma simples, como funcionará o sistema de combos do jogo. O jogador poderá tocar melodias diferentes para empoderar seus disparos usando as teclas direcionais após abrir o menú do alaúde com o botão direito do mouse. Para cada corda que o jogador conseguir para seu alaúde, poderá desbloquear novos combos. O jogador poderá conseguir até 4 cordas para usar em combos, pois a quinta corda sinalizará o final do jogo.
 
-![[GDDnotes.gif]]
+![](https://github.com/TucoErthal/bardcore/tree/main/gdd/combo.gif)
 
 Quando um inimigo de elite é instanciado, um padrão rítmico (que chamaremos de compasso) aleatório* é associado a ele. Esse padrão é formado por notas e pausas que correspondem, cada uma, a uma batida da música. O primeiro ataque que o jogador fizer contra o inimigo inicia a detecção do padrão. A cada batida, a instrução apropriada deve ser respeitada pelo jogador (atirar ou esperar). Se o padrão for quebrado, ele é reiniciado. Quando a sequência é completada, o inimigo perde uma vida (representada pelo círculo vermelho acima da barra de compasso). O inimigo é derrotado quando não restar nenhuma vida.
 
 * O padrão é formado por 8 notas/pausas, e sempre começa com uma nota (para que a detecção de padrão não seja iniciada em resposta a um eventual silêncio acidental do jogador.
 
-![[rhythmtest.gif]]
+![](https://github.com/TucoErthal/bardcore/tree/main/gdd/pattern.gif)
 
 ## Input
 
@@ -94,22 +94,22 @@ Terão 4 músicas: O tema de introdução do jogo, tema do tutorial, tema de bat
 
 A inspiração para os gráficos do jogo é o jogo Shovel Knight, como a resolução da arte e o UI do jogo.
 
-![[shovel-knight-screen_20-1.png]]
+![](https://github.com/TucoErthal/bardcore/tree/main/gdd/shovel-knight-screen_20-1.png)
 
 Abaixo, os jogos Crypt of the Necrodancer e Bullets Per Minute são as principais fontes de inspiração para as mecânicas de ritmo do jogo, incluindo ideias como o indicador de ritmo na tela do jogador.
 
-![[maxresdefault.jpg]]
-![[ss_39c531e1831491b2140a3bdf36cf70ee342a1e6d.1920x1080.jpg]]
+![](https://github.com/TucoErthal/bardcore/tree/main/gdd/maxresdefault.jpg)
+![](https://github.com/TucoErthal/bardcore/tree/main/gdd/ss_39c531e1831491b2140a3bdf36cf70ee342a1e6d.1920x1080.jpg)
 
 
 O jogo Enter the Gungeon é outra referência para a dinâmica de ação do gameplay, com o sistema de combate rápido onde a mira do jogador move a câmera.
 
-![[PREVIEW_SCREENSHOT1_109467.webp]]
+![](https://github.com/TucoErthal/bardcore/tree/main/gdd/PREVIEW_SCREENSHOT1_109467.webp)
 
 
 Por fim, o jogo Everhood foi o pontapé inicial da ideia desse jogo, usando música como um meio de combate.
 
-![[ss_f809bba93b1dc91ff39a091ed78d02102303623a.1920x1080.jpg]]
+![](https://github.com/TucoErthal/bardcore/tree/main/gdd/ss_f809bba93b1dc91ff39a091ed78d02102303623a.1920x1080.jpg)
 
 
 ---
