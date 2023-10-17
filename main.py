@@ -12,7 +12,7 @@ class Game:
         self.__width = 16*70
         self.FPS = 60
 
-        #Customazing Keys
+        #Customizing Keys
         pygame.K_UP == pygame.K_w
 
         #Pygame/PPlay Setup
@@ -63,6 +63,9 @@ class Game:
 
     def run(self):
         while True:
+
+
+
             self.events()
             self.update()
             self.draw()    
