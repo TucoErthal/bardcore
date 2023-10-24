@@ -24,6 +24,8 @@ class Game:
 
 		self.level = Level()
 
+		
+
 
 
 	# GAMEPLAY LOOP: ocorre o get event do pygame para receber inputs,
