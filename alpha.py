@@ -3,7 +3,6 @@ import pygame
 import music
 import tucoanimation
 import sys
-import shooting
 import math
 
 class GameObject():
