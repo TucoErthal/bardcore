@@ -21,18 +21,20 @@ class Graphics:
 
         if self.screenshake_duration > 0:
             self.screenshake_duration -= 1
+        screenshake_x_multiplier = (1 if self.screenshake_duration > 0 else 0) * self.screenshake_intensity        
+        screenshake_y_multiplier = (1 if self.screenshake_duration > 0 else 0) * self.screenshake_intensity
 
         upscaled_resolution = (self.native_w * self.upscaling_factor, self.native_h * self.upscaling_factor)
         upscaled_image = pygame.transform.scale(self.native_screen, upscaled_resolution)
-        self.window.blit(upscaled_image, ((self.window_w - (self.native_w * self.upscaling_factor)) / 2, 0))
+        x = (self.window_w - (self.native_w * self.upscaling_factor))/2 + (random.random() * screenshake_x_multiplier)
+        y = (random.random() * screenshake_y_multiplier)
 
+        self.window.blit(upscaled_image, (x, y))
         pygame.display.flip()
         self.native_screen.fill((255, 255, 255))
 
     def render(self, image, coordinates = (0, 0)):
-        screenshake_x_multiplier = (1 if self.screenshake_duration > 0 else 0) * self.screenshake_intensity        
-        screenshake_y_multiplier = (1 if self.screenshake_duration > 0 else 0) * self.screenshake_intensity
-        coordinates = (coordinates[0] - self.camera_x + random.random() * screenshake_x_multiplier), (coordinates[1] - self.camera_y + (random.random() * screenshake_y_multiplier))
+        coordinates = (coordinates[0] - self.camera_x), (coordinates[1] - self.camera_y)
         self.native_screen.blit(image, coordinates)
 
     def move_camera_to(self, x, y):
@@ -42,7 +44,17 @@ class Graphics:
     def move_camera_by(self, x, y):
         self.camera_x += x
         self.camera_y += y
+
+    def camera_focus(self, target):
+        self.camera_x = target.x - self.native_w/2
+        self.camera_y = target.y - self.native_h/2
+
+    def mouse_offset(self, multiplier = 0.2):
+        mouse_x, mouse_y = (pygame.mouse.get_pos())
+        x_offfset = (mouse_x/self.upscaling_factor) - self.native_w/2
+        y_offfset = (mouse_y/self.upscaling_factor) - self.native_h/2
+        self.move_camera_by(x_offfset*multiplier, y_offfset*multiplier)
    
-    def screenshake(self, duration = 60, intensity = 4):
+    def screenshake(self, duration = 60, intensity = 8):
         self.screenshake_duration = duration
         self.screenshake_intensity = intensity
