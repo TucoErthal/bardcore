@@ -59,7 +59,7 @@ while True:
     window.camera_focus(player)
     window.mouse_offset()
 
-    window.render(pygame.image.load('assets/textures/graphics.png'), (0, 0))
+    window.render(pygame.image.load('assets/textures/graphics2.png'), (-200, -200))
     window.render(pygame.image.load('assets/textures/playerNES1A.png'), (player.x, player.y))
     window.render(pygame.image.load('assets/textures/cat.png'), (cat.x, cat.y))
 
