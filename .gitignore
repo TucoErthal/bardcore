@@ -15,3 +15,13 @@ PPlay/__pycache__/gameimage.cpython-311.pyc
 *.pyc
 __pycache__/graphics.cpython-311.pyc
 *.pyc
+Legacy/PPlay/__pycache__/window.cpython-311.pyc
+Legacy/PPlay/__pycache__/sprite.cpython-311.pyc
+Legacy/PPlay/__pycache__/point.cpython-311.pyc
+Legacy/PPlay/__pycache__/mouse.cpython-311.pyc
+Legacy/PPlay/__pycache__/keyboard.cpython-311.pyc
+Legacy/PPlay/__pycache__/gameobject.cpython-311.pyc
+Legacy/PPlay/__pycache__/gameimage.cpython-311.pyc
+Legacy/PPlay/__pycache__/animation.cpython-311.pyc
+Legacy/PPlay/__pycache__/__init__.cpython-311.pyc
+__pycache__/graphics.cpython-311.pyc
