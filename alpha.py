@@ -3,6 +3,8 @@ import pygame
 import music
 import tucoanimation
 import sys
+import shooting
+import math
 
 class GameObject():
     def __init__(self, x, y):
@@ -13,6 +15,7 @@ class GameObject():
 window = graphics.Graphics()
 player = GameObject(0, 0)
 cat = GameObject(16, 16)
+music_notes = []
 
 # INITIATE MUSIC
 soundtrack = music.Track("assets/Pong.ogg", 110, 4)
@@ -53,6 +56,35 @@ while True:
     if current_keys[pygame.K_ESCAPE]:
         sys.exit()
     
+
+
+
+
+    # ATTACK
+
+    if pygame.mouse.get_pressed()[0]:
+
+        mouse_x, mouse_y = pygame.mouse.get_pos()
+        
+        distance_x = (window.camera_x + mouse_x) - player.x
+        distance_y = (window.camera_y + mouse_y) - player.y
+        
+        angle = math.atan2(distance_y, distance_x)
+        
+        speed_x = 4 * math.cos(angle)
+        speed_y = 4 * math.sin(angle)
+        
+        music_notes.append([player.x, player.y, speed_x, speed_y])
+
+
+    for item in music_notes:
+        item[0] += item[2]
+        item[1] += item[3]
+
+    
+
+
+
     last_keys = current_keys
 
     # GRAPHICS
@@ -64,5 +96,12 @@ while True:
     window.render(pygame.image.load('assets/textures/cat.png'), (cat.x, cat.y))
 
     window.render_crosshair()
+
+
+    for pos_x, pos_y, speed_x, speed_y in music_notes:
+        pos_x = int(pos_x)
+        pos_y = int(pos_y)
+        pygame.draw.circle(window.native_screen, (0,255,0), (pos_x, pos_y), 2)
+    
 
     window.update()
