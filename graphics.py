@@ -14,8 +14,9 @@ class Graphics:
 
         self.window_w, self.window_h = pygame.display.get_window_size()
         self.upscaling_factor =  self.window_h / self.native_h
+        self.black_bar = (self.window_w - self.native_w * self.upscaling_factor)/2
 
-        self.mouse_x, self.mouse_y = [i / self.upscaling_factor for i in (pygame.mouse.get_pos())]
+        self.mouse_x, self.mouse_y = pygame.mouse.get_pos()[0] / self.upscaling_factor, pygame.mouse.get_pos()[1] / self.upscaling_factor
 
         self.camera_x, self.camera_y = 0, 0
         self.screenshake_duration = 0
@@ -26,8 +27,9 @@ class Graphics:
     
     def update(self):
         
-        self.mouse_x, self.mouse_y = [i / self.upscaling_factor for i in (pygame.mouse.get_pos())]
-
+        self.mouse_x = (pygame.mouse.get_pos()[0] - self.black_bar) / self.upscaling_factor
+        self.mouse_y = (pygame.mouse.get_pos()[1]) / self.upscaling_factor
+        
         if self.screenshake_duration > 0:
             self.screenshake_duration -= 1
         screenshake_x_multiplier = (1 if self.screenshake_duration > 0 else 0) * self.screenshake_intensity        
@@ -49,8 +51,8 @@ class Graphics:
     def render_crosshair(self):
         self.crosshair.update()
         current_frame_sprite = self.crosshair.sprites[self.crosshair.current_frame]
-        self.render(pygame.image.load(current_frame_sprite), (self.camera_x + self.mouse_x - 55, self.camera_y + self.mouse_y))
-        print("frame", self.crosshair.current_frame)
+        self.render(pygame.image.load(current_frame_sprite), (self.camera_x + self.mouse_x, self.camera_y + self.mouse_y))
+        #print("frame", self.crosshair.current_frame)
 
     def move_camera_to(self, x, y):
         self.camera_x = x

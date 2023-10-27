@@ -1,5 +1,6 @@
 import graphics
 import pygame
+import projectile
 import music
 import tucoanimation
 import sys
@@ -14,7 +15,13 @@ class GameObject():
 window = graphics.Graphics()
 player = GameObject(0, 0)
 cat = GameObject(16, 16)
-music_notes = []
+projectiles = []
+
+# SPRITE LOAD
+projectile_sprite = pygame.image.load("assets/textures/projectile.png").convert_alpha()
+background_sprite = pygame.image.load("assets/textures/graphics2.png").convert_alpha()
+player_sprite = pygame.image.load("assets/textures/playerNES1A.png").convert_alpha()
+cat_sprite = pygame.image.load("assets/textures/cat.png").convert_alpha()
 
 # INITIATE MUSIC
 soundtrack = music.Track("assets/Pong.ogg", 110, 4)
@@ -33,6 +40,8 @@ while True:
     # INPUT
     events = pygame.event.get()
     current_keys = pygame.key.get_pressed()
+    current_mouse = pygame.mouse.get_pressed()
+
     if current_keys[pygame.K_d]:
         #window.move_camera_by(1, 0)
         player.x += 1
@@ -55,52 +64,36 @@ while True:
     if current_keys[pygame.K_ESCAPE]:
         sys.exit()
     
-
-
-
-
-    # ATTACK
-
-    if pygame.mouse.get_pressed()[0]:
-
-        mouse_x, mouse_y = pygame.mouse.get_pos()
+    if current_mouse[0] and not(last_mouse[0]):
+        sin = (window.camera_y + window.mouse_y - player.y)
+        cos = (window.camera_x + window.mouse_x - player.x)
+        angle = math.atan2(sin, cos)
         
-        distance_x = (window.camera_x + mouse_x) - player.x
-        distance_y = (window.camera_y + mouse_y) - player.y
-        
-        angle = math.atan2(distance_y, distance_x)
-        
-        speed_x = 4 * math.cos(angle)
-        speed_y = 4 * math.sin(angle)
-        
-        music_notes.append([player.x, player.y, speed_x, speed_y])
+        background_sprite = pygame.image.load("assets/textures/graphics2.png").convert_alpha()
 
-
-    for item in music_notes:
-        item[0] += item[2]
-        item[1] += item[3]
-
-    
-
-
+        #pygame.draw.line(background_sprite, (0, 255, 0), (player.x, player.y), (window.camera_x + window.mouse_x, window.camera_y + window.mouse_y), 10)
+        print("player_pos =", player.x, player.y)
+        projectiles.append(projectile.Projectile(player.x, player.y, 4, angle, 200))
 
     last_keys = current_keys
+    last_mouse = current_mouse
 
     # GRAPHICS
     window.camera_focus(player)
     window.mouse_offset()
 
-    window.render(pygame.image.load('assets/textures/graphics2.png'), (-200, -200))
-    window.render(pygame.image.load('assets/textures/playerNES1A.png'), (player.x, player.y))
-    window.render(pygame.image.load('assets/textures/cat.png'), (cat.x, cat.y))
+    window.render(background_sprite, (0, 0))
+    window.render(player_sprite, (player.x, player.y))
+    window.render(cat_sprite, (cat.x, cat.y))
 
     window.render_crosshair()
 
-
-    for pos_x, pos_y, speed_x, speed_y in music_notes:
-        pos_x = int(pos_x)
-        pos_y = int(pos_y)
-        pygame.draw.circle(window.native_screen, (0,255,0), (pos_x, pos_y), 2)
-    
+    for obj in projectiles:
+        obj.lifetime -= 1
+        obj.update()
+        window.render(projectile_sprite, (obj.x, obj.y))
+        if obj.lifetime <= 0:
+            projectiles.pop(0)
+            print(obj, "destroyed")
 
     window.update()
