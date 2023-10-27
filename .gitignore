@@ -12,3 +12,6 @@ PPlay/__pycache__/keyboard.cpython-311.pyc
 PPlay/__pycache__/mouse.cpython-311.pyc
 PPlay/__pycache__/gameobject.cpython-311.pyc
 PPlay/__pycache__/gameimage.cpython-311.pyc
+*.pyc
+__pycache__/graphics.cpython-311.pyc
+*.pyc
