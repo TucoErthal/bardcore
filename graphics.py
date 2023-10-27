@@ -1,5 +1,7 @@
 import pygame
 import random
+import tucoanimation
+from PPlay.animation import *
 pygame.init()
 
 class Graphics:
@@ -13,11 +15,18 @@ class Graphics:
         self.window_w, self.window_h = pygame.display.get_window_size()
         self.upscaling_factor =  self.window_h / self.native_h
 
+        self.mouse_x, self.mouse_y = [i / self.upscaling_factor for i in (pygame.mouse.get_pos())]
+
         self.camera_x, self.camera_y = 0, 0
         self.screenshake_duration = 0
         self.screenshake_intensity = 0
+
+        self.crosshair = tucoanimation.Animation(15)
+        self.crosshair.set_duration(100)
     
-    def update(self):        
+    def update(self):
+        
+        self.mouse_x, self.mouse_y = [i / self.upscaling_factor for i in (pygame.mouse.get_pos())]
 
         if self.screenshake_duration > 0:
             self.screenshake_duration -= 1
@@ -36,6 +45,12 @@ class Graphics:
     def render(self, image, coordinates = (0, 0)):
         coordinates = (coordinates[0] - self.camera_x), (coordinates[1] - self.camera_y)
         self.native_screen.blit(image, coordinates)
+    
+    def render_crosshair(self):
+        self.crosshair.update()
+        current_frame_sprite = self.crosshair.sprites[self.crosshair.current_frame]
+        self.render(pygame.image.load(current_frame_sprite), (self.camera_x + self.mouse_x - 55, self.camera_y + self.mouse_y))
+        print("frame", self.crosshair.current_frame)
 
     def move_camera_to(self, x, y):
         self.camera_x = x
@@ -50,9 +65,8 @@ class Graphics:
         self.camera_y = target.y - self.native_h/2
 
     def mouse_offset(self, multiplier = 0.2):
-        mouse_x, mouse_y = (pygame.mouse.get_pos())
-        x_offfset = (mouse_x/self.upscaling_factor) - self.native_w/2
-        y_offfset = (mouse_y/self.upscaling_factor) - self.native_h/2
+        x_offfset = self.mouse_x - self.native_w/2
+        y_offfset = self.mouse_y - self.native_h/2
         self.move_camera_by(x_offfset*multiplier, y_offfset*multiplier)
    
     def screenshake(self, duration = 60, intensity = 8):
