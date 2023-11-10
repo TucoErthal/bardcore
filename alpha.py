@@ -78,7 +78,6 @@ clock = pygame.time.Clock()
 while True:
     clock.tick(60)
     soundtrack.tick()
-
     # ON BEAT EVENTS
     if soundtrack.is_frame_on_beat():
         if cat.hp > 0:
@@ -117,7 +116,7 @@ while True:
     if current_keys[pygame.K_ESCAPE]:
         sys.exit()
     
-    if current_mouse[0] and not(last_mouse[0]):
+    if current_mouse[0] and not(last_mouse[0]) and soundtrack.is_on_beat(0.3):
         sin = (window.camera_y + window.mouse_y - player.y)
         cos = (window.camera_x + window.mouse_x - player.x)
         angle = math.atan2(sin, cos)

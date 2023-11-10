@@ -1,0 +1,9 @@
+- [ ] Mascara de colisao
+- [ ] Abstração de enimigo
+- [ ] Tiro no ritmo
+- [ ] Carregar levels
+- [ ] Pathfinging dos inimigos
+- [ ] Boss
+- [ ] Parado de tiro
+- [ ] Arte
+- [ ] Musica

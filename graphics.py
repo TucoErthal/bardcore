@@ -4,6 +4,8 @@ import tucoanimation
 from PPlay.animation import *
 pygame.init()
 
+from Legacy.timer import Timer 
+
 class Graphics:
 
     def __init__(self):
@@ -24,9 +26,9 @@ class Graphics:
 
         self.crosshair = tucoanimation.Animation(15)
         self.crosshair.set_duration(100)
+
     
     def update(self):
-        
         self.mouse_x = (pygame.mouse.get_pos()[0] - self.black_bar) / self.upscaling_factor
         self.mouse_y = (pygame.mouse.get_pos()[1]) / self.upscaling_factor
         
