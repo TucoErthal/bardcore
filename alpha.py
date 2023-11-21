@@ -1,97 +1,32 @@
-import graphics
-import pygame
 import projectile
-import music
-import tucoanimation
 import sys
 import math
+import enemylist
+import entity
+from init_assets import *
 
-
-#---- CLASSES ----#
-class GameObject():
-    def __init__(self, x, y, w = 0, h = 0):
-        self.x = x
-        self.y = y
-        self.w = w
-        self.h = h
-
-class Cat():
-        def __init__(self, x, y, w = 32, h = 32):
-            self.x = x
-            self.y = y
-            self.w = w
-            self.h = h
-            self.speed = 10
-            self.follow_distance = 50
-            self.hurt = 0
-            self.hp = 30
-
-        def follow(self):
-            self.sin = (player.y - self.y)
-            self.cos = (player.x - self.x)
-            self.angle = math.atan2(self.sin, self.cos)
-            
-            distance = math.sqrt(self.sin**2 + self.cos**2)
-            if distance > self.follow_distance:
-                self.move()
-        
-        def move(self):
-            self.x += self.speed * math.cos(self.angle)
-            self.y += self.speed * math.sin(self.angle)
-
-        def get_hit(self):
-            self.hurt = 30
-            self.hp -= 1
-
-
-
-# INITIATE GRAPHICS
-window = graphics.Graphics()
-player = GameObject(0, 0)
-cats = []
-
-for i in range(10):
-    cats.append(Cat(32*i,32*i))
-cat = Cat(16, 16)
+enemies = []
 projectiles = []
-
-
-# SPRITE LOAD
-projectile_sprite = pygame.image.load("assets/textures/projectile.png").convert_alpha()
-background_sprite = pygame.image.load("assets/textures/graphics2.png").convert_alpha()
-player_sprite = pygame.image.load("assets/textures/playerNES1A.png").convert_alpha()
-cat_sprite = pygame.image.load("assets/textures/cat.png").convert_alpha()
-cat_sad_sprite = pygame.image.load("assets/textures/catsad.png").convert_alpha()
-cat_dead_sprite = pygame.image.load("assets/textures/catdead.png").convert_alpha()
-cat_gore_sprite = pygame.image.load("assets/textures/catSUPERdead.png").convert_alpha()
-
-
-
-# INITIATE MUSIC
-soundtrack = music.Track("assets/Pong.ogg", 110, 4)
-clock = pygame.time.Clock()
-
-
-
 
 
 while True:
     clock.tick(60)
     soundtrack.tick()
 
-    # ON BEAT EVENTS
-    if soundtrack.is_frame_on_beat():
-        if cat.hp > 0:
-            cat.follow()
+    # NEEDS FIXING
+    for i in enemies:
+        for j in enemies:
+            if i.hp > 0:
+                if i.x > j.x and i.x < j.x + j.w:
+                    continue
+                if i.y > j.y and i.y < j.y + j.h:
+                    continue
+                i.follow()
+
 
         window.crosshair.set_duration(2 * soundtrack.get_delta_beat())
-        #print("JOGO EXECUTA ACOES SINCRONIZADAS COM O RITMO")
+        #print("JOGO EXECUTA AÇÕES SINCRONIZADAS COM O RITMO")
         #print(soundtrack.get_delta_beat())
-
-    if cat.hp < -20:
-        cat.follow()
-        cat.speed = 10
-        cat.follow_distance = 1
 
 
     # INPUT
@@ -99,17 +34,42 @@ while True:
     current_keys = pygame.key.get_pressed()
     current_mouse = pygame.mouse.get_pressed()
 
+
+    # DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG #
+    if current_keys[pygame.K_f]:
+        enemies.append(enemylist.Bell())
+    if current_keys[pygame.K_g]:
+        enemies.append(enemylist.Shroom())
+    if current_keys[pygame.K_h]:
+        enemies.append(enemylist.Cat())
+    if current_keys[pygame.K_j]:
+        enemies.append(enemylist.Mage())
+    if current_keys[pygame.K_k]:
+        enemies.append(enemylist.Goblin())
+    if current_keys[pygame.K_c]:
+        enemies.append(enemylist.Fireguy())
+    if current_keys[pygame.K_v]:
+        enemies.append(enemylist.Ghost())
+    if current_keys[pygame.K_b]:
+        enemies.append(enemylist.Sleepy())
+
+
+    player_direction_facing = player_sprite_down
     if current_keys[pygame.K_d]:
-        player.x += 1
+        entity.player.x += 1
+        player_direction_facing = player_sprite_left
     
     if current_keys[pygame.K_a]:
-        player.x -= 1
+        entity.player.x -= 1
+        player_direction_facing = player_sprite_right
     
     if current_keys[pygame.K_s]:
-        player.y += 1
+        entity.player.y += 1
+        player_direction_facing = player_sprite_down
     
     if current_keys[pygame.K_w]:
-        player.y -= 1
+        entity.player.y -= 1
+        player_direction_facing = player_sprite_up
 
     if current_keys[pygame.K_SPACE] and not(last_keys[pygame.K_SPACE]):
         window.screenshake()
@@ -118,18 +78,31 @@ while True:
         sys.exit()
     
     if current_mouse[0] and not(last_mouse[0]):
-        sin = (window.camera_y + window.mouse_y - player.y)
-        cos = (window.camera_x + window.mouse_x - player.x)
-        angle = math.atan2(sin, cos)
-        
-        background_sprite = pygame.image.load("assets/textures/graphics2.png").convert_alpha()
+        #if soundtrack.is_on_beat(0.2):
+            sin = (window.camera_y + window.mouse_y - entity.player.y)
+            cos = (window.camera_x + window.mouse_x - entity.player.x)
+            angle = math.atan2(sin, cos)
+            
+            background_sprite = pygame.image.load("assets/textures/graphics2.png").convert_alpha()
 
-        #pygame.draw.line(background_sprite, (0, 255, 0), (player.x, player.y), (window.camera_x + window.mouse_x, window.camera_y + window.mouse_y), 10)
-        #print("player_pos =", player.x, player.y)
-        projectiles.append(projectile.Projectile(player.x, player.y, 8, 8, 3, angle, 200))
+            #pygame.draw.line(background_sprite, (0, 255, 0), (player.x, player.y), (window.camera_x + window.mouse_x, window.camera_y + window.mouse_y), 10)
+            #print("player_pos =", player.x, player.y)
+            projectiles.append(projectile.Projectile(entity.player.x, entity.player.y, 8, 8, 3, angle, 200))
+        #else:
+            #window.screenshake(20,4)
 
     last_keys = current_keys
     last_mouse = current_mouse
+
+
+
+    for i in enemies:
+        for j in enemies:
+            if i == j:
+                continue
+            if i.x == j.x and i.y == j.y:
+                i.x += 32
+                i.y += 32
 
 
     
@@ -137,33 +110,36 @@ while True:
 
 
     # GRAPHICS
-    window.camera_focus(player)
+    window.camera_focus(entity.player)
     window.mouse_offset()
 
     window.render(background_sprite, (0, 0))
-    window.render(player_sprite, (player.x, player.y))
+    window.render(player_direction_facing, (entity.player.x, entity.player.y))
 
-    if cat.hp > 0:
-        if cat.hurt > 0:
-            window.render(cat_sad_sprite, (cat.x, cat.y))
-            cat.hurt -= 1
+    for i in enemies:
+        if i.hp > 0:
+            if i.hurt > 0:
+                window.render(i.dmg_sprite, (i.x, i.y))
+                i.hurt -= 1
+            else:
+                window.render(i.sprite, (i.x, i.y))
         else:
-            window.render(cat_sprite, (cat.x, cat.y))
-    elif cat.hp > -20:
-        window.render(cat_dead_sprite, (cat.x, cat.y))
-    else:
-        window.render(cat_gore_sprite, (cat.x, cat.y))
+            window.render(i.dead_sprite, (i.x, i.y))
+
+
     
 
     window.render_crosshair()
 
-    for obj in projectiles:
-        obj.lifetime -= 1
-        obj.update()
-        window.render(projectile_sprite, (obj.x, obj.y))
-        if obj.lifetime <= 0:
-            projectiles.remove(obj)
-        if obj.check_collision(cat):
-            obj.lifetime = 0
+    for note in projectiles:
+        note.lifetime -= 1
+        note.update()
+        window.render(projectile_sprite, (note.x, note.y))
+        if note.lifetime <= 0:
+            projectiles.remove(note)
+
+        for i in enemies:    
+            if note.check_collision(i):
+                note.lifetime = 0
 
     window.update()

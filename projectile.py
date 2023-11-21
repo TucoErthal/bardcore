@@ -18,7 +18,6 @@ class Projectile:
         self.y += self.speed * math.sin(self.angle)
 
     def check_collision(self, target):
-        print(1)
         if self.x > target.x and self.x < target.x + target.w:
             if self.y > target.y and self.y < target.y + target.h:
                 target.get_hit()
