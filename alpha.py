@@ -3,30 +3,24 @@ import sys
 import math
 import enemylist
 import entity
+import roomlist
 from init_assets import *
 
 enemies = []
 projectiles = []
-
+frame_state = 0
 
 while True:
     clock.tick(60)
     soundtrack.tick()
 
-    # NEEDS FIXING
     for i in enemies:
-        for j in enemies:
-            if i.hp > 0:
-                if i.x > j.x and i.x < j.x + j.w:
-                    continue
-                if i.y > j.y and i.y < j.y + j.h:
-                    continue
-                i.follow()
+        if i.hp > 0:
+            i.follow()
 
 
         window.crosshair.set_duration(2 * soundtrack.get_delta_beat())
-        #print("JOGO EXECUTA AÇÕES SINCRONIZADAS COM O RITMO")
-        #print(soundtrack.get_delta_beat())
+
 
 
     # INPUT
@@ -82,8 +76,6 @@ while True:
             sin = (window.camera_y + window.mouse_y - entity.player.y)
             cos = (window.camera_x + window.mouse_x - entity.player.x)
             angle = math.atan2(sin, cos)
-            
-            background_sprite = pygame.image.load("assets/textures/graphics2.png").convert_alpha()
 
             #pygame.draw.line(background_sprite, (0, 255, 0), (player.x, player.y), (window.camera_x + window.mouse_x, window.camera_y + window.mouse_y), 10)
             #print("player_pos =", player.x, player.y)
@@ -108,12 +100,32 @@ while True:
     
 
 
-
     # GRAPHICS
     window.camera_focus(entity.player)
     window.mouse_offset()
 
-    window.render(background_sprite, (0, 0))
+
+    if frame_state == 0:
+        frame_state = 1
+        roomlist.first_room.change_frame(first_room_sprite_B)
+
+    if frame_state == 1:
+        frame_state = 2
+        roomlist.first_room.change_frame(first_room_sprite_C)
+
+    if frame_state == 2:
+        frame_state = 3
+        roomlist.first_room.change_frame(first_room_sprite_B)
+
+    if frame_state == 3:
+        frame_state = 0
+        roomlist.first_room.change_frame(first_room_sprite_A)
+
+    roomlist.first_room.draw_room()
+
+
+
+    roomlist.first_room.collision_check()
     window.render(player_direction_facing, (entity.player.x, entity.player.y))
 
     for i in enemies:
@@ -127,7 +139,7 @@ while True:
             window.render(i.dead_sprite, (i.x, i.y))
 
 
-    
+    roomlist.first_room_door.warp()
 
     window.render_crosshair()
 
@@ -137,6 +149,9 @@ while True:
         window.render(projectile_sprite, (note.x, note.y))
         if note.lifetime <= 0:
             projectiles.remove(note)
+
+        if note.check_wall_collision(roomlist.first_room):
+            note.lifetime = 0
 
         for i in enemies:    
             if note.check_collision(i):

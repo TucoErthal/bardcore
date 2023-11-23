@@ -42,7 +42,7 @@ class Graphics:
 
         self.window.blit(upscaled_image, (x, y))
         pygame.display.flip()
-        self.native_screen.fill((255, 255, 255))
+        self.native_screen.fill((0, 0, 0))
 
     def render(self, image, coordinates = (0, 0)):
         coordinates = (coordinates[0] - self.camera_x), (coordinates[1] - self.camera_y)

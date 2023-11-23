@@ -1,11 +1,10 @@
 import math
 import obj
-import pygame
-player = obj.GameObject(0, 0)
+player = obj.GameObject(64, 64, 16, 16)
 
 
 class Enemy():
-        def __init__(self, sprite, dmg_sprite, dead_sprite, x, y, w = 32, h = 32, speed = 10, hp = 30):
+        def __init__(self, sprite, dmg_sprite, dead_sprite, x, y, w, h, speed, hp):
             self.x = x
             self.y = y
             self.w = w

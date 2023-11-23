@@ -22,3 +22,16 @@ class Projectile:
             if self.y > target.y and self.y < target.y + target.h:
                 target.get_hit()
                 return 1
+            
+    def check_wall_collision(self, room):
+        if self.x < room.x1:
+            return 1
+            
+        elif self.x > room.x2:
+            return 1
+            
+        elif self.y < room.y1:
+            return 1
+        
+        elif self.y > room.y2:
+            return 1

@@ -8,7 +8,7 @@ window = graphics.Graphics()
 clock = pygame.time.Clock()
 
 
-# SPRITE LOAD
+# ENTITY SPRITES
 projectile_sprite = pygame.image.load("assets/textures/projectile.png").convert_alpha()
 background_sprite = pygame.image.load("assets/textures/graphics2.png").convert_alpha()
 
@@ -50,5 +50,16 @@ sleep_sprite = pygame.image.load("assets/textures/sleepy.png").convert_alpha()
 sleep_dmg_sprite = pygame.image.load("assets/textures/sleepy.png").convert_alpha()
 sleep_dead_sprite = pygame.image.load("assets/textures/sleepy.png").convert_alpha()
 
+
+door_sprite = pygame.image.load("assets/textures/door.png").convert_alpha()
+
+# ROOM SPRITES
+
+first_room_sprite_A = pygame.image.load("assets/textures/room1.png").convert_alpha()
+first_room_sprite_B = pygame.image.load("assets/textures/room2.png").convert_alpha()
+first_room_sprite_C = pygame.image.load("assets/textures/room3.png").convert_alpha()
+
+
+
 # INITIATE MUSIC
-soundtrack = music.Track("assets/Pong.ogg", 110, 4)
+soundtrack = music.Track("assets/Bardcore.ogg", 110, 4)
