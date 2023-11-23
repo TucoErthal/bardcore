@@ -13,8 +13,8 @@ class generateDoor():
 
     def warp(self):
         window.render(self.img, (self.x,self.y))
-        if entity.player.x > self.x and entity.player.x < self.x + self.width:
-            if entity.player.y > self.y and entity.player.y < self.y + self.height:
+        if entity.player.x+8 > self.x and entity.player.x+8 < self.x + self.width:
+            if entity.player.y+8 > self.y and entity.player.y+8 < self.y + self.height:
                 entity.player.x = self.destination_x
                 entity.player.y = self.destination_y
                 print(1)

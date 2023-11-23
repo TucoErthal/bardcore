@@ -4,15 +4,16 @@ player = obj.GameObject(64, 64, 16, 16)
 
 
 class Enemy():
-        def __init__(self, sprite, dmg_sprite, dead_sprite, x, y, w, h, speed, hp):
+        def __init__(self, sprite, dmg_sprite, dead_sprite, x, y, speed, hp):
             self.x = x
             self.y = y
-            self.w = w
-            self.h = h
 
             self.sprite = sprite
             self.dmg_sprite = dmg_sprite
             self.dead_sprite = dead_sprite
+
+            self.w = self.sprite.get_rect().width
+            self.h = self.sprite.get_rect().height
 
             self.speed = speed
             self.follow_distance = 50
@@ -33,5 +34,5 @@ class Enemy():
             self.y += self.speed * math.sin(self.angle)
 
         def get_hit(self):
-            self.hurt = 30
+            self.hurt = 5
             self.hp -= 1

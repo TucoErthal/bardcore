@@ -30,7 +30,7 @@ while True:
 
 
     # DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG #
-    if current_keys[pygame.K_f]:
+    if current_keys[pygame.K_f] and not(last_keys[pygame.K_f]):
         enemies.append(enemylist.Bell())
     if current_keys[pygame.K_g]:
         enemies.append(enemylist.Shroom())
