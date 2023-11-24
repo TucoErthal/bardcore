@@ -10,12 +10,11 @@ clock = pygame.time.Clock()
 
 # ENTITY SPRITES
 projectile_sprite = pygame.image.load("assets/textures/projectile.png").convert_alpha()
-background_sprite = pygame.image.load("assets/textures/graphics2.png").convert_alpha()
 
-player_sprite_left = pygame.image.load("assets/textures/playerNES1A.png").convert_alpha()
-player_sprite_right = pygame.image.load("assets/textures/playerNES2A.png").convert_alpha()
-player_sprite_down = pygame.image.load("assets/textures/playerNES3A.png").convert_alpha()
-player_sprite_up = pygame.image.load("assets/textures/playerNES4A.png").convert_alpha()
+player_sprite_left = pygame.image.load("assets/textures/player_left_A.png").convert_alpha()
+player_sprite_right = pygame.image.load("assets/textures/player_right_A.png").convert_alpha()
+player_sprite_down = pygame.image.load("assets/textures/player_down_A.png").convert_alpha()
+player_sprite_up = pygame.image.load("assets/textures/player_up_A.png").convert_alpha()
 
 
 cat_sprite = pygame.image.load("assets/textures/cat.png").convert_alpha()
@@ -55,11 +54,12 @@ door_sprite = pygame.image.load("assets/textures/door.png").convert_alpha()
 
 # ROOM SPRITES
 
-first_room_sprite_A = pygame.image.load("assets/textures/room1.png").convert_alpha()
-first_room_sprite_B = pygame.image.load("assets/textures/room2.png").convert_alpha()
-first_room_sprite_C = pygame.image.load("assets/textures/room3.png").convert_alpha()
+first_room_sprite = pygame.image.load("assets/maps/room1.png").convert_alpha()
+
 
 
 
 # INITIATE MUSIC
 soundtrack = music.Track("assets/Bardcore.ogg", 110, 4)
+shoot_sfx = pygame.mixer.Sound("assets/shoot.ogg")
+dmg_sfx = pygame.mixer.Sound("assets/damage.ogg")

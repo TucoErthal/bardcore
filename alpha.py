@@ -9,6 +9,7 @@ from init_assets import *
 enemies = []
 projectiles = []
 frame_state = 0
+player_direction_facing = player_sprite_down
 
 while True:
     clock.tick(60)
@@ -48,15 +49,6 @@ while True:
         enemies.append(enemylist.Sleepy())
 
 
-    player_direction_facing = player_sprite_down
-    if current_keys[pygame.K_d]:
-        entity.player.x += 1
-        player_direction_facing = player_sprite_left
-    
-    if current_keys[pygame.K_a]:
-        entity.player.x -= 1
-        player_direction_facing = player_sprite_right
-    
     if current_keys[pygame.K_s]:
         entity.player.y += 1
         player_direction_facing = player_sprite_down
@@ -64,6 +56,16 @@ while True:
     if current_keys[pygame.K_w]:
         entity.player.y -= 1
         player_direction_facing = player_sprite_up
+        
+    if current_keys[pygame.K_d]:
+        entity.player.x += 1
+        player_direction_facing = player_sprite_right
+    
+    if current_keys[pygame.K_a]:
+        entity.player.x -= 1
+        player_direction_facing = player_sprite_left
+
+
 
     if current_keys[pygame.K_SPACE] and not(last_keys[pygame.K_SPACE]):
         window.screenshake()
@@ -80,6 +82,7 @@ while True:
             #pygame.draw.line(background_sprite, (0, 255, 0), (player.x, player.y), (window.camera_x + window.mouse_x, window.camera_y + window.mouse_y), 10)
             #print("player_pos =", player.x, player.y)
             projectiles.append(projectile.Projectile(entity.player.x, entity.player.y, 8, 8, 3, angle, 200))
+            shoot_sfx.play()
         #else:
             #window.screenshake(20,4)
 
@@ -104,23 +107,6 @@ while True:
     window.camera_focus(entity.player)
     window.mouse_offset()
 
-
-    if frame_state == 0:
-        frame_state = 1
-        roomlist.first_room.change_frame(first_room_sprite_B)
-
-    if frame_state == 1:
-        frame_state = 2
-        roomlist.first_room.change_frame(first_room_sprite_C)
-
-    if frame_state == 2:
-        frame_state = 3
-        roomlist.first_room.change_frame(first_room_sprite_B)
-
-    if frame_state == 3:
-        frame_state = 0
-        roomlist.first_room.change_frame(first_room_sprite_A)
-
     roomlist.first_room.draw_room()
 
 
@@ -129,7 +115,7 @@ while True:
     window.render(player_direction_facing, (entity.player.x, entity.player.y))
 
     for i in enemies:
-        if i.hp > 0:
+        if i.hp > 0:    
             if i.hurt > 0:
                 window.render(i.dmg_sprite, (i.x, i.y))
                 i.hurt -= 1
@@ -155,6 +141,7 @@ while True:
 
         for i in enemies:    
             if note.check_collision(i):
+                dmg_sfx.play()
                 note.lifetime = 0
 
     window.update()

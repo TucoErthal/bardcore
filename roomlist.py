@@ -2,7 +2,7 @@ import room
 import door
 from init_assets import *
 
-first_room = room.generateRoom(first_room_sprite_A)
+first_room = room.generateRoom(first_room_sprite)
 #second_room = room.generateRoom()
 
 
