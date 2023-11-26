@@ -50,9 +50,17 @@ sleep_dmg_sprite = pygame.image.load("assets/textures/sleepydmg.png").convert_al
 sleep_dead_sprite = pygame.image.load("assets/textures/sleepy.png").convert_alpha()
 
 
+
+
+
+# DOOR SPRITES
+
 door_sprite = pygame.image.load("assets/textures/door.png").convert_alpha()
 door_open_sprite = pygame.image.load("assets/textures/door_open.png").convert_alpha()
 
+door_left_sprite = pygame.image.load("assets/textures/doorleft.png").convert_alpha()
+door_right_sprite = pygame.image.load("assets/textures/doorright.png").convert_alpha()
+door_down_sprite = pygame.image.load("assets/textures/doordown.png").convert_alpha()
 
 
 # TRANSITION SPRITES
@@ -76,7 +84,9 @@ torch3 = pygame.image.load("assets/textures/torch3.png")
 # ROOM SPRITES
 
 first_room_sprite = pygame.image.load("assets/maps/room1.png").convert_alpha()
-
+second_room_sprite = pygame.image.load("assets/maps/room2.png").convert_alpha()
+third_room_sprite = pygame.image.load("assets/maps/room3.png").convert_alpha()
+fourth_room_sprite = pygame.image.load("assets/maps/room4.png").convert_alpha()
 
 
 

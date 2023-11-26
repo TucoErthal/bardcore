@@ -62,3 +62,6 @@ class generateDoor():
             elif self.transition_counter > 0:
                 self.transition_frame = trans1
 
+    def transition(self):
+        if self.door_delay == True:
+            window.render(self.transition_frame,(entity.player.x-330, entity.player.y-250))
