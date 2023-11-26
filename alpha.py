@@ -4,12 +4,17 @@ import math
 import enemylist
 import entity
 import roomlist
+import torch
 from init_assets import *
 
 enemies = []
 projectiles = []
 frame_state = 0
 player_direction_facing = player_sprite_down
+
+torch_A = torch.Torch(48,32)
+torch_B = torch.Torch(160,32)
+torch_C = torch.Torch(272,32)
 
 while True:
     clock.tick(60)
@@ -108,11 +113,16 @@ while True:
     window.mouse_offset()
 
     roomlist.first_room.draw_room()
+    roomlist.first_room_door.warp()
 
-
+    
 
     roomlist.first_room.collision_check()
     window.render(player_direction_facing, (entity.player.x, entity.player.y))
+
+    torch_A.torchAnimation()
+    torch_B.torchAnimation()
+    torch_C.torchAnimation()
 
     for i in enemies:
         if i.hp > 0:    
@@ -125,9 +135,7 @@ while True:
             window.render(i.dead_sprite, (i.x, i.y))
 
 
-    roomlist.first_room_door.warp()
 
-    window.render_crosshair()
 
     for note in projectiles:
         note.lifetime -= 1
@@ -143,5 +151,13 @@ while True:
             if note.check_collision(i):
                 dmg_sfx.play()
                 note.lifetime = 0
+
+
+
+    
+    window.render_crosshair()
+
+    if roomlist.first_room_door.door_delay == True:
+        window.render(roomlist.first_room_door.transition_frame, (entity.player.x-330,entity.player.y-250))
 
     window.update()
