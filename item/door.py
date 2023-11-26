@@ -1,5 +1,5 @@
-import entity
-from init_assets import *
+import item.entity
+from item.init_assets import *
 
 class generateDoor():
     def __init__(self, x, y, destination_x, destination_y, img1, img2):
@@ -21,10 +21,10 @@ class generateDoor():
 
         window.render(self.current_img, (self.x,self.y))
 
-        if entity.player.x+8 > self.x and entity.player.x+8 < self.x + self.width:
-            if entity.player.y+8 > self.y and entity.player.y+8 < self.y + self.height:
-                entity.player.x = self.x + 8
-                entity.player.y = self.y + 12
+        if item.entity.player.x+8 > self.x and item.entity.player.x+8 < self.x + self.width:
+            if item.entity.player.y+8 > self.y and item.entity.player.y+8 < self.y + self.height:
+                item.entity.player.x = self.x + 8
+                item.entity.player.y = self.y + 12
                 self.transition_frame = transparent
 
                 if self.door_delay == False:
@@ -34,8 +34,8 @@ class generateDoor():
                     self.transition_counter = 120
 
                 if self.transition_counter < 60:
-                    entity.player.x = self.destination_x
-                    entity.player.y = self.destination_y
+                    item.entity.player.x = self.destination_x
+                    item.entity.player.y = self.destination_y
                     self.current_img = self.img1
                 
         if self.transition_counter == 0:
@@ -64,4 +64,4 @@ class generateDoor():
 
     def transition(self):
         if self.door_delay == True:
-            window.render(self.transition_frame,(entity.player.x-330, entity.player.y-250))
+            window.render(self.transition_frame,(item.entity.player.x-330, item.entity.player.y-250))

@@ -1,5 +1,5 @@
-from entity import *
-from init_assets import *
+from item.entity import *
+from item.init_assets import *
 
 # (sprite, hurt_sprite, dead_sprite, x, y, speed, HP)
 

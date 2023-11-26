@@ -1,6 +1,5 @@
-import pygame
-import entity
-import init_assets
+import item.entity
+import item.init_assets
 
 ### TRAP IDEAS ###
 # Spike floor -> damage when stepped on
@@ -15,9 +14,10 @@ class spikeTrap():
         self.x = x
         self.y = y
 
-        self.img = init_assets.spike_trap
+        self.img = item.init_assets.spike_trap
 
     def collision_check(self):
-        if entity.player.x+8 > self.x and entity.player.x+8 < self.x + self.width:
-            if entity.player.y+8 > self.y and entity.player.y+8 < self.y + self.height:
+        if item.entity.player.x+8 > self.x and item.entity.player.x+8 < self.x + self.width:
+            if item.entity.player.y+8 > self.y and item.entity.player.y+8 < self.y + self.height:
                 pass
+                #TODO

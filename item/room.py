@@ -1,5 +1,5 @@
-import entity
-import init_assets
+import item.entity
+import item.init_assets
 
 class generateRoom():
     def __init__(self, room_img, x, y):
@@ -18,20 +18,20 @@ class generateRoom():
 
 
     def collision_check(self):
-        if entity.player.x <= self.x1:
-            entity.player.x = self.x1
+        if item.entity.player.x <= self.x1:
+            item.entity.player.x = self.x1
             
-        if entity.player.x > self.x2:
-            entity.player.x = self.x2
+        if item.entity.player.x > self.x2:
+            item.entity.player.x = self.x2
             
-        if entity.player.y < self.y1:
-            entity.player.y = self.y1
+        if item.entity.player.y < self.y1:
+            item.entity.player.y = self.y1
         
-        if entity.player.y > self.y2:
-            entity.player.y = self.y2
+        if item.entity.player.y > self.y2:
+            item.entity.player.y = self.y2
 
     def change_frame(self, new_frame):
         self.room_img = new_frame
     
     def draw_room(self):
-        init_assets.window.render(self.room_img,(self.x,self.y))
+        item.init_assets.window.render(self.room_img,(self.x,self.y))

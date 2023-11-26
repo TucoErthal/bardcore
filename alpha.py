@@ -1,10 +1,10 @@
 import projectile
 import sys
 import math
-import enemylist
-import entity
-from itemlist import *
-from init_assets import *
+import item.enemylist
+import item.entity
+from item.itemlist import *
+from item.init_assets import *
 
 enemies = []
 projectiles = []
@@ -32,39 +32,24 @@ while True:
     current_mouse = pygame.mouse.get_pressed()
 
 
-    # DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG #
     if current_keys[pygame.K_f] and not(last_keys[pygame.K_f]):
-        enemies.append(enemylist.Bell())
-    if current_keys[pygame.K_g]:
-        enemies.append(enemylist.Shroom())
-    if current_keys[pygame.K_h]:
-        enemies.append(enemylist.Cat())
-    if current_keys[pygame.K_j]:
-        enemies.append(enemylist.Mage())
-    if current_keys[pygame.K_k]:
-        enemies.append(enemylist.Goblin())
-    if current_keys[pygame.K_c]:
-        enemies.append(enemylist.Fireguy())
-    if current_keys[pygame.K_v]:
-        enemies.append(enemylist.Ghost())
-    if current_keys[pygame.K_b]:
-        enemies.append(enemylist.Sleepy())
-
+        enemies.append(item.enemylist.Bell())
+   
 
     if current_keys[pygame.K_s]:
-        entity.player.y += 1
+        item.entity.player.y += 1
         player_direction_facing = player_sprite_down
     
     if current_keys[pygame.K_w]:
-        entity.player.y -= 1
+        item.entity.player.y -= 1
         player_direction_facing = player_sprite_up
         
     if current_keys[pygame.K_d]:
-        entity.player.x += 1
+        item.entity.player.x += 1
         player_direction_facing = player_sprite_right
     
     if current_keys[pygame.K_a]:
-        entity.player.x -= 1
+        item.entity.player.x -= 1
         player_direction_facing = player_sprite_left
 
 
@@ -77,13 +62,13 @@ while True:
     
     if current_mouse[0] and not(last_mouse[0]):
         #if soundtrack.is_on_beat(0.2):
-            sin = (window.camera_y + window.mouse_y - entity.player.y)
-            cos = (window.camera_x + window.mouse_x - entity.player.x)
+            sin = (window.camera_y + window.mouse_y - item.entity.player.y)
+            cos = (window.camera_x + window.mouse_x - item.entity.player.x)
             angle = math.atan2(sin, cos)
 
             #pygame.draw.line(background_sprite, (0, 255, 0), (player.x, player.y), (window.camera_x + window.mouse_x, window.camera_y + window.mouse_y), 10)
             #print("player_pos =", player.x, player.y)
-            projectiles.append(projectile.Projectile(entity.player.x, entity.player.y, 8, 8, 3, angle, 200))
+            projectiles.append(projectile.Projectile(item.entity.player.x, item.entity.player.y, 8, 8, 3, angle, 200))
             shoot_sfx.play()
         #else:
             #window.screenshake(20,4)
@@ -106,7 +91,7 @@ while True:
 
 
     # GRAPHICS
-    window.camera_focus(entity.player)
+    window.camera_focus(item.entity.player)
     window.mouse_offset()
 
     first_room.draw_room()
@@ -117,7 +102,7 @@ while True:
     
 
     first_room.collision_check()
-    window.render(player_direction_facing, (entity.player.x, entity.player.y))
+    window.render(player_direction_facing, (item.entity.player.x, item.entity.player.y))
 
     torch_A.torchAnimation()
     torch_B.torchAnimation()

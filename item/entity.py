@@ -1,6 +1,6 @@
 import math
-import obj
-player = obj.GameObject(496, 336, 16, 16)
+import item.obj
+player = item.obj.GameObject(496, 336, 16, 16)
 
 
 class Enemy():

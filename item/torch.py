@@ -1,5 +1,4 @@
-from init_assets import *
-import graphics
+from item.init_assets import *
 
 class Torch():
     def __init__(self, x, y):
