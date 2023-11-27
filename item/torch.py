@@ -1,5 +1,12 @@
 from item.init_assets import *
 
+
+
+# HOW TO USE:
+# torch_name = item.torch.Torch(args) -> initialize (do so on itemlist.py)
+# torch_name.draw()                    -> draws the room and checks collisions (must be under player)
+
+
 class Torch():
     def __init__(self, x, y):
         self.torch_timer = 0
@@ -7,7 +14,7 @@ class Torch():
         self.x = x
         self.y = y
 
-    def torchAnimation(self):
+    def draw(self):
         if self.torch_timer > 0:
             self.torch_timer -= 1
         else:

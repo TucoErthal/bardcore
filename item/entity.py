@@ -2,6 +2,9 @@ import math
 import item.obj
 player = item.obj.GameObject(496, 336, 16, 16)
 
+# DO NOT TOUCH
+# When creating new enemies, go to enemylist.py
+# When initializing enemies, go to their specific room!
 
 class Enemy():
         def __init__(self, sprite, dmg_sprite, dead_sprite, x, y, speed, hp):

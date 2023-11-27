@@ -1,7 +1,14 @@
 import item.entity
 from item.init_assets import *
 
-class generateDoor():
+
+# HOW TO USE:
+# door_name = item.door.Door(args) -> initialize (do so on itemlist.py)
+# door_name.warp()                 -> draw door on map (must be under player)
+# door_name.transition()           -> transition animation (must be over everything)
+
+
+class Door():
     def __init__(self, x, y, destination_x, destination_y, img1, img2):
         self.x = x
         self.y = y
@@ -17,7 +24,7 @@ class generateDoor():
         self.transition_counter = 0
         self.transition_frame = transparent
 
-    def warp(self):
+    def draw(self):
 
         window.render(self.current_img, (self.x,self.y))
 

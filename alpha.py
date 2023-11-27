@@ -2,7 +2,7 @@ import projectile
 import sys
 import math
 import item.enemylist
-import item.entity
+from item.entity import *
 from item.itemlist import *
 from item.init_assets import *
 
@@ -10,6 +10,81 @@ enemies = []
 projectiles = []
 frame_state = 0
 player_direction_facing = player_sprite_down
+
+
+#----- ENEMIES -----#
+
+def enemyDraw():
+    for i in enemies:
+            if i.hp > 0:    
+                if i.hurt > 0:
+                    window.render(i.dmg_sprite, (i.x, i.y))
+                    i.hurt -= 1
+                else:
+                    window.render(i.sprite, (i.x, i.y))
+            else:
+                window.render(i.dead_sprite, (i.x, i.y))
+
+def projDraw():
+    for note in projectiles:
+        note.lifetime -= 1
+        note.update()
+        window.render(projectile_sprite, (note.x, note.y))
+        if note.lifetime <= 0:
+            projectiles.remove(note)
+
+        if note.check_wall_collision(room_1):
+            note.lifetime = 0
+
+        for i in enemies:
+            if note.check_collision(i):
+                dmg_sfx.play()
+                note.lifetime = 0
+
+
+
+
+
+
+#---------- LEVELS ----------#
+
+def level1():
+    room_1.draw()
+    room_1_door_up.draw()
+    room_1_door_left.draw()
+    room_1_door_right.draw()
+
+    enemyDraw()
+
+    window.render(player_direction_facing, (player.x, player.y))
+
+    torch_1_1.draw()
+    torch_1_2.draw()
+    torch_1_3.draw()
+
+    projDraw()
+
+    room_1_door_up.transition()
+    room_1_door_left.transition()
+    room_1_door_right.transition()
+
+    window.render_crosshair()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -59,7 +134,7 @@ while True:
     
     if current_keys[pygame.K_ESCAPE]:
         sys.exit()
-    
+
     if current_mouse[0] and not(last_mouse[0]):
         #if soundtrack.is_on_beat(0.2):
             sin = (window.camera_y + window.mouse_y - item.entity.player.y)
@@ -77,72 +152,34 @@ while True:
     last_mouse = current_mouse
 
 
-
-    for i in enemies:
-        for j in enemies:
-            if i == j:
-                continue
-            if i.x == j.x and i.y == j.y:
-                i.x += 32
-                i.y += 32
-
-
-    
-
-
     # GRAPHICS
     window.camera_focus(item.entity.player)
     window.mouse_offset()
 
-    first_room.draw_room()
-    first_room_door_up.warp()
-    first_room_door_left.warp()
-    first_room_door_right.warp()
-
-    
-
-    first_room.collision_check()
-    window.render(player_direction_facing, (item.entity.player.x, item.entity.player.y))
-
-    torch_A.torchAnimation()
-    torch_B.torchAnimation()
-    torch_C.torchAnimation()
-
-    for i in enemies:
-        if i.hp > 0:    
-            if i.hurt > 0:
-                window.render(i.dmg_sprite, (i.x, i.y))
-                i.hurt -= 1
-            else:
-                window.render(i.sprite, (i.x, i.y))
-        else:
-            window.render(i.dead_sprite, (i.x, i.y))
 
 
 
-
-    for note in projectiles:
-        note.lifetime -= 1
-        note.update()
-        window.render(projectile_sprite, (note.x, note.y))
-        if note.lifetime <= 0:
-            projectiles.remove(note)
-
-        if note.check_wall_collision(first_room):
-            note.lifetime = 0
-
-        for i in enemies:    
-            if note.check_collision(i):
-                dmg_sfx.play()
-                note.lifetime = 0
+    # DRAW SCREEN #
+    level1()
 
 
 
     
-    window.render_crosshair()
-
-    first_room_door_up.transition()
-    first_room_door_left.transition()
-    first_room_door_right.transition()
 
     window.update()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

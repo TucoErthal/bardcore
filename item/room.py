@@ -1,7 +1,14 @@
 import item.entity
-import item.init_assets
+from item.init_assets import *
 
-class generateRoom():
+
+# HOW TO USE:
+# room_name = item.room.Room(args) -> initialize (do so on itemlist.py)
+# room_name.draw()                 -> draws the room and checks collisions (must be under player)
+
+
+
+class Room():
     def __init__(self, room_img, x, y):
         self.room_img = room_img
 
@@ -17,7 +24,8 @@ class generateRoom():
         self.y2 = self.height - 32 + self.y
 
 
-    def collision_check(self):
+    def draw(self):
+        window.render(self.room_img,(self.x,self.y))
         if item.entity.player.x <= self.x1:
             item.entity.player.x = self.x1
             
@@ -29,9 +37,3 @@ class generateRoom():
         
         if item.entity.player.y > self.y2:
             item.entity.player.y = self.y2
-
-    def change_frame(self, new_frame):
-        self.room_img = new_frame
-    
-    def draw_room(self):
-        item.init_assets.window.render(self.room_img,(self.x,self.y))

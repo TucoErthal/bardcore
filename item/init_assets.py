@@ -91,6 +91,6 @@ fourth_room_sprite = pygame.image.load("assets/maps/room4.png").convert_alpha()
 
 
 # INITIATE MUSIC
-soundtrack = music.Track("assets/Bardcore.ogg", 110, 4)
-shoot_sfx = pygame.mixer.Sound("assets/shoot.ogg")
-dmg_sfx = pygame.mixer.Sound("assets/damage.ogg")
+soundtrack = music.Track("assets/audio/Bardcore.ogg", 110, 4)
+shoot_sfx = pygame.mixer.Sound("assets/audio/shoot.ogg")
+dmg_sfx = pygame.mixer.Sound("assets/audio/damage.ogg")
