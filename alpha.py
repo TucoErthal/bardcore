@@ -5,6 +5,7 @@ import item.enemylist
 from item.entity import *
 from item.itemlist import *
 from item.init_assets import *
+from item.enemylist import *
 
 enemies = []
 projectiles = []
@@ -16,14 +17,9 @@ player_direction_facing = player_sprite_down
 
 def enemyDraw():
     for i in enemies:
-            if i.hp > 0:    
-                if i.hurt > 0:
-                    window.render(i.dmg_sprite, (i.x, i.y))
-                    i.hurt -= 1
-                else:
-                    window.render(i.sprite, (i.x, i.y))
-            else:
-                window.render(i.dead_sprite, (i.x, i.y))
+        i.draw()
+        if i.dead_time < 0:
+            enemies.remove(i)
 
 def projDraw():
     for note in projectiles:

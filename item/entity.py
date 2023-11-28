@@ -1,10 +1,13 @@
 import math
 import item.obj
+from item.init_assets import window
 player = item.obj.GameObject(496, 336, 16, 16)
 
 # DO NOT TOUCH
 # When creating new enemies, go to enemylist.py
 # When initializing enemies, go to their specific room!
+
+
 
 class Enemy():
         def __init__(self, sprite, dmg_sprite, dead_sprite, x, y, speed, hp):
@@ -23,6 +26,8 @@ class Enemy():
             self.hurt = 0
             self.hp = hp
 
+            self.dead_time = 20
+
         def follow(self):
             self.sin = (player.y - self.y)
             self.cos = (player.x - self.x)
@@ -36,6 +41,17 @@ class Enemy():
             self.x += self.speed * math.cos(self.angle)
             self.y += self.speed * math.sin(self.angle)
 
-        def get_hit(self):
+        def get_hit(self): # Mudar nome 
             self.hurt = 5
             self.hp -= 1
+
+        def draw(self): # Função adicionada
+            if self.hp > 0:    
+                if self.hurt > 0:
+                    window.render(self.dmg_sprite, (self.x, self.y))
+                    self.hurt -= 1
+                else:
+                    window.render(self.sprite, (self.x, self.y))
+            else:
+                self.dead_time -=1
+                window.render(self.dead_sprite, (self.x, self.y))
