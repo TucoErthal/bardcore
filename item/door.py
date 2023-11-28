@@ -4,7 +4,7 @@ from item.init_assets import *
 
 # HOW TO USE:
 # door_name = item.door.Door(args) -> initialize (do so on itemlist.py)
-# door_name.warp()                 -> draw door on map (must be under player)
+# door_name.draw()                 -> draw door on map (must be under player)
 # door_name.transition()           -> transition animation (must be over everything)
 
 

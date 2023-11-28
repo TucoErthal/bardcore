@@ -9,7 +9,7 @@ class Goblin(Enemy):
 
 class Bell(Enemy):
     def __init__(self):
-        super().__init__(bell_sprite, bell_dmg_sprite, bell_dead_sprite,0, 0, 0.8, 50)
+        super().__init__(bell_sprite, bell_dmg_sprite, bell_dead_sprite,400, 400, 0.8, 50)
 
 class Mage(Enemy):
     def __init__(self):

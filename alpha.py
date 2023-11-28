@@ -12,6 +12,7 @@ projectiles = []
 frame_state = 0
 player_direction_facing = player_sprite_down
 
+pygame.mouse.set_visible(False)
 
 #----- ENEMIES -----#
 

@@ -10,6 +10,13 @@ clock = pygame.time.Clock()
 
 # ENTITY SPRITES
 projectile_sprite = pygame.image.load("assets/textures/projectile.png").convert_alpha()
+crosshair = pygame.image.load("assets/textures/gui/mouse_crosshair.png")
+
+
+explosion_sprite_1 = pygame.image.load("assets/textures/explosion1.png").convert_alpha()
+explosion_sprite_2 = pygame.image.load("assets/textures/explosion2.png").convert_alpha()
+explosion_sprite_3 = pygame.image.load("assets/textures/explosion3.png").convert_alpha()
+explosion_sprite_4 = pygame.image.load("assets/textures/explosion4.png").convert_alpha()
 
 player_sprite_left = pygame.image.load("assets/textures/player_left_A.png").convert_alpha()
 player_sprite_right = pygame.image.load("assets/textures/player_right_A.png").convert_alpha()
@@ -94,3 +101,4 @@ fourth_room_sprite = pygame.image.load("assets/maps/room4.png").convert_alpha()
 soundtrack = music.Track("assets/audio/Bardcore.ogg", 110, 4)
 shoot_sfx = pygame.mixer.Sound("assets/audio/shoot.ogg")
 dmg_sfx = pygame.mixer.Sound("assets/audio/damage.ogg")
+explode_sfx = pygame.mixer.Sound("assets/audio/explosion.ogg")

@@ -20,8 +20,8 @@ class Room():
 
         self.x1 = 32 + self.x
         self.y1 = 84 + self.y
-        self.x2 = self.width - 32 + self.x
-        self.y2 = self.height - 32 + self.y
+        self.x2 = self.width - 47 + self.x
+        self.y2 = self.height - 47 + self.y
 
 
     def draw(self):

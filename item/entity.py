@@ -1,6 +1,6 @@
 import math
 import item.obj
-from item.init_assets import window
+from item.init_assets import *
 player = item.obj.GameObject(496, 336, 16, 16)
 
 # DO NOT TOUCH
@@ -26,7 +26,7 @@ class Enemy():
             self.hurt = 0
             self.hp = hp
 
-            self.dead_time = 20
+            self.dead_time = 120
 
         def follow(self):
             self.sin = (player.y - self.y)
@@ -54,4 +54,20 @@ class Enemy():
                     window.render(self.sprite, (self.x, self.y))
             else:
                 self.dead_time -=1
-                window.render(self.dead_sprite, (self.x, self.y))
+
+                if self.dead_time == 45:
+                    explode_sfx.play()
+
+                if self.dead_time > 20:
+                    window.render(self.dead_sprite, (self.x, self.y))
+                elif self.dead_time > 15:
+                    window.render(explosion_sprite_1, (self.x,self.y))
+                elif self.dead_time > 10:
+                    window.render(explosion_sprite_2, (self.x,self.y))
+                elif self.dead_time > 5:
+                    window.render(explosion_sprite_3, (self.x,self.y))
+                else:
+                    window.render(explosion_sprite_4, (self.x,self.y))
+                
+                    
+

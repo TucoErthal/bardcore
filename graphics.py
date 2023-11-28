@@ -2,6 +2,7 @@ import pygame
 import random
 import tucoanimation
 from PPlay.animation import *
+import item.init_assets
 pygame.init()
 
 class Graphics:
@@ -49,9 +50,7 @@ class Graphics:
         self.native_screen.blit(image, coordinates)
     
     def render_crosshair(self):
-        self.crosshair.update()
-        current_frame_sprite = self.crosshair.sprites[self.crosshair.current_frame]
-        self.render(pygame.image.load(current_frame_sprite), (self.camera_x + self.mouse_x, self.camera_y + self.mouse_y))
+        self.render(item.init_assets.crosshair, (self.camera_x + self.mouse_x, self.camera_y + self.mouse_y))
         #print("frame", self.crosshair.current_frame)
 
     def move_camera_to(self, x, y):
