@@ -47,11 +47,21 @@ def projDraw():
 
 
 
-#---------- LEVELS ----------#
 
+
+
+
+
+
+
+#---------- LEVELS ----------#
+def isInRoom(ID):
+    current_room = ID
+    return current_room
 
 def level1():
     room_1.draw()
+
     room_1_door_up.draw()
     room_1_door_left.draw()
     room_1_door_right.draw()
@@ -71,11 +81,8 @@ def level1():
     room_1_door_right.transition()
 
     window.render_crosshair(crosshair_state)
-
-    print(room_1_door_left.doorEntered())
-
-    return room_1_door_left.doorEntered()
-
+    
+    
 
 
 def level2():
@@ -108,6 +115,7 @@ def level2():
 
 
 while True:
+    
     clock.tick(60)
     soundtrack.tick()
 
@@ -128,7 +136,7 @@ while True:
 
     if current_keys[pygame.K_f] and not(last_keys[pygame.K_f]):
         enemies.append(item.enemylist.Bell())
-   
+
 
     if current_keys[pygame.K_s]:
         item.entity.player.y += 1
@@ -156,6 +164,9 @@ while True:
 
     if crosshair_timer > 0:
         crosshair_timer -= 1
+        crosshair_state = 0
+    else:
+        crosshair_state = 1
 
     if current_mouse[0] and not(last_mouse[0]):
         if soundtrack.is_on_beat(0.2):
@@ -182,10 +193,10 @@ while True:
 
     # DRAW SCREEN #
     if current_room == 1:
-        current_room = level1()
+        level1()
     elif current_room == 2:
+        print('cock')
         level2()
-
 
 
 
