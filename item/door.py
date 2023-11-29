@@ -9,7 +9,7 @@ from item.init_assets import *
 
 
 class Door():
-    def __init__(self, x, y, destination_x, destination_y, img1, img2):
+    def __init__(self, x, y, destination_x, destination_y, img1, img2, current_id, target_room_id):
         self.x = x
         self.y = y
         self.destination_x = destination_x
@@ -23,9 +23,11 @@ class Door():
         self.door_delay = False
         self.transition_counter = 0
         self.transition_frame = transparent
+        self.target_room_id = target_room_id
+        self.current_id = current_id
+        self.collided = False
 
     def draw(self):
-
         window.render(self.current_img, (self.x,self.y))
 
         if item.entity.player.x+8 > self.x and item.entity.player.x+8 < self.x + self.width:
@@ -44,7 +46,7 @@ class Door():
                     item.entity.player.x = self.destination_x
                     item.entity.player.y = self.destination_y
                     self.current_img = self.img1
-                
+
         if self.transition_counter == 0:
             self.door_delay = False
 
@@ -68,7 +70,15 @@ class Door():
                 self.transition_frame = trans2
             elif self.transition_counter > 0:
                 self.transition_frame = trans1
+                self.collided = True
 
     def transition(self):
         if self.door_delay == True:
             window.render(self.transition_frame,(item.entity.player.x-330, item.entity.player.y-250))
+
+    def doorEntered(self):
+        if self.collided == True:
+            self.collided = False
+            return self.target_room_id
+        else:
+            return self.current_id

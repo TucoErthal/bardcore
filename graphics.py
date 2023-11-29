@@ -49,9 +49,11 @@ class Graphics:
         coordinates = (coordinates[0] - self.camera_x), (coordinates[1] - self.camera_y)
         self.native_screen.blit(image, coordinates)
     
-    def render_crosshair(self):
-        self.render(item.init_assets.crosshair, (self.camera_x + self.mouse_x, self.camera_y + self.mouse_y))
-        #print("frame", self.crosshair.current_frame)
+    def render_crosshair(self, state):
+        if state == 1:
+            self.render(item.init_assets.crosshair, (self.camera_x + self.mouse_x, self.camera_y + self.mouse_y))
+        else:
+            self.render(item.init_assets.miss_crosshair, (self.camera_x + self.mouse_x, self.camera_y + self.mouse_y))
 
     def move_camera_to(self, x, y):
         self.camera_x = x

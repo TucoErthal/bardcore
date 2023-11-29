@@ -8,11 +8,15 @@ from item.init_assets import *
 from item.enemylist import *
 
 enemies = []
+current_room = 1
 projectiles = []
 frame_state = 0
+crosshair_state = 1
+crosshair_timer = 0
 player_direction_facing = player_sprite_down
 
 pygame.mouse.set_visible(False)
+
 
 #----- ENEMIES -----#
 
@@ -45,6 +49,7 @@ def projDraw():
 
 #---------- LEVELS ----------#
 
+
 def level1():
     room_1.draw()
     room_1_door_up.draw()
@@ -65,10 +70,27 @@ def level1():
     room_1_door_left.transition()
     room_1_door_right.transition()
 
-    window.render_crosshair()
+    window.render_crosshair(crosshair_state)
+
+    print(room_1_door_left.doorEntered())
+
+    return room_1_door_left.doorEntered()
 
 
 
+def level2():
+    room_2.draw()
+    room_2_door_right.draw()
+
+    enemyDraw()
+
+    window.render(player_direction_facing, (player.x, player.y))
+
+    projDraw()
+
+    room_2_door_right.transition()
+
+    window.render_crosshair(crosshair_state)
 
 
 
@@ -132,18 +154,20 @@ while True:
     if current_keys[pygame.K_ESCAPE]:
         sys.exit()
 
+    if crosshair_timer > 0:
+        crosshair_timer -= 1
+
     if current_mouse[0] and not(last_mouse[0]):
-        #if soundtrack.is_on_beat(0.2):
+        if soundtrack.is_on_beat(0.2):
             sin = (window.camera_y + window.mouse_y - item.entity.player.y)
             cos = (window.camera_x + window.mouse_x - item.entity.player.x)
             angle = math.atan2(sin, cos)
 
-            #pygame.draw.line(background_sprite, (0, 255, 0), (player.x, player.y), (window.camera_x + window.mouse_x, window.camera_y + window.mouse_y), 10)
-            #print("player_pos =", player.x, player.y)
             projectiles.append(projectile.Projectile(item.entity.player.x, item.entity.player.y, 8, 8, 3, angle, 200))
             shoot_sfx.play()
-        #else:
-            #window.screenshake(20,4)
+        else:
+            window.screenshake(20,8)
+            crosshair_timer = 60
 
     last_keys = current_keys
     last_mouse = current_mouse
@@ -157,11 +181,14 @@ while True:
 
 
     # DRAW SCREEN #
-    level1()
+    if current_room == 1:
+        current_room = level1()
+    elif current_room == 2:
+        level2()
 
 
 
-    
+
 
     window.update()
 

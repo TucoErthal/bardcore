@@ -2,7 +2,7 @@ import item.room
 import item.door
 import item.torch
 from item.init_assets import *
-t = 16
+t = 16 # tilesize
 
 # REMEMBER!!! When defining assets in a room, such as torches or doors,
 # first identify where in the (x, y) plane they will go, then sum by the
@@ -49,11 +49,11 @@ room_4  = item.room.Room(fourth_room_sprite, 608, 0)
 #----- DOORS -----#
 # NAME: room_roomID_door_direction
 
-room_1_door_up    = item.door.Door(616, 400, 400, 400, door_sprite, door_open_sprite)
-room_1_door_left  = item.door.Door(256, 256, 400, 400, door_left_sprite, door_left_sprite)
-room_1_door_right = item.door.Door(256, 128, 400, 400, door_right_sprite, door_right_sprite)
+room_1_door_up    = item.door.Door(616, 400, 512, 420, door_sprite, door_open_sprite, 1, 3)
+room_1_door_left  = item.door.Door(256, 256, 400, 400, door_left_sprite, door_left_sprite, 1, 2)
+room_1_door_right = item.door.Door(256, 128, 400, 400, door_right_sprite, door_right_sprite, 1, 4)
 
-
+room_2_door_right = item.door.Door(256, 480, 512, 420, door_right_sprite, door_right_sprite, 2, 1)
 
 #---- TORCHES ----#
 # NAME: torch_roomID_torchID

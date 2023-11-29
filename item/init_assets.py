@@ -11,6 +11,7 @@ clock = pygame.time.Clock()
 # ENTITY SPRITES
 projectile_sprite = pygame.image.load("assets/textures/projectile.png").convert_alpha()
 crosshair = pygame.image.load("assets/textures/gui/mouse_crosshair.png")
+miss_crosshair = pygame.image.load("assets/textures/gui/mouse_crosshair_miss.png")
 
 
 explosion_sprite_1 = pygame.image.load("assets/textures/explosion1.png").convert_alpha()
