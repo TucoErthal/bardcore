@@ -24,6 +24,7 @@ player_sprite_right = pygame.image.load("assets/textures/player_right_A.png").co
 player_sprite_down = pygame.image.load("assets/textures/player_down_A.png").convert_alpha()
 player_sprite_up = pygame.image.load("assets/textures/player_up_A.png").convert_alpha()
 
+player_dmg = pygame.image.load("assets/textures/player_dmg.png").convert_alpha
 
 cat_sprite = pygame.image.load("assets/textures/cat.png").convert_alpha()
 cat_dmg_sprite = pygame.image.load("assets/textures/catsad.png").convert_alpha()
@@ -67,8 +68,13 @@ door_sprite = pygame.image.load("assets/textures/door.png").convert_alpha()
 door_open_sprite = pygame.image.load("assets/textures/door_open.png").convert_alpha()
 
 door_left_sprite = pygame.image.load("assets/textures/doorleft.png").convert_alpha()
+door_left_open_sprite = pygame.image.load("assets/textures/doorleftopen.png").convert_alpha()
+
 door_right_sprite = pygame.image.load("assets/textures/doorright.png").convert_alpha()
+door_right_open_sprite = pygame.image.load("assets/textures/doorrightopen.png").convert_alpha()
+
 door_down_sprite = pygame.image.load("assets/textures/doordown.png").convert_alpha()
+door_down_open_sprite = pygame.image.load("assets/textures/doordownopen.png").convert_alpha()
 
 
 # TRANSITION SPRITES

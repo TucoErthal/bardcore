@@ -38,10 +38,10 @@ from item.init_assets import *
 # NAME: room_roomID
 
 
-room1  = item.room.Room(first_room_sprite , 31, 21, 1)
-room2  = item.room.Room(second_room_sprite, 0 , 28, 2)
-room3  = item.room.Room(third_room_sprite , 56, 21, 3)
-room4  = item.room.Room(fourth_room_sprite, 38, 0 , 4)
+room1  = item.room.Room(first_room_sprite , 32, 22, 1)
+room2  = item.room.Room(second_room_sprite, 0 , 29, 2)
+room3  = item.room.Room(third_room_sprite , 58, 22, 3)
+room4  = item.room.Room(fourth_room_sprite, 35, 0 , 4)
 
 
 
@@ -49,31 +49,35 @@ room4  = item.room.Room(fourth_room_sprite, 38, 0 , 4)
 # NAME: doorIDdirection
 # U: UP, L: LEFT, R: RIGHT, D: DOWN
 
-door1U    = item.door.Door(38, 25, 42, 15, door_sprite, door_open_sprite, 1, room4)
-door1L  = item.door.Door(33, 34, 25, 34, door_left_sprite, door_left_sprite, 1, room2)
-door1R = item.door.Door(52, 29, 60, 29, door_right_sprite, door_right_sprite, 1, room3)
+door1U    = item.door.Door(39, 26, 1, door_sprite, door_open_sprite, 1, room4)
+door1L  = item.door.Door(34, 35, 2, door_left_sprite, door_left_open_sprite, 1, room2)
+door1R = item.door.Door(53, 30, 3, door_right_sprite, door_right_open_sprite, 1, room3)
 
-door2R = item.door.Door(27, 34, 35, 34, door_right_sprite, door_right_sprite, 2, room1)
 
-door3L = item.door.Door(58, 29, 50, 29, door_left_sprite, door_left_sprite, 3, room1)
+door2R = item.door.Door(27, 35, 3, door_right_sprite, door_right_open_sprite, 2, room1)
 
-door4D = item.door.Door(42, 17, 38, 28, door_down_sprite, door_down_sprite, 4, room1)
+
+door3L = item.door.Door(60, 30, 2, door_left_sprite, door_left_open_sprite, 3, room1)
+
+
+door4D = item.door.Door(39, 17, 4, door_down_sprite, door_down_open_sprite, 4, room1)
+
 
 #---- TORCHES ----#
 # NAME: torch_roomID_torchID
 
 
-torch1_1 = item.torch.Torch(34,23)
-torch1_2 = item.torch.Torch(41,23)
-torch1_3 = item.torch.Torch(48,23)
+torch1_1 = item.torch.Torch(35,24)
+torch1_2 = item.torch.Torch(42,24)
+torch1_3 = item.torch.Torch(49,24)
 
-torch2_1 = item.torch.Torch(3,30)
-torch2_2 = item.torch.Torch(8,30)
-torch2_3 = item.torch.Torch(13,30)
-torch2_4 = item.torch.Torch(18,30)
-torch2_5 = item.torch.Torch(23,30)
+torch2_1 = item.torch.Torch(3,31)
+torch2_2 = item.torch.Torch(8,31)
+torch2_3 = item.torch.Torch(13,31)
+torch2_4 = item.torch.Torch(18,31)
+torch2_5 = item.torch.Torch(23,31)
 
-torch3_1 = item.torch.Torch(58,23)
-torch3_2 = item.torch.Torch(65,23)
+torch3_1 = item.torch.Torch(60,24)
+torch3_2 = item.torch.Torch(67,24)
 
-torch4_1 = item.torch.Torch(41,2)
+torch4_1 = item.torch.Torch(38,2)
