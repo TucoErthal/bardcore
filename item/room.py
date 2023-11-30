@@ -9,19 +9,20 @@ from item.init_assets import *
 
 
 class Room():
-    def __init__(self, room_img, x, y):
+    def __init__(self, room_img, x, y, room_id):
         self.room_img = room_img
 
         self.width = self.room_img.get_rect().width
         self.height = self.room_img.get_rect().height
         
-        self.x = x
-        self.y = y
+        self.x = x * 16
+        self.y = y * 16
 
         self.x1 = 32 + self.x
         self.y1 = 84 + self.y
         self.x2 = self.width - 47 + self.x
         self.y2 = self.height - 47 + self.y
+        self.id = room_id
 
 
     def draw(self):

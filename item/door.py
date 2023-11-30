@@ -9,11 +9,11 @@ from item.init_assets import *
 
 
 class Door():
-    def __init__(self, x, y, destination_x, destination_y, img1, img2, current_id, target_room_id):
-        self.x = x
-        self.y = y
-        self.destination_x = destination_x
-        self.destination_y = destination_y
+    def __init__(self, x, y, destination_x, destination_y, img1, img2, current_id, target_room):
+        self.x = x * 16
+        self.y = y * 16
+        self.destination_x = destination_x * 16
+        self.destination_y = destination_y * 16
         self.width = 32
         self.height = 32
         self.img1 = img1
@@ -23,7 +23,7 @@ class Door():
         self.door_delay = False
         self.transition_counter = 0
         self.transition_frame = transparent
-        self.target_room_id = target_room_id
+        self.target_room = target_room
         self.current_id = current_id
 
     def draw(self):
@@ -31,8 +31,7 @@ class Door():
 
         if item.entity.player.x+8 > self.x and item.entity.player.x+8 < self.x + self.width:
             if item.entity.player.y+8 > self.y and item.entity.player.y+8 < self.y + self.height:
-                item.entity.player.x = self.x + 8
-                item.entity.player.y = self.y + 16
+                item.entity.player.can_control = False
                 self.transition_frame = transparent
 
                 if self.door_delay == False:
@@ -45,6 +44,9 @@ class Door():
                     item.entity.player.x = self.destination_x
                     item.entity.player.y = self.destination_y
                     self.current_img = self.img1
+        else:
+            self.warp = False
+
 
         if self.transition_counter == 0:
             self.door_delay = False
@@ -69,6 +71,7 @@ class Door():
                 self.transition_frame = trans2
             elif self.transition_counter > 0:
                 self.transition_frame = trans1
+                item.entity.player.can_control = True
 
     def transition(self):
         if self.door_delay == True:

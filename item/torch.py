@@ -11,8 +11,8 @@ class Torch():
     def __init__(self, x, y):
         self.torch_timer = 0
         self.torch_frame = torch1
-        self.x = x
-        self.y = y
+        self.x = x * 16
+        self.y = y * 16
 
     def draw(self):
         if self.torch_timer > 0:

@@ -8,7 +8,7 @@ from item.init_assets import *
 from item.enemylist import *
 
 enemies = []
-current_room = 1
+current_room = room1
 projectiles = []
 frame_state = 0
 crosshair_state = 1
@@ -34,7 +34,7 @@ def projDraw():
         if note.lifetime <= 0:
             projectiles.remove(note)
 
-        if note.check_wall_collision(room_1):
+        if note.check_wall_collision(current_room):
             note.lifetime = 0
 
         for i in enemies:
@@ -55,56 +55,107 @@ def projDraw():
 
 
 #---------- LEVELS ----------#
-def isInRoom(ID):
-    current_room = ID
-    return current_room
 
 def level1():
-    room_1.draw()
+    global current_room
+    room1.draw()
 
-    room_1_door_up.draw()
-    room_1_door_left.draw()
-    room_1_door_right.draw()
+    door1U.draw()
+    door1L.draw()
+    door1R.draw()
 
     enemyDraw()
 
-    window.render(player_direction_facing, (player.x, player.y))
+    player.draw()
 
-    torch_1_1.draw()
-    torch_1_2.draw()
-    torch_1_3.draw()
+    torch1_1.draw()
+    torch1_2.draw()
+    torch1_3.draw()
 
     projDraw()
 
-    room_1_door_up.transition()
-    room_1_door_left.transition()
-    room_1_door_right.transition()
+    door1U.transition()
+    door1L.transition()
+    door1R.transition()
 
     window.render_crosshair(crosshair_state)
     
-    
+    if door1U.transition_counter == 40:
+        current_room = door1U.target_room
+    elif door1L.transition_counter == 40:
+        current_room = door1L.target_room
+    elif door1R.transition_counter == 40:
+        current_room = door1R.target_room
+
 
 
 def level2():
-    room_2.draw()
-    room_2_door_right.draw()
+    global current_room
+    room2.draw()
+    door2R.draw()
 
     enemyDraw()
 
-    window.render(player_direction_facing, (player.x, player.y))
+    player.draw()
+
+    torch2_1.draw()
+    torch2_2.draw()
+    torch2_3.draw()
+    torch2_4.draw()
+    torch2_5.draw()
 
     projDraw()
 
-    room_2_door_right.transition()
+    door2R.transition()
 
     window.render_crosshair(crosshair_state)
 
+    if door2R.transition_counter == 40:
+        current_room = door2R.target_room
 
 
 
+def level3():
+    global current_room
+    room3.draw()
+    door3L.draw()
+
+    enemyDraw()
+
+    player.draw()
+
+    torch3_1.draw()
+    torch3_2.draw()
+
+    projDraw()
+
+    door3L.transition()
+
+    window.render_crosshair(crosshair_state)
+
+    if door3L.transition_counter == 40:
+        current_room = door3L.target_room
 
 
+def level4():
+    global current_room
+    room4.draw()
+    door4D.draw()
 
+    enemyDraw()
+
+    player.draw()
+
+    torch4_1.draw()
+
+    projDraw()
+
+    door4D.transition()
+
+    window.render_crosshair(crosshair_state)
+
+    if door4D.transition_counter == 40:
+        current_room = door4D.target_room
 
 
 
@@ -115,7 +166,6 @@ def level2():
 
 
 while True:
-    
     clock.tick(60)
     soundtrack.tick()
 
@@ -133,26 +183,11 @@ while True:
     current_keys = pygame.key.get_pressed()
     current_mouse = pygame.mouse.get_pressed()
 
-
+    # DEBUG #
     if current_keys[pygame.K_f] and not(last_keys[pygame.K_f]):
         enemies.append(item.enemylist.Bell())
 
-
-    if current_keys[pygame.K_s]:
-        item.entity.player.y += 1
-        player_direction_facing = player_sprite_down
-    
-    if current_keys[pygame.K_w]:
-        item.entity.player.y -= 1
-        player_direction_facing = player_sprite_up
-        
-    if current_keys[pygame.K_d]:
-        item.entity.player.x += 1
-        player_direction_facing = player_sprite_right
-    
-    if current_keys[pygame.K_a]:
-        item.entity.player.x -= 1
-        player_direction_facing = player_sprite_left
+    player.input(current_keys)
 
 
 
@@ -191,30 +226,26 @@ while True:
 
 
 
+
+
+
+
+
+
     # DRAW SCREEN #
-    if current_room == 1:
+    if current_room.id == 1:
         level1()
-    elif current_room == 2:
-        print('cock')
+
+    elif current_room.id == 2:
         level2()
+        
+    elif current_room.id == 3:
+        level3()
+
+    elif current_room.id == 4:
+        level4()
 
 
 
 
     window.update()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
