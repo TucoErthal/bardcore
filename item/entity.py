@@ -1,11 +1,15 @@
 import math
 import item.obj
 from item.init_assets import *
+from item.timer import Timer
 
 
 class Entity(item.obj.GameObject):
     def __init__(self, x = 0, y = 0, w = 0, h = 0):
         super().__init__(x, y, w, h)
+
+        self.imuneTimer = Timer()
+        self.imuneTimer.max_time = 5
 
         self.hurt = 0
         self.hp = 0
@@ -13,9 +17,10 @@ class Entity(item.obj.GameObject):
     def draw(self, sprite):
         window.render(sprite, (self.x, self.y))
 
-    def get_hit(self): # Mudar nome 
-        self.hurt = 5
-        self.hp -= 1
+    def get_hit(self): # Mudar nome
+        if self.imuneTimer.ringing(): 
+            self.hurt = 5
+            self.hp -= 1
         print("aaaaaaah osso doi :(")
         print(self.hp)
 

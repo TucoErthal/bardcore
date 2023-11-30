@@ -70,7 +70,7 @@ class Door():
             elif self.transition_counter > 10:
                 self.transition_frame = trans2
             elif self.transition_counter > 0:
-                self.transition_frame = trans1
+                self.transition_frame = trans1        
                 item.entity.player.can_control = True
 
     def transition(self):

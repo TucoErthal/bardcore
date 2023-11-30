@@ -171,7 +171,7 @@ while True:
 
     for i in enemies:
         if i.hp > 0:
-            i.follow()
+            i.update()
 
 
         window.crosshair.set_duration(2 * soundtrack.get_delta_beat())
