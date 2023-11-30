@@ -26,8 +26,9 @@ class Door():
         self.target_room = target_room
         self.current_id = current_id
 
-    def draw(self):
-        window.render(self.current_img, (self.x,self.y))
+    def draw(self, room_id):
+        if room_id == self.current_id:
+            window.render(self.current_img, (self.x,self.y))
 
         if item.entity.player.x+8 > self.x and item.entity.player.x+8 < self.x + self.width:
             if item.entity.player.y+8 > self.y and item.entity.player.y+8 < self.y + self.height:

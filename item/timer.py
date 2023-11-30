@@ -50,8 +50,9 @@ class Timer:
 
         return self.time_lapsed
 
-    def ringing():
-        if self.get_time() > self.max_tiem:
+    def ringing(self):
+        if self.get_time() > self.max_time:
             return True
-
+        
         return False
+        
