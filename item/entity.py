@@ -9,7 +9,7 @@ class Entity(item.obj.GameObject):
         super().__init__(x, y, w, h)
 
         self.immuneTimer = Timer()
-        self.immuneTimer.max_time = 5
+        self.immuneTimer.set_max_time(1)
 
         self.hurt = 0
         self.hp = 0
@@ -20,19 +20,20 @@ class Entity(item.obj.GameObject):
     def get_hit(self): # Mudar nome
         if self.immuneTimer.ringing():
             self.hurt = 5
-            self.hp -= 1
-        print("aaaaaaah osso doi :(")
-        print(self.hp)
+            self.set_hp(self.hp - 1)
+            self.immuneTimer.restart()
 
 class Player(Entity):
     def __init__(self, x = 0, y = 0, w = 0, h = 0):
         super().__init__(x, y, w, h)
         self.hp = 10
+        self.isDead = False
 
         self.player_sprite_left = item.init_assets.player_sprite_left
         self.player_sprite_right = item.init_assets.player_sprite_right
         self.player_sprite_down = item.init_assets.player_sprite_down
         self.player_sprite_up = item.init_assets.player_sprite_up
+        self.player_sprite_dead = item.init_assets.player_sprite_up # coloca o sprite certo aqui
 
         self.curr_sprite = self.player_sprite_down
         self.can_control = True
@@ -57,6 +58,16 @@ class Player(Entity):
             if current_keys[pygame.K_a]:
                 self.x -= 1
                 self.curr_sprite = self.player_sprite_left
+
+    def set_hp(self, val):
+        if self.hp <= 0:
+            self.die()
+        self.hp = val
+
+    def die(self):
+        self.isDead = True
+        self.can_control = False
+        self.curr_sprite = self.player_sprite_dead
 
     def draw(self):
         super().draw(self.curr_sprite)
