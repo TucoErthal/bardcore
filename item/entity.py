@@ -19,7 +19,7 @@ class Entity(item.obj.GameObject):
 
     def get_hit(self): # Mudar nome
         if self.immuneTimer.ringing():
-            self.hurt = 5
+            self.hurt = 30
             self.set_hp(self.hp - 1)
             self.immuneTimer.restart()
 
@@ -33,9 +33,11 @@ class Player(Entity):
         self.player_sprite_right = item.init_assets.player_sprite_right
         self.player_sprite_down = item.init_assets.player_sprite_down
         self.player_sprite_up = item.init_assets.player_sprite_up
-        self.player_sprite_dead = item.init_assets.player_sprite_up # coloca o sprite certo aqui
+        self.player_sprite_dead = item.init_assets.player_sprite_dmg # coloca o sprite certo aqui
+        self.dmg_sprite = item.init_assets.player_sprite_dmg # coloca o sprite certo aqui
 
         self.curr_sprite = self.player_sprite_down
+        self.lest_sprite = self.curr_sprite
         self.can_control = True
 
         self.w = self.curr_sprite.get_rect().width
@@ -70,7 +72,11 @@ class Player(Entity):
         self.curr_sprite = self.player_sprite_dead
 
     def draw(self):
-        super().draw(self.curr_sprite)
+        curr_sprite = self.curr_sprite
+        if self.hurt > 0:
+            curr_sprite = self.dmg_sprite
+            self.hurt -= 1
+        super().draw(curr_sprite)
 
 
 

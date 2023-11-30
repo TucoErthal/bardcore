@@ -23,6 +23,7 @@ player_sprite_left = pygame.image.load("assets/textures/player_left_A.png").conv
 player_sprite_right = pygame.image.load("assets/textures/player_right_A.png").convert_alpha()
 player_sprite_down = pygame.image.load("assets/textures/player_down_A.png").convert_alpha()
 player_sprite_up = pygame.image.load("assets/textures/player_up_A.png").convert_alpha()
+player_sprite_dmg = pygame.image.load("assets/textures/player_dmg.png").convert_alpha()
 
 player_dmg = pygame.image.load("assets/textures/player_dmg.png").convert_alpha
 
