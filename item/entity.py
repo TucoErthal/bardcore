@@ -17,6 +17,9 @@ class Entity(item.obj.GameObject):
     def draw(self, sprite):
         window.render(sprite, (self.x, self.y))
 
+    def set_hp(self, val):
+        self.hp = val
+
     def get_hit(self): # Mudar nome
         if self.immuneTimer.ringing():
             self.hurt = 30
@@ -90,8 +93,8 @@ player = Player(624, 496, 16, 16)
 class Enemy(Entity):
         def __init__(self, sprite, dmg_sprite, x, y, speed, hp):
             super().__init__()
-            self.x = x
-            self.y = y
+            self.x = x * 16
+            self.y = y * 16
 
             self.sprite = sprite
             self.dmg_sprite = dmg_sprite
@@ -140,7 +143,7 @@ class Enemy(Entity):
                     explode_sfx.play()
 
                 if self.dead_time > 20:
-                    window.render(self.dead_sprite, (self.x, self.y))
+                    window.render(self.dmg_sprite, (self.x, self.y))
                 elif self.dead_time > 15:
                     window.render(explosion_sprite_1, (self.x,self.y))
                 elif self.dead_time > 10:

@@ -6,7 +6,7 @@ from item.init_assets import *
 
 class Bell(Enemy):
     def __init__(self, x, y):
-        super().__init__(bell_sprite, bell_dmg_sprite, x, y, 0.2, 50)
+        super().__init__(bell_sprite, bell_dmg_sprite, x, y, 0.2, 20)
 
     def update(self):
         if self.collided(player):
@@ -16,7 +16,7 @@ class Bell(Enemy):
 
 class Mage(Enemy):
     def __init__(self, x, y):
-        super().__init__(mage_sprite, mage_dmg_sprite, x, y, 0.5, 20)
+        super().__init__(mage_sprite, mage_dmg_sprite, x, y, 0.5, 10)
 
 class Fireguy(Enemy):
     def __init__(self, x, y):
@@ -24,7 +24,7 @@ class Fireguy(Enemy):
 
 class Ghost(Enemy):
     def __init__(self, x, y):
-        super().__init__(ghost_sprite, ghost_dmg_sprite, x, y, 0.5, 24)
+        super().__init__(ghost_sprite, ghost_dmg_sprite, x, y, 0.5, 12)
 
     def update(self):
         if self.collided(player):

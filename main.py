@@ -15,12 +15,12 @@ enemies4 = []
 #listname.append(item.enemylist.Bell(500,500))
 
 def spawnEnemies():
-    enemies2.append(item.enemylist.Ghost(64,560))
-    enemies2.append(item.enemylist.Ghost(128,560))
-    enemies2.append(item.enemylist.Ghost(192,560))
-    enemies3.append(item.enemylist.Bell(1104,496))
-    enemies4.append(item.enemylist.Fireguy(592,96))
-    enemies4.append(item.enemylist.Fireguy(608,96))
+    enemies2.append(item.enemylist.Ghost(3,35))
+    enemies2.append(item.enemylist.Ghost(8,35))
+    enemies2.append(item.enemylist.Ghost(13,35))
+    enemies3.append(item.enemylist.Bell(68,30))
+    enemies4.append(item.enemylist.Fireguy(38,6))
+    enemies4.append(item.enemylist.Fireguy(41,6))
 
 spawnEnemies()
 
@@ -206,8 +206,6 @@ def level4():
 while True:
     clock.tick(60)
     soundtrack.tick()
-
-    window.crosshair.set_duration(2 * soundtrack.get_delta_beat())
 
 
 
