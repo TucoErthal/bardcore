@@ -1,6 +1,5 @@
 import pygame
 import random
-import tucoanimation
 from PPlay.animation import *
 import item.init_assets
 pygame.init()
@@ -22,9 +21,6 @@ class Graphics:
         self.camera_x, self.camera_y = 0, 0
         self.screenshake_duration = 0
         self.screenshake_intensity = 0
-
-        self.crosshair = tucoanimation.Animation(15)
-        self.crosshair.set_duration(100)
     
     def update(self):
         
