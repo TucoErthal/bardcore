@@ -27,37 +27,21 @@ player_sprite_dmg = pygame.image.load("assets/textures/player_dmg.png").convert_
 
 player_dmg = pygame.image.load("assets/textures/player_dmg.png").convert_alpha
 
-cat_sprite = pygame.image.load("assets/textures/cat.png").convert_alpha()
-cat_dmg_sprite = pygame.image.load("assets/textures/catsad.png").convert_alpha()
-cat_dead_sprite = pygame.image.load("assets/textures/catdead.png").convert_alpha()
-
-goblin_sprite = pygame.image.load("assets/textures/goblin.png").convert_alpha()
-goblin_dmg_sprite = pygame.image.load("assets/textures/goblinsad.png").convert_alpha()
-goblin_dead_sprite = pygame.image.load("assets/textures/goblindead.png").convert_alpha()
-
-shroom_sprite = pygame.image.load("assets/textures/shroom.png").convert_alpha()
-shroom_dmg_sprite = pygame.image.load("assets/textures/shroomdmg.png").convert_alpha()
-shroom_dead_sprite = pygame.image.load("assets/textures/shroom.png").convert_alpha()
 
 bell_sprite = pygame.image.load("assets/textures/bell.png").convert_alpha()
 bell_dmg_sprite = pygame.image.load("assets/textures/belldmg.png").convert_alpha()
-bell_dead_sprite = pygame.image.load("assets/textures/bell.png").convert_alpha()
 
 mage_sprite = pygame.image.load("assets/textures/mage.png").convert_alpha()
 mage_dmg_sprite = pygame.image.load("assets/textures/magedmg.png").convert_alpha()
-mage_dead_sprite = pygame.image.load("assets/textures/mage.png").convert_alpha()
 
 fire_sprite = pygame.image.load("assets/textures/fireguy.png").convert_alpha()
 fire_dmg_sprite = pygame.image.load("assets/textures/fireguydmg.png").convert_alpha()
-fire_dead_sprite = pygame.image.load("assets/textures/fireguy.png").convert_alpha()
 
 ghost_sprite = pygame.image.load("assets/textures/ghost.png").convert_alpha()
 ghost_dmg_sprite = pygame.image.load("assets/textures/ghostdmg.png").convert_alpha()
-ghost_dead_sprite = pygame.image.load("assets/textures/ghost.png").convert_alpha()
 
-sleep_sprite = pygame.image.load("assets/textures/sleepy.png").convert_alpha()
-sleep_dmg_sprite = pygame.image.load("assets/textures/sleepydmg.png").convert_alpha()
-sleep_dead_sprite = pygame.image.load("assets/textures/sleepy.png").convert_alpha()
+skelly_sprite = pygame.image.load("assets/textures/Skelly.png").convert_alpha()
+skelly_dmg_sprite = pygame.image.load("assets/textures/Skellydmg.png").convert_alpha()
 
 
 

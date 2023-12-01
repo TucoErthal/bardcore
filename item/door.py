@@ -91,4 +91,4 @@ class Door():
 
     def transition(self):
         if self.door_delay == True:
-            window.render(self.transition_frame,(item.entity.player.x-330, item.entity.player.y-250))
+            window.render(self.transition_frame,(item.entity.player.x-660, item.entity.player.y-500))
