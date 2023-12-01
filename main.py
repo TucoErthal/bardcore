@@ -7,6 +7,7 @@ from item.itemlist import *
 from item.init_assets import *
 from item.enemylist import *
 
+
 enemies2 = []
 enemies3 = []
 enemies4 = []

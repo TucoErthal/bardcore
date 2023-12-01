@@ -1,6 +1,6 @@
 from item.entity import *
 from item.init_assets import *
-
+from item.path import *
 # (sprite, hurt_sprite, dead_sprite, x, y, speed, HP)
 
 
@@ -21,6 +21,23 @@ class Mage(Enemy):
 class Fireguy(Enemy):
     def __init__(self, x, y):
         super().__init__(fire_sprite, fire_dmg_sprite, x, y, 1, 4)
+
+        x*= 16
+        y*= 16
+
+        self.path = Path(x, y)
+        self.path.addCord(Point(x + 10, y + 10))
+        self.path.addCord(Point(x - 10, y + 10))
+        self.path.addCord(Point(x + 15, y - 3))
+
+    def update(self):
+        if self.collided(player):
+            player.get_hit()
+
+        self.path.update()
+        self.x = self.path.get_x()
+        self.y = self.path.get_y()
+
 
 class Ghost(Enemy):
     def __init__(self, x, y):
