@@ -20,13 +20,12 @@ class Entity(item.obj.GameObject):
     def set_hp(self, val):
         self.hp = val
 
-    def get_hit(self): # Mudar nome
+    def get_hit(self):
         if self.immuneTimer.ringing():
             self.hurt = 30
             self.set_hp(self.hp - 1)
             self.immuneTimer.restart()
-            window.screenshake(20,8)
-            player_dmg_sfx.play()
+            window.screenshake(10,4)
 
 class Player(Entity):
     def __init__(self, x = 0, y = 0, w = 0, h = 0):
@@ -73,6 +72,13 @@ class Player(Entity):
         self.y += self.y_velocity
         self.x_velocity, self.y_velocity = 0, 0
 
+    def get_hit(self):
+        if self.immuneTimer.ringing():
+            self.hurt = 30
+            self.set_hp(self.hp - 1)
+            self.immuneTimer.restart()
+            window.screenshake(10,4)
+            player_dmg_sfx.play()
 
     def set_hp(self, val):
         if self.hp <= 0:
@@ -116,6 +122,7 @@ class Enemy(Entity):
 
             self.sprite = sprite
             self.dmg_sprite = dmg_sprite
+            self.immuneTimer.set_max_time(0)
 
             self.w = self.sprite.get_rect().width
             self.h = self.sprite.get_rect().height
