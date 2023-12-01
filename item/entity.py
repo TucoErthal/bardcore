@@ -30,6 +30,9 @@ class Player(Entity):
     def __init__(self, x = 0, y = 0, w = 0, h = 0):
         super().__init__(x, y, w, h)
         self.hp = 10
+        self.x_velocity = 0
+        self.y_velocity = 0
+        self.dashing = False
         self.isDead = False
 
         self.player_sprite_left = item.init_assets.player_sprite_left
@@ -48,21 +51,26 @@ class Player(Entity):
 
     def input(self, current_keys):
         if self.can_control:
-            if current_keys[pygame.K_s]:
-                self.y += 1
-                self.curr_sprite = self.player_sprite_down
+            if current_keys[pygame.K_s] and not(self.dashing):
+                self.y_velocity += 1
+                #self.curr_sprite = self.player_sprite_down
             
-            if current_keys[pygame.K_w]:
-                self.y -= 1
-                self.curr_sprite = self.player_sprite_up
+            if current_keys[pygame.K_w] and not(self.dashing):
+                self.y_velocity -= 1
+                #self.curr_sprite = self.player_sprite_up
                 
-            if current_keys[pygame.K_d]:
-                self.x += 1
-                self.curr_sprite = self.player_sprite_right
+            if current_keys[pygame.K_d] and not(self.dashing):
+                self.x_velocity += 1
+                #self.curr_sprite = self.player_sprite_right
             
-            if current_keys[pygame.K_a]:
-                self.x -= 1
-                self.curr_sprite = self.player_sprite_left
+            if current_keys[pygame.K_a] and not(self.dashing):
+                self.x_velocity -= 1
+                #self.curr_sprite = self.player_sprite_left
+
+        self.x += self.x_velocity
+        self.y += self.y_velocity
+        self.x_velocity, self.y_velocity = 0, 0
+
 
     def set_hp(self, val):
         if self.hp <= 0:
@@ -75,11 +83,19 @@ class Player(Entity):
         self.curr_sprite = self.player_sprite_dead
 
     def draw(self):
-        curr_sprite = self.curr_sprite
+        sin = (window.camera_y + window.mouse_y - item.entity.player.y)
+        cos = (window.camera_x + window.mouse_x - item.entity.player.x)
+        
+        if abs(sin) >= abs(cos):
+            self.curr_sprite = player_sprite_down if sin >= 0 else player_sprite_up
+        else:
+            self.curr_sprite = player_sprite_right if cos >= 0 else player_sprite_left
+
         if self.hurt > 0:
-            curr_sprite = self.dmg_sprite
+            self.curr_sprite = self.dmg_sprite
             self.hurt -= 1
-        super().draw(curr_sprite)
+
+        super().draw(self.curr_sprite)
 
 
 
