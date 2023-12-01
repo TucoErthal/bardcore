@@ -82,10 +82,13 @@ torch3 = pygame.image.load("assets/textures/torch3.png")
 
 # ROOM SPRITES
 
-first_room_sprite = pygame.image.load("assets/maps/room1.png").convert_alpha()
-second_room_sprite = pygame.image.load("assets/maps/room2.png").convert_alpha()
-third_room_sprite = pygame.image.load("assets/maps/room3.png").convert_alpha()
-fourth_room_sprite = pygame.image.load("assets/maps/room4.png").convert_alpha()
+room1_sprite = pygame.image.load("assets/maps/room1.png").convert_alpha()
+room2_sprite = pygame.image.load("assets/maps/room2.png").convert_alpha()
+room3_sprite = pygame.image.load("assets/maps/room3.png").convert_alpha()
+room4_sprite = pygame.image.load("assets/maps/room4.png").convert_alpha()
+room5_sprite = pygame.image.load("assets/maps/room5.png").convert_alpha()
+room6_sprite = pygame.image.load("assets/maps/room6.png").convert_alpha()
+
 
 # GUI
 rhythm_bar_bg = pygame.image.load("assets/textures/gui/rhythm_bar_bg.png")
@@ -102,3 +105,4 @@ dmg_sfx = pygame.mixer.Sound("assets/audio/damage.ogg")
 explode_sfx = pygame.mixer.Sound("assets/audio/explosion.ogg")
 player_dmg_sfx = pygame.mixer.Sound("assets/audio/player_dmg.ogg")
 door_sfx = pygame.mixer.Sound("assets/audio/door.ogg")
+whiff_sfx = pygame.mixer.Sound("assets/audio/whiff.ogg")
