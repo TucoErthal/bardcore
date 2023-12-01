@@ -95,7 +95,10 @@ rhythm_bar_fg = pygame.image.load("assets/textures/gui/rhythm_bar_fg.png")
 
 # INITIATE MUSIC
 soundtrack = music.Track("assets/audio/Bardcore.ogg", 80, 2)
+
 shoot_sfx = pygame.mixer.Sound("assets/audio/shoot.ogg")
 dash_sfx = pygame.mixer.Sound("assets/audio/dash.ogg")
 dmg_sfx = pygame.mixer.Sound("assets/audio/damage.ogg")
 explode_sfx = pygame.mixer.Sound("assets/audio/explosion.ogg")
+player_dmg_sfx = pygame.mixer.Sound("assets/audio/player_dmg.ogg")
+door_sfx = pygame.mixer.Sound("assets/audio/door.ogg")

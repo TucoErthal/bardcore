@@ -25,6 +25,8 @@ class Entity(item.obj.GameObject):
             self.hurt = 30
             self.set_hp(self.hp - 1)
             self.immuneTimer.restart()
+            window.screenshake(20,8)
+            player_dmg_sfx.play()
 
 class Player(Entity):
     def __init__(self, x = 0, y = 0, w = 0, h = 0):
@@ -144,6 +146,8 @@ class Enemy(Entity):
 
             if self.collided(player):
                 player.get_hit()
+                
+                
 
         def draw(self):
             if self.hp > 0:    
