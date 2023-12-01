@@ -96,10 +96,15 @@ second_room_sprite = pygame.image.load("assets/maps/room2.png").convert_alpha()
 third_room_sprite = pygame.image.load("assets/maps/room3.png").convert_alpha()
 fourth_room_sprite = pygame.image.load("assets/maps/room4.png").convert_alpha()
 
-
+# GUI
+rhythm_bar_bg = pygame.image.load("assets/textures/gui/rhythm_bar_bg.png")
+rhythm_bar_0 = pygame.image.load("assets/textures/gui/rhythm_bar_0.png")
+rhythm_bar_1 = pygame.image.load("assets/textures/gui/rhythm_bar_1.png")
+rhythm_bar_fg = pygame.image.load("assets/textures/gui/rhythm_bar_fg.png")
 
 # INITIATE MUSIC
-soundtrack = music.Track("assets/audio/Bardcore.ogg", 110, 4)
+soundtrack = music.Track("assets/audio/Bardcore.ogg", 80, 2)
 shoot_sfx = pygame.mixer.Sound("assets/audio/shoot.ogg")
+dash_sfx = pygame.mixer.Sound("assets/audio/dash.ogg")
 dmg_sfx = pygame.mixer.Sound("assets/audio/damage.ogg")
 explode_sfx = pygame.mixer.Sound("assets/audio/explosion.ogg")

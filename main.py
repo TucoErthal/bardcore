@@ -179,7 +179,32 @@ def level4():
     if door4D.transition_counter == 40:
         current_room = door4D.target_room
 
+def draw_gui():
+    top_bar = pygame.Surface((320, 32))
+    top_bar.fill((0, 0, 0))
 
+    beat_bar = pygame.Surface((256, 16))
+    beat_bar.blit(rhythm_bar_bg, (0, 0))
+
+    beat_bar_progress_width = 128 * soundtrack.current_beat_in_bar
+    beat_bar.blit(rhythm_bar_1 if soundtrack.is_on_beat() else rhythm_bar_0, (0, 0), (0, 0, beat_bar_progress_width, 16))
+
+    beat_bar_forgiveness_width = 128 * soundtrack.forgiveness    
+    latency_offset = 128 * soundtrack.latency_beats
+
+    beat_bar.fill((0, 0, 0), ((000 - beat_bar_forgiveness_width/2 + latency_offset - 1), 12, beat_bar_forgiveness_width + 2, 3))
+    beat_bar.fill((80, 80, 80), ((000 - beat_bar_forgiveness_width/2 + latency_offset), 12, beat_bar_forgiveness_width, 3))
+
+    beat_bar.fill((0, 0, 0), ((128 - beat_bar_forgiveness_width/2 + latency_offset - 1), 12, beat_bar_forgiveness_width + 2, 3))
+    beat_bar.fill((80, 80, 80), ((128 - beat_bar_forgiveness_width/2 + latency_offset), 12, beat_bar_forgiveness_width, 3))
+
+    beat_bar.fill((0, 0, 0), ((256 - beat_bar_forgiveness_width/2 + latency_offset - 1), 12, beat_bar_forgiveness_width + 2, 3))
+    beat_bar.fill((80, 80, 80), ((256 - beat_bar_forgiveness_width/2 + latency_offset), 12, beat_bar_forgiveness_width, 3))
+
+    beat_bar.blit(rhythm_bar_fg, (0, 0))
+    top_bar.blit(beat_bar, (32, 8))
+
+    window.render_ui(top_bar, (0, 0))
 
 
 
@@ -210,12 +235,35 @@ while True:
     if current_keys[pygame.K_f] and not(last_keys[pygame.K_f]):
         enemies.append(item.enemylist.Bell(500,500))
 
+    if current_keys[pygame.K_UP] and not(last_keys[pygame.K_UP]):
+        soundtrack.forgiveness += 0.01       
+
+    if current_keys[pygame.K_DOWN] and not(last_keys[pygame.K_DOWN]):
+        soundtrack.forgiveness -= 0.01
+
+    if current_keys[pygame.K_RIGHT] and not(last_keys[pygame.K_RIGHT]):
+        soundtrack.latency_seconds += 0.01    
+
+    if current_keys[pygame.K_LEFT] and not(last_keys[pygame.K_LEFT]):
+        soundtrack.latency_seconds -= 0.01
+
+
     player.input(current_keys)
 
 
 
     if current_keys[pygame.K_SPACE] and not(last_keys[pygame.K_SPACE]):
-        window.screenshake()
+        if soundtrack.is_on_beat():
+            sin = (window.camera_y + window.mouse_y - item.entity.player.y)
+            cos = (window.camera_x + window.mouse_x - item.entity.player.x)
+            angle = math.atan2(sin, cos)
+
+            player.x += math.cos(angle) * 32
+            player.y += math.sin(angle) * 32
+            dash_sfx.play()
+        else:
+            window.screenshake(20,8)
+            crosshair_timer = 60
     
     if current_keys[pygame.K_ESCAPE]:
         sys.exit()
@@ -227,7 +275,7 @@ while True:
         crosshair_state = 1
 
     if current_mouse[0] and not(last_mouse[0]):
-        if soundtrack.is_on_beat(0.2):
+        if soundtrack.is_on_beat():
             sin = (window.camera_y + window.mouse_y - item.entity.player.y)
             cos = (window.camera_x + window.mouse_x - item.entity.player.x)
             angle = math.atan2(sin, cos)
@@ -262,6 +310,6 @@ while True:
     elif current_room.id == 4:
         level4()
 
-
+    draw_gui()
 
     window.update()

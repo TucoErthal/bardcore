@@ -49,6 +49,9 @@ class Graphics:
     def render(self, image, coordinates = (0, 0)):
         coordinates = (coordinates[0] - self.camera_x), (coordinates[1] - self.camera_y)
         self.native_screen.blit(image, coordinates)
+
+    def render_ui(self, image, coordinates = (0, 0)):
+        self.native_screen.blit(image, coordinates)
     
     def render_crosshair(self, state):
         if state == 1:
