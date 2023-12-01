@@ -10,17 +10,24 @@ from item.enemylist import *
 enemies2 = []
 enemies3 = []
 enemies4 = []
+enemies5 = []
+enemies6 = []
 
 
 #listname.append(item.enemylist.Bell(500,500))
 
 def spawnEnemies():
     enemies2.append(item.enemylist.Ghost(3,35))
-    enemies2.append(item.enemylist.Ghost(8,35))
-    enemies2.append(item.enemylist.Ghost(13,35))
     enemies3.append(item.enemylist.Bell(68,30))
     enemies4.append(item.enemylist.Fireguy(38,6))
     enemies4.append(item.enemylist.Fireguy(41,6))
+    enemies5.append(item.enemylist.Skelly(3,50))
+    enemies5.append(item.enemylist.Skelly(18,50))
+    enemies5.append(item.enemylist.Bell(10,63))
+    enemies6.append(item.enemylist.Mage(32,57))
+    enemies6.append(item.enemylist.Mage(32,63))
+    enemies6.append(item.enemylist.Mage(40,57))
+    enemies6.append(item.enemylist.Mage(40,63))
 
 spawnEnemies()
 
@@ -73,6 +80,37 @@ def projDraw(enemy_list):
 
 #---------- LEVELS ----------#
 
+# level template:
+'''
+def levelX():
+    global current_room
+    roomX.draw()
+
+    doors.draw(X)
+
+    enemyDraw(enemiesX)
+
+    player.draw()
+
+    torches.draw()
+
+    projDraw(enemiesX)
+
+    doors.transition()
+
+    window.render_crosshair(crosshair_state)
+
+    if doors.transition_counter == 40:
+        current_room = doors.target_room
+'''
+
+
+
+
+
+
+
+
 def level1():
     global current_room
     room1.draw()
@@ -80,7 +118,6 @@ def level1():
     door1U.draw(1)
     door1L.draw(1)
     door1R.draw(1)
-
     door2R.draw(1)
     door3L.draw(1)
     door4D.draw(1)
@@ -96,7 +133,6 @@ def level1():
     door1U.transition()
     door1L.transition()
     door1R.transition()
-
     door4D.transition()
     door2R.transition()
     door3L.transition()
@@ -117,8 +153,9 @@ def level2():
     room2.draw()
 
     door2R.draw(2)
-
+    door2D.draw(2)
     door1L.draw(2)
+    door5U.draw(2)
 
     enemyDraw(enemies2)
 
@@ -130,18 +167,19 @@ def level2():
     torch2_4.draw()
     torch2_5.draw()
 
-    projDraw(enemies3)
+    projDraw(enemies2)
 
     door2R.transition()
-
+    door2D.transition()
     door1L.transition()
+    door5U.transition()
 
     window.render_crosshair(crosshair_state)
 
     if door2R.transition_counter == 40:
         current_room = door2R.target_room
-
-
+    elif door2D.transition_counter == 40:
+        current_room = door2D.target_room
 
 def level3():
     global current_room
@@ -160,7 +198,6 @@ def level3():
     projDraw(enemies3)
 
     door3L.transition()
-
     door1R.transition()
 
     window.render_crosshair(crosshair_state)
@@ -174,7 +211,6 @@ def level4():
     room4.draw()
     
     door4D.draw(4)
-
     door1U.draw(4)
 
     enemyDraw(enemies4)
@@ -186,13 +222,90 @@ def level4():
     projDraw(enemies4)
 
     door4D.transition()
-
     door1U.transition()
 
     window.render_crosshair(crosshair_state)
 
     if door4D.transition_counter == 40:
         current_room = door4D.target_room
+
+
+def level5():
+    global current_room
+    room5.draw()
+
+    door5U.draw(5)
+    door5R.draw(5)
+    door2D.draw(5)
+    door6L.draw(5)
+
+    enemyDraw(enemies5)
+
+    player.draw()
+
+    torch5_1.draw()
+    torch5_2.draw()
+
+    projDraw(enemies5)
+
+    door5U.transition()
+    door5R.transition()
+    door2D.transition()
+    door6L.transition()
+
+    window.render_crosshair(crosshair_state)
+
+    if door5U.transition_counter == 40:
+        current_room = door5U.target_room
+    elif door5R.transition_counter == 40:
+        current_room = door5R.target_room
+
+
+def level6():
+    global current_room
+    room6.draw()
+
+    door6L.draw(6)
+    door5R.draw(6)
+
+    enemyDraw(enemies6)
+
+    player.draw()
+
+    torch6_1.draw()
+    torch6_2.draw()
+    torch6_3.draw()
+    torch6_4.draw()
+
+    projDraw(enemies6)
+
+    door6L.transition()
+    door5R.transition()
+
+    window.render_crosshair(crosshair_state)
+
+    if door6L.transition_counter == 40:
+        current_room = door6L.target_room
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def draw_gui():
     top_bar = pygame.Surface((320, 32))
@@ -220,6 +333,19 @@ def draw_gui():
     top_bar.blit(beat_bar, (32, 8))
 
     window.render_ui(top_bar, (0, 0))
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -284,6 +410,7 @@ while True:
             shoot_sfx.play()
         else:
             window.screenshake(20,8)
+            whiff_sfx.play()
             crosshair_timer = 60
 
     last_keys = current_keys
@@ -309,6 +436,12 @@ while True:
 
     elif current_room.id == 4:
         level4()
+
+    elif current_room.id == 5:
+        level5()
+
+    elif current_room.id == 6:
+        level6()
 
     draw_gui()
 

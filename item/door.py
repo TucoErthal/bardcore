@@ -10,29 +10,39 @@ from item.init_assets import *
 # 1 = UP, 2 = LEFT, 3 = RIGHT, 4 = DOWN
 
 class Door():
-    def __init__(self, x, y, direction, img1, img2, current_id, target_room):
+    def __init__(self, x, y, direction, current_id, target_room):
         self.x = x * 16
         self.y = y * 16
 
         if direction == 1:
             self.destination_x = 0
             self.destination_y = -16*12
+            self.img1 = door_sprite
+            self.img2 = door_open_sprite
+
         elif direction == 2:
             self.destination_x = -16*9
             self.destination_y = 0
+            self.img1 = door_left_sprite
+            self.img2 = door_left_open_sprite
+            
         elif direction == 3:
             self.destination_x = 16*9
             self.destination_y = 0
+            self.img1 = door_right_sprite
+            self.img2 = door_right_open_sprite
+
         else:
             self.destination_x = 0
             self.destination_y = 16*12
+            self.img1 = door_down_sprite
+            self.img2 = door_down_open_sprite
+
 
 
 
         self.width = 32
         self.height = 32
-        self.img1 = img1
-        self.img2 = img2
         self.current_img = self.img1
         self.timer = 0
         self.door_delay = False
