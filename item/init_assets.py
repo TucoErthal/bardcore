@@ -23,39 +23,25 @@ player_sprite_left = pygame.image.load("assets/textures/player_left_A.png").conv
 player_sprite_right = pygame.image.load("assets/textures/player_right_A.png").convert_alpha()
 player_sprite_down = pygame.image.load("assets/textures/player_down_A.png").convert_alpha()
 player_sprite_up = pygame.image.load("assets/textures/player_up_A.png").convert_alpha()
+player_sprite_dmg = pygame.image.load("assets/textures/player_dmg.png").convert_alpha()
 
+player_dmg = pygame.image.load("assets/textures/player_dmg.png").convert_alpha
 
-cat_sprite = pygame.image.load("assets/textures/cat.png").convert_alpha()
-cat_dmg_sprite = pygame.image.load("assets/textures/catsad.png").convert_alpha()
-cat_dead_sprite = pygame.image.load("assets/textures/catdead.png").convert_alpha()
-
-goblin_sprite = pygame.image.load("assets/textures/goblin.png").convert_alpha()
-goblin_dmg_sprite = pygame.image.load("assets/textures/goblinsad.png").convert_alpha()
-goblin_dead_sprite = pygame.image.load("assets/textures/goblindead.png").convert_alpha()
-
-shroom_sprite = pygame.image.load("assets/textures/shroom.png").convert_alpha()
-shroom_dmg_sprite = pygame.image.load("assets/textures/shroomdmg.png").convert_alpha()
-shroom_dead_sprite = pygame.image.load("assets/textures/shroom.png").convert_alpha()
 
 bell_sprite = pygame.image.load("assets/textures/bell.png").convert_alpha()
 bell_dmg_sprite = pygame.image.load("assets/textures/belldmg.png").convert_alpha()
-bell_dead_sprite = pygame.image.load("assets/textures/bell.png").convert_alpha()
 
 mage_sprite = pygame.image.load("assets/textures/mage.png").convert_alpha()
 mage_dmg_sprite = pygame.image.load("assets/textures/magedmg.png").convert_alpha()
-mage_dead_sprite = pygame.image.load("assets/textures/mage.png").convert_alpha()
 
 fire_sprite = pygame.image.load("assets/textures/fireguy.png").convert_alpha()
 fire_dmg_sprite = pygame.image.load("assets/textures/fireguydmg.png").convert_alpha()
-fire_dead_sprite = pygame.image.load("assets/textures/fireguy.png").convert_alpha()
 
 ghost_sprite = pygame.image.load("assets/textures/ghost.png").convert_alpha()
 ghost_dmg_sprite = pygame.image.load("assets/textures/ghostdmg.png").convert_alpha()
-ghost_dead_sprite = pygame.image.load("assets/textures/ghost.png").convert_alpha()
 
-sleep_sprite = pygame.image.load("assets/textures/sleepy.png").convert_alpha()
-sleep_dmg_sprite = pygame.image.load("assets/textures/sleepydmg.png").convert_alpha()
-sleep_dead_sprite = pygame.image.load("assets/textures/sleepy.png").convert_alpha()
+skelly_sprite = pygame.image.load("assets/textures/Skelly.png").convert_alpha()
+skelly_dmg_sprite = pygame.image.load("assets/textures/Skellydmg.png").convert_alpha()
 
 
 
@@ -67,8 +53,13 @@ door_sprite = pygame.image.load("assets/textures/door.png").convert_alpha()
 door_open_sprite = pygame.image.load("assets/textures/door_open.png").convert_alpha()
 
 door_left_sprite = pygame.image.load("assets/textures/doorleft.png").convert_alpha()
+door_left_open_sprite = pygame.image.load("assets/textures/doorleftopen.png").convert_alpha()
+
 door_right_sprite = pygame.image.load("assets/textures/doorright.png").convert_alpha()
+door_right_open_sprite = pygame.image.load("assets/textures/doorrightopen.png").convert_alpha()
+
 door_down_sprite = pygame.image.load("assets/textures/doordown.png").convert_alpha()
+door_down_open_sprite = pygame.image.load("assets/textures/doordownopen.png").convert_alpha()
 
 
 # TRANSITION SPRITES

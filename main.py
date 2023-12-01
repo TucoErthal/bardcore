@@ -7,7 +7,23 @@ from item.itemlist import *
 from item.init_assets import *
 from item.enemylist import *
 
-enemies = []
+enemies2 = []
+enemies3 = []
+enemies4 = []
+
+
+#listname.append(item.enemylist.Bell(500,500))
+
+def spawnEnemies():
+    enemies2.append(item.enemylist.Ghost(64,560))
+    enemies2.append(item.enemylist.Ghost(128,560))
+    enemies2.append(item.enemylist.Ghost(192,560))
+    enemies3.append(item.enemylist.Bell(1104,496))
+    enemies4.append(item.enemylist.Fireguy(592,96))
+    enemies4.append(item.enemylist.Fireguy(608,96))
+
+spawnEnemies()
+
 current_room = room1
 projectiles = []
 frame_state = 0
@@ -16,17 +32,18 @@ crosshair_timer = 0
 
 pygame.mouse.set_visible(False)
 
-
 #----- ENEMIES -----#
 
-def enemyDraw():
-    for i in enemies:
-        i.draw()
-        i.follow()
-        if i.dead_time < 0:
-            enemies.remove(i)
+def enemyDraw(enemy_list):
+    for enemy in enemy_list:
+        enemy.draw()
+        enemy.follow()
+        if enemy.dead_time < 0:
+            enemy_list.remove(enemy)
+        if enemy.hp > 0:
+            enemy.update()
 
-def projDraw():
+def projDraw(enemy_list):
     for note in projectiles:
         note.lifetime -= 1
         note.update()
@@ -37,7 +54,7 @@ def projDraw():
         if note.check_wall_collision(current_room):
             note.lifetime = 0
 
-        for i in enemies:
+        for i in enemy_list:
             if note.check_collision(i):
                 dmg_sfx.play()
                 note.lifetime = 0
@@ -68,15 +85,13 @@ def level1():
     door3L.draw(1)
     door4D.draw(1)
 
-    enemyDraw()
-
     player.draw()
 
     torch1_1.draw()
     torch1_2.draw()
     torch1_3.draw()
 
-    projDraw()
+    projDraw(enemies2)
 
     door1U.transition()
     door1L.transition()
@@ -105,7 +120,7 @@ def level2():
 
     door1L.draw(2)
 
-    enemyDraw()
+    enemyDraw(enemies2)
 
     player.draw()
 
@@ -115,7 +130,7 @@ def level2():
     torch2_4.draw()
     torch2_5.draw()
 
-    projDraw()
+    projDraw(enemies3)
 
     door2R.transition()
 
@@ -135,14 +150,14 @@ def level3():
     door3L.draw(3)
     door1R.draw(3)
 
-    enemyDraw()
+    enemyDraw(enemies3)
 
     player.draw()
 
     torch3_1.draw()
     torch3_2.draw()
 
-    projDraw()
+    projDraw(enemies3)
 
     door3L.transition()
 
@@ -162,13 +177,13 @@ def level4():
 
     door1U.draw(4)
 
-    enemyDraw()
+    enemyDraw(enemies4)
 
     player.draw()
 
     torch4_1.draw()
 
-    projDraw()
+    projDraw(enemies4)
 
     door4D.transition()
 
@@ -217,12 +232,7 @@ while True:
     clock.tick(60)
     soundtrack.tick()
 
-    for i in enemies:
-        if i.hp > 0:
-            i.update()
-
-
-        window.crosshair.set_duration(2 * soundtrack.get_delta_beat())
+    window.crosshair.set_duration(2 * soundtrack.get_delta_beat())
 
 
 
@@ -231,9 +241,6 @@ while True:
     current_keys = pygame.key.get_pressed()
     current_mouse = pygame.mouse.get_pressed()
 
-    # DEBUG #
-    if current_keys[pygame.K_f] and not(last_keys[pygame.K_f]):
-        enemies.append(item.enemylist.Bell(500,500))
 
     if current_keys[pygame.K_UP] and not(last_keys[pygame.K_UP]):
         soundtrack.forgiveness += 0.01       

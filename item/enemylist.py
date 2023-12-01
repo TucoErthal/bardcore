@@ -3,46 +3,35 @@ from item.init_assets import *
 
 # (sprite, hurt_sprite, dead_sprite, x, y, speed, HP)
 
-class Goblin(Enemy):
-    def __init__(self, x, y):
-        super().__init__(goblin_sprite, goblin_dmg_sprite, goblin_dead_sprite, x, y, 3, 8)
 
 class Bell(Enemy):
     def __init__(self, x, y):
-        super().__init__(bell_sprite, bell_dmg_sprite, bell_dead_sprite, x, y, 0.8, 50)
+        super().__init__(bell_sprite, bell_dmg_sprite, x, y, 0.2, 50)
+
+    def update(self):
+        if self.collided(player):
+            player.get_hit()
+        else:
+            self.move()
 
 class Mage(Enemy):
     def __init__(self, x, y):
-        self.x = x
-        self.y = y
-        super().__init__(mage_sprite, mage_dmg_sprite, mage_dead_sprite,0, 0, 2, 20)
-
-class Cat(Enemy):
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-        super().__init__(cat_sprite, cat_dmg_sprite, cat_dead_sprite, 0, 0, 1, 20)
-
-class Shroom(Enemy):
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-        super().__init__(shroom_sprite, shroom_dmg_sprite, shroom_dead_sprite,0, 0, 2.4, 12)
+        super().__init__(mage_sprite, mage_dmg_sprite, x, y, 0.5, 20)
 
 class Fireguy(Enemy):
     def __init__(self, x, y):
-        self.x = x
-        self.y = y
-        super().__init__(fire_sprite, fire_dmg_sprite, fire_dead_sprite,0, 0, 3.2, 4)
+        super().__init__(fire_sprite, fire_dmg_sprite, x, y, 1, 4)
 
 class Ghost(Enemy):
     def __init__(self, x, y):
-        self.x = x
-        self.y = y
-        super().__init__(ghost_sprite, ghost_dmg_sprite, ghost_dead_sprite,0, 0, 2, 24)
+        super().__init__(ghost_sprite, ghost_dmg_sprite, x, y, 0.5, 24)
 
-class Sleepy(Enemy):
+    def update(self):
+        if self.collided(player):
+            player.get_hit()
+        else:
+            self.move()
+
+class Skelly(Enemy):
     def __init__(self, x, y):
-        self.x = x
-        self.y = y
-        super().__init__(sleep_sprite, sleep_dmg_sprite, sleep_dead_sprite,0, 0, 0.4, 16)
+        super().__init__(skelly_sprite, skelly_dmg_sprite, x, y, 0.4, 16)

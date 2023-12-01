@@ -9,7 +9,7 @@ class Entity(item.obj.GameObject):
         super().__init__(x, y, w, h)
 
         self.immuneTimer = Timer()
-        self.immuneTimer.max_time = 5
+        self.immuneTimer.set_max_time(1)
 
         self.hurt = 0
         self.hp = 0
@@ -19,10 +19,9 @@ class Entity(item.obj.GameObject):
 
     def get_hit(self): # Mudar nome
         if self.immuneTimer.ringing():
-            self.hurt = 5
-            self.hp -= 1
-        print("aaaaaaah osso doi :(")
-        print(self.hp)
+            self.hurt = 30
+            self.set_hp(self.hp - 1)
+            self.immuneTimer.restart()
 
 class Player(Entity):
     def __init__(self, x = 0, y = 0, w = 0, h = 0):
@@ -31,13 +30,17 @@ class Player(Entity):
         self.x_velocity = 0
         self.y_velocity = 0
         self.dashing = False
+        self.isDead = False
 
         self.player_sprite_left = item.init_assets.player_sprite_left
         self.player_sprite_right = item.init_assets.player_sprite_right
         self.player_sprite_down = item.init_assets.player_sprite_down
         self.player_sprite_up = item.init_assets.player_sprite_up
+        self.player_sprite_dead = item.init_assets.player_sprite_dmg # coloca o sprite certo aqui
+        self.dmg_sprite = item.init_assets.player_sprite_dmg # coloca o sprite certo aqui
 
         self.curr_sprite = self.player_sprite_down
+        self.lest_sprite = self.curr_sprite
         self.can_control = True
 
         self.w = self.curr_sprite.get_rect().width
@@ -66,6 +69,16 @@ class Player(Entity):
         self.x_velocity, self.y_velocity = 0, 0
 
 
+    def set_hp(self, val):
+        if self.hp <= 0:
+            self.die()
+        self.hp = val
+
+    def die(self):
+        self.isDead = True
+        self.can_control = False
+        self.curr_sprite = self.player_sprite_dead
+
     def draw(self):
         sin = (window.camera_y + window.mouse_y - item.entity.player.y)
         cos = (window.camera_x + window.mouse_x - item.entity.player.x)
@@ -75,6 +88,9 @@ class Player(Entity):
         else:
             self.curr_sprite = player_sprite_right if cos >= 0 else player_sprite_left
 
+        if self.hurt > 0:
+            self.curr_sprite = self.dmg_sprite
+            self.hurt -= 1
 
         super().draw(self.curr_sprite)
 
@@ -88,14 +104,13 @@ player = Player(624, 496, 16, 16)
 # When initializing enemies, go to their specific room!
 
 class Enemy(Entity):
-        def __init__(self, sprite, dmg_sprite, dead_sprite, x, y, speed, hp):
+        def __init__(self, sprite, dmg_sprite, x, y, speed, hp):
             super().__init__()
             self.x = x
             self.y = y
 
             self.sprite = sprite
             self.dmg_sprite = dmg_sprite
-            self.dead_sprite = dead_sprite
 
             self.w = self.sprite.get_rect().width
             self.h = self.sprite.get_rect().height

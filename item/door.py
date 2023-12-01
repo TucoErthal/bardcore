@@ -7,13 +7,28 @@ from item.init_assets import *
 # door_name.draw()                 -> draw door on map (must be under player)
 # door_name.transition()           -> transition animation (must be over everything)
 
+# 1 = UP, 2 = LEFT, 3 = RIGHT, 4 = DOWN
 
 class Door():
-    def __init__(self, x, y, destination_x, destination_y, img1, img2, current_id, target_room):
+    def __init__(self, x, y, direction, img1, img2, current_id, target_room):
         self.x = x * 16
         self.y = y * 16
-        self.destination_x = destination_x * 16
-        self.destination_y = destination_y * 16
+
+        if direction == 1:
+            self.destination_x = 0
+            self.destination_y = -16*12
+        elif direction == 2:
+            self.destination_x = -16*9
+            self.destination_y = 0
+        elif direction == 3:
+            self.destination_x = 16*9
+            self.destination_y = 0
+        else:
+            self.destination_x = 0
+            self.destination_y = 16*12
+
+
+
         self.width = 32
         self.height = 32
         self.img1 = img1
@@ -28,9 +43,9 @@ class Door():
 
     def draw(self, room_id):
         if room_id == self.current_id:
-            window.render(self.current_img, (self.x,self.y))
+            window.render(self.current_img, (self.x, self.y))
 
-        if item.entity.player.x+8 > self.x and item.entity.player.x+8 < self.x + self.width:
+        if item.entity.player.x+16 > self.x and item.entity.player.x+16 < self.x + self.width:
             if item.entity.player.y+8 > self.y and item.entity.player.y+8 < self.y + self.height:
                 item.entity.player.can_control = False
                 self.transition_frame = transparent
@@ -42,8 +57,8 @@ class Door():
                     self.transition_counter = 120
 
                 if self.transition_counter < 60:
-                    item.entity.player.x = self.destination_x
-                    item.entity.player.y = self.destination_y
+                    item.entity.player.x += self.destination_x
+                    item.entity.player.y += self.destination_y
                     self.current_img = self.img1
         else:
             self.warp = False
@@ -76,4 +91,4 @@ class Door():
 
     def transition(self):
         if self.door_delay == True:
-            window.render(self.transition_frame,(item.entity.player.x-330, item.entity.player.y-250))
+            window.render(self.transition_frame,(item.entity.player.x-660, item.entity.player.y-500))
