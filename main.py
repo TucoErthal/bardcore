@@ -259,12 +259,7 @@ while True:
 
     if current_keys[pygame.K_SPACE] and not(last_keys[pygame.K_SPACE]):
         if soundtrack.is_on_beat():
-            sin = (window.camera_y + window.mouse_y - item.entity.player.y)
-            cos = (window.camera_x + window.mouse_x - item.entity.player.x)
-            angle = math.atan2(sin, cos)
-
-            player.x += math.cos(angle) * 32
-            player.y += math.sin(angle) * 32
+            player.dash_timer = 8
             dash_sfx.play()
         else:
             window.screenshake(20,8)

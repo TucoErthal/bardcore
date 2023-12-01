@@ -34,7 +34,7 @@ class Player(Entity):
         self.hp = 10
         self.x_velocity = 0
         self.y_velocity = 0
-        self.dashing = False
+        self.dash_timer = 0
         self.isDead = False
 
         self.player_sprite_left = item.init_assets.player_sprite_left
@@ -53,25 +53,32 @@ class Player(Entity):
 
     def input(self, current_keys):
         if self.can_control:
-            if current_keys[pygame.K_s] and not(self.dashing):
+            if current_keys[pygame.K_s]:
                 self.y_velocity += 1
                 #self.curr_sprite = self.player_sprite_down
             
-            if current_keys[pygame.K_w] and not(self.dashing):
+            if current_keys[pygame.K_w]:
                 self.y_velocity -= 1
                 #self.curr_sprite = self.player_sprite_up
                 
-            if current_keys[pygame.K_d] and not(self.dashing):
+            if current_keys[pygame.K_d]:
                 self.x_velocity += 1
                 #self.curr_sprite = self.player_sprite_right
             
-            if current_keys[pygame.K_a] and not(self.dashing):
+            if current_keys[pygame.K_a]:
                 self.x_velocity -= 1
                 #self.curr_sprite = self.player_sprite_left
+
+        if self.dash_timer > 0:
+            self.x_velocity *= (2 *self.dash_timer)
+            self.y_velocity *= (2 * self.dash_timer)
+        self.dash_timer -= 1
 
         self.x += self.x_velocity
         self.y += self.y_velocity
         self.x_velocity, self.y_velocity = 0, 0
+
+        self.dash_timer
 
 
     def set_hp(self, val):
