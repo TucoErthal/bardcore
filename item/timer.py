@@ -9,14 +9,16 @@ class timer_state(Enum):
 
 
 class Timer:
-    def __init__(self):
+    def __init__(self, max_time = -1):
         self.start_time = time.time() # The falue of the bigining
         self.last_time = time.time() # The current time
         
-        self.max_time = -1
+        self.max_time = max_time
 
         self.time_lapsed = 0 # start - last time
         self.state = timer_state.RUNNING 
+
+        self.start()
     
     def start(self):
         if self.state != timer_state.STOPED:

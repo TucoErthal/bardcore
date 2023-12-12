@@ -3,6 +3,8 @@ import item.door
 import item.torch
 from item.init_assets import *
 
+from item.traps import *
+
 # REMEMBER!!! When defining assets in a room, such as torches or doors,
 # first identify where in the (x, y) plane they will go, then sum by the
 # room's (x, y) values!
@@ -99,3 +101,14 @@ torch6_1 = item.torch.Torch(26,51)
 torch6_2 = item.torch.Torch(31,51)
 torch6_3 = item.torch.Torch(45,51)
 torch6_4 = item.torch.Torch(50,51)
+
+
+#---- SPIKE TRAPS ----#
+# NAME: spkTrap_roomID_TrapID
+
+spkTrap1_1 = item.traps.spikeTrap(40,30)
+
+wallTrapL = item.traps.WallTrap(34, 39, 'l')
+wallTrapD = item.traps.WallTrap(36, 42, 'd')
+wallTrapU = item.traps.WallTrap(36, 35, 'u')
+wallTrapR = item.traps.WallTrap(40, 39, 'r')

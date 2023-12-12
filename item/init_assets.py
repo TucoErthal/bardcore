@@ -70,6 +70,17 @@ trans3 = pygame.image.load("assets/textures/gui/trans3.png")
 trans4 = pygame.image.load("assets/textures/gui/trans4.png")
 transparent = pygame.image.load("assets/textures/gui/transparent.png")
 
+# TRAPS
+ 
+spike_trap_0 = pygame.image.load("assets/textures/spike_trap_0.png")
+spike_trap_1 = pygame.image.load("assets/textures/spike_trap_1.png")
+
+templeTrap_U = pygame.image.load("assets/textures/templeTrap_U.png")
+templeTrap_D = pygame.image.load("assets/textures/templeTrap_D.png")
+templeTrap_L = pygame.image.load("assets/textures/templeTrap_L.png")
+templeTrap_R = pygame.image.load("assets/textures/templeTrap_R.png")
+
+enemyBall = pygame.image.load("assets/textures/enemy_ball.png")
 
 
 # TORCH SPRITES

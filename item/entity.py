@@ -54,19 +54,15 @@ class Player(Entity):
         if self.can_control:
             if current_keys[pygame.K_s]:
                 self.y_velocity += 1
-                #self.curr_sprite = self.player_sprite_down
             
             if current_keys[pygame.K_w]:
                 self.y_velocity -= 1
-                #self.curr_sprite = self.player_sprite_up
                 
             if current_keys[pygame.K_d]:
                 self.x_velocity += 1
-                #self.curr_sprite = self.player_sprite_right
             
             if current_keys[pygame.K_a]:
                 self.x_velocity -= 1
-                #self.curr_sprite = self.player_sprite_left
 
         if self.dash_timer > 0:
             self.x_velocity *= (2 *self.dash_timer)

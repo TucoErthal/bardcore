@@ -1,4 +1,4 @@
-import projectile
+from item.projectile import *
 import sys
 import math
 import item.enemylist
@@ -123,11 +123,19 @@ def level1():
     door3L.draw(1)
     door4D.draw(1)
 
+    spkTrap1_1.draw()
+
+    wallTrapL.draw(room1)
+    wallTrapD.draw(room1)
+    wallTrapU.draw(room1)
+    wallTrapR.draw(room1)
+
     player.draw()
 
     torch1_1.draw()
     torch1_2.draw()
     torch1_3.draw()
+
 
     projDraw(enemies2)
 
@@ -407,7 +415,7 @@ while True:
             cos = (window.camera_x + window.mouse_x - item.entity.player.x)
             angle = math.atan2(sin, cos)
 
-            projectiles.append(projectile.Projectile(item.entity.player.x, item.entity.player.y, 8, 8, 3, angle, 200))
+            projectiles.append(Projectile(item.entity.player.x, item.entity.player.y, 8, 8, 3, angle, 200))
             shoot_sfx.play()
         else:
             window.screenshake(20,8)
