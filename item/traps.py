@@ -24,12 +24,16 @@ LEFT = 'l'
 #update dentro de draw para consistencia com o resto do codigo
 class WallTrap(GameObject):
     def __init__(self, x, y, dire = RIGHT):
+        super().__init__()
+        
         self.x = x*16
         self.y = y*16
 
         self.direction = dire
 
         self.tiros = []
+
+
 
         self.tiroCadence = Timer(0.2)
 
@@ -94,6 +98,8 @@ class WallTrap(GameObject):
 
 class spikeTrap(GameObject):
     def __init__(self, x, y):
+        super().__init__()
+
         self.img_0 = item.init_assets.spike_trap_0
         self.img_1 = item.init_assets.spike_trap_1
 

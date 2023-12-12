@@ -5,8 +5,13 @@ class GameObject():
         self.w = w
         self.h = h
 
+        self.collidable = True
+
 
     def collided(self, obj):
         from . import collision
         
-        return collision.Collision.collided(self, obj)
+        if self.collidable:
+            return collision.Collision.collided(self, obj)
+        
+        return False

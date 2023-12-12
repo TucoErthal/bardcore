@@ -146,6 +146,8 @@ def level1():
     door2R.transition()
     door3L.transition()
 
+    boss.draw()
+    
     window.render_crosshair(crosshair_state)
     
     if door1U.transition_counter == 40:

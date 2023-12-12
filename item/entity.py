@@ -108,8 +108,6 @@ class Player(Entity):
 
         super().draw(self.curr_sprite)
 
-
-
 player = Player(624, 496, 16, 16)
 
 
@@ -118,6 +116,7 @@ player = Player(624, 496, 16, 16)
 # When initializing enemies, go to their specific room!
 
 class Enemy(Entity):
+
         def __init__(self, sprite, dmg_sprite, x, y, speed, hp):
             super().__init__()
             self.x = x * 16
@@ -137,6 +136,7 @@ class Enemy(Entity):
 
             self.dead_time = 120
 
+        # Go to where the player is but stops at a distance
         def follow(self):
             self.sin = (player.y - self.y)
             self.cos = (player.x - self.x)
@@ -146,6 +146,7 @@ class Enemy(Entity):
             if distance > self.follow_distance:
                 self.move()
         
+        # Move in the direction of self.angle
         def move(self):
             self.x += self.speed * math.cos(self.angle)
             self.y += self.speed * math.sin(self.angle)
@@ -182,3 +183,5 @@ class Enemy(Entity):
                     window.render(explosion_sprite_3, (self.x,self.y))
                 else:
                     window.render(explosion_sprite_4, (self.x,self.y))
+
+

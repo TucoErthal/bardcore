@@ -4,6 +4,7 @@ import item.torch
 from item.init_assets import *
 
 from item.traps import *
+from item.boss import *
 
 # REMEMBER!!! When defining assets in a room, such as torches or doors,
 # first identify where in the (x, y) plane they will go, then sum by the
@@ -112,3 +113,5 @@ wallTrapL = item.traps.WallTrap(34, 39, 'l')
 wallTrapD = item.traps.WallTrap(36, 42, 'd')
 wallTrapU = item.traps.WallTrap(36, 35, 'u')
 wallTrapR = item.traps.WallTrap(40, 39, 'r')
+
+boss = item.boss.Boss(40, 39)
