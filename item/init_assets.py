@@ -1,12 +1,13 @@
 import pygame
 import music
 import graphics
+import input
 
 
 # INIT
 window = graphics.Graphics()
 clock = pygame.time.Clock()
-
+input_manager = input.InputManager(window)
 
 # ENTITY SPRITES
 projectile_sprite = pygame.image.load("assets/textures/projectile.png").convert_alpha()
@@ -23,6 +24,10 @@ player_sprite_left = pygame.image.load("assets/textures/player_left_A.png").conv
 player_sprite_right = pygame.image.load("assets/textures/player_right_A.png").convert_alpha()
 player_sprite_down = pygame.image.load("assets/textures/player_down_A.png").convert_alpha()
 player_sprite_up = pygame.image.load("assets/textures/player_up_A.png").convert_alpha()
+player_sprite_left_dash = pygame.image.load("assets/textures/player_left_dash.png").convert_alpha()
+player_sprite_right_dash = pygame.image.load("assets/textures/player_right_dash.png").convert_alpha()
+player_sprite_down_dash = pygame.image.load("assets/textures/player_down_dash.png").convert_alpha()
+player_sprite_up_dash = pygame.image.load("assets/textures/player_up_dash.png").convert_alpha()
 player_sprite_dmg = pygame.image.load("assets/textures/player_dmg.png").convert_alpha()
 
 player_dmg = pygame.image.load("assets/textures/player_dmg.png").convert_alpha
