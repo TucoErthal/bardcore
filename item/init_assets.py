@@ -80,6 +80,28 @@ templeTrap_D = pygame.image.load("assets/textures/templeTrap_D.png")
 templeTrap_L = pygame.image.load("assets/textures/templeTrap_L.png")
 templeTrap_R = pygame.image.load("assets/textures/templeTrap_R.png")
 
+fireball_U = pygame.image.load("assets/textures/fireballup.png")
+fireball_D = pygame.image.load("assets/textures/fireballdown.png")
+fireball_L = pygame.image.load("assets/textures/fireballleft.png")
+fireball_R = pygame.image.load("assets/textures/fireballright.png")
+
+convR1 = pygame.image.load("assets/textures/convR1.png")
+convR2 = pygame.image.load("assets/textures/convR2.png")
+convR3 = pygame.image.load("assets/textures/convR3.png")
+
+convL1 = pygame.image.load("assets/textures/convL1.png")
+convL2 = pygame.image.load("assets/textures/convL2.png")
+convL3 = pygame.image.load("assets/textures/convL3.png")
+
+convU1 = pygame.image.load("assets/textures/convU1.png")
+convU2 = pygame.image.load("assets/textures/convU2.png")
+convU3 = pygame.image.load("assets/textures/convU3.png")
+
+convD1 = pygame.image.load("assets/textures/convD1.png")
+convD2 = pygame.image.load("assets/textures/convD2.png")
+convD3 = pygame.image.load("assets/textures/convD3.png")
+
+
 enemyBall = pygame.image.load("assets/textures/enemy_ball.png")
 
 

@@ -53,6 +53,8 @@ room6  = item.room.Room(room6_sprite, 23, 49, 6)
 # NAME: doorIDdirection
 # U: UP, L: LEFT, R: RIGHT, D: DOWN
 # params: (x, y, direction, ID, target room)
+# 1 = UP, 2 = LEFT, 3 = RIGHT, 4 = DOWN
+
 
 door1U = item.door.Door(39, 26, 1, 1, room4)
 door1L = item.door.Door(34, 35, 2, 1, room2)
@@ -76,7 +78,7 @@ door5R = item.door.Door(18, 59, 3, 5, room6)
 door6L = item.door.Door(25, 59, 2, 6, room5)
 
 #---- TORCHES ----#
-# NAME: torch_roomID_torchID
+# NAME: torchroomID_torchID
 
 
 torch1_1 = item.torch.Torch(35,24)
@@ -112,3 +114,23 @@ wallTrapL = item.traps.WallTrap(34, 39, 'l')
 wallTrapD = item.traps.WallTrap(36, 42, 'd')
 wallTrapU = item.traps.WallTrap(36, 35, 'u')
 wallTrapR = item.traps.WallTrap(40, 39, 'r')
+
+
+#---- CONVEYOR BELTS ----#
+# NAME: c + direction + roomID
+
+cD1 = conveyorBelt(42, 33, 4)
+cD2 = conveyorBelt(42, 34, 4)
+cD3 = conveyorBelt(42, 35, 4)
+
+cR1 = conveyorBelt(42, 37, 3)
+cR2 = conveyorBelt(43, 37, 3)
+cR3 = conveyorBelt(44, 37, 3)
+
+cL1 = conveyorBelt(47, 37, 2)
+cL2 = conveyorBelt(48, 37, 2)
+cL3 = conveyorBelt(49, 37, 2)
+
+cU1 = conveyorBelt(40, 37, 1)
+cU2 = conveyorBelt(40, 38, 1)
+cU3 = conveyorBelt(40, 39, 1)
