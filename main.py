@@ -124,6 +124,19 @@ def level1():
     door3L.draw(1)
     door4D.draw(1)
 
+    cD1.draw()
+    cD2.draw()
+    cD3.draw()
+    cR1.draw()
+    cR2.draw()
+    cR3.draw()
+    cU1.draw()
+    cU2.draw()
+    cU3.draw()
+    cL1.draw()
+    cL2.draw()
+    cL3.draw()
+
     spkTrap1_1.draw()
 
     wallTrapL.draw(room1)

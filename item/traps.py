@@ -14,6 +14,7 @@ UP = 'u'
 RIGHT = 'r'
 DOWN = 'd'
 LEFT = 'l'
+player = item.entity.player
 
 
 
@@ -75,10 +76,7 @@ class WallTrap(GameObject):
             if t.lifetime <= 0:
                 self.tiros.remove(t)
 
-    def fire(self):
-        angel = 0
-        
-
+    def fire(self):        
         if self.direction == UP:
             angle = 1.5708 # 90°
         elif self.direction == LEFT:
@@ -88,8 +86,17 @@ class WallTrap(GameObject):
         elif self.direction == RIGHT:
             angle = 3.14159 # 180°
 
-        tiro = Projectile(self.tiro_spawn[0], self.tiro_spawn[1], 8, 8, 3, angle, 200)
-        tiro.curr_sprite = enemyBall
+        tiro = Projectile(self.tiro_spawn[0]-2, self.tiro_spawn[1]-2, 12, 12, 3, angle, 200)
+
+        if self.direction == UP:
+            tiro.curr_sprite = fireball_D
+        elif self.direction == LEFT:
+            tiro.curr_sprite = fireball_R
+        elif self.direction == DOWN:
+            tiro.curr_sprite = fireball_U
+        elif self.direction == RIGHT:
+            tiro.curr_sprite = fireball_L
+
         self.tiros.append(tiro)
 
 class spikeTrap(GameObject):
@@ -112,8 +119,6 @@ class spikeTrap(GameObject):
         self.update()
 
     def update(self):
-        player = item.entity.player
-
         if self.animationTimer.ringing():
             if self.curr_sprite != self.img_0:
                 self.curr_sprite = self.img_0
@@ -124,3 +129,54 @@ class spikeTrap(GameObject):
                 self.animationTimer.restart()
             
 
+# 1 = UP, 2 = LEFT, 3 = RIGHT, 4 = DOWN
+class conveyorBelt():
+    def __init__(self, x, y, direction):
+        self.direction = direction
+        self.x = x*16
+        self.y = y*16
+        self.timer = 0
+        self.currentsprite = convU1
+
+        if self.direction == 1:
+            self.frame1 = convU1
+            self.frame2 = convU2
+            self.frame3 = convU3
+        elif self.direction == 2:
+            self.frame1 = convL1
+            self.frame2 = convL2
+            self.frame3 = convL3
+        elif self.direction == 3:
+            self.frame1 = convR1
+            self.frame2 = convR2
+            self.frame3 = convR3
+        elif self.direction == 4:
+            self.frame1 = convD1
+            self.frame2 = convD2
+            self.frame3 = convD3
+
+    def draw(self):
+        window.render(self.currentsprite, (self.x, self.y))
+        self.update()
+
+    def update(self):
+        self.timer += 1
+
+        if self.timer == 30:
+            self.timer = 0
+        elif self.timer < 10:
+            self.currentsprite = self.frame1
+        elif self.timer < 20:
+            self.currentsprite = self.frame2
+        elif self.timer < 30:
+            self.currentsprite = self.frame3
+
+        if (player.x+8 > self.x and player.x+8 < self.x+17) and (player.y+12 > self.y and player.y+12 < self.y+17):
+            if self.direction == 1:
+                player.y -= 1/2
+            elif self.direction == 2:
+                player.x -= 1/2
+            elif self.direction == 3:
+                player.x += 1/2
+            elif self.direction == 4:
+                player.y += 1/2
