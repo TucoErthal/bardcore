@@ -6,14 +6,15 @@ from item.entity import *
 from item.itemlist import *
 from item.init_assets import *
 from item.enemylist import *
+from gui import *
 
+test_button = Button(16, 64, 129, 16, "FODA", lambda: print("foda"))
 
 enemies2 = []
 enemies3 = []
 enemies4 = []
 enemies5 = []
 enemies6 = []
-
 
 #listname.append(item.enemylist.Bell(500,500))
 
@@ -123,6 +124,19 @@ def level1():
     door3L.draw(1)
     door4D.draw(1)
 
+    cD1.draw()
+    cD2.draw()
+    cD3.draw()
+    cR1.draw()
+    cR2.draw()
+    cR3.draw()
+    cU1.draw()
+    cU2.draw()
+    cU3.draw()
+    cL1.draw()
+    cL2.draw()
+    cL3.draw()
+
     spkTrap1_1.draw()
 
     wallTrapL.draw(room1)
@@ -136,6 +150,7 @@ def level1():
     torch1_2.draw()
     torch1_3.draw()
 
+    boss.draw()
 
     projDraw(enemies2)
 
@@ -146,10 +161,8 @@ def level1():
     door2R.transition()
     door3L.transition()
 
-    boss.draw()
     
-    window.render_crosshair(crosshair_state)
-    
+
     if door1U.transition_counter == 40:
         current_room = door1U.target_room
     elif door1L.transition_counter == 40:
@@ -185,7 +198,6 @@ def level2():
     door1L.transition()
     door5U.transition()
 
-    window.render_crosshair(crosshair_state)
 
     if door2R.transition_counter == 40:
         current_room = door2R.target_room
@@ -211,7 +223,6 @@ def level3():
     door3L.transition()
     door1R.transition()
 
-    window.render_crosshair(crosshair_state)
 
     if door3L.transition_counter == 40:
         current_room = door3L.target_room
@@ -235,7 +246,6 @@ def level4():
     door4D.transition()
     door1U.transition()
 
-    window.render_crosshair(crosshair_state)
 
     if door4D.transition_counter == 40:
         current_room = door4D.target_room
@@ -264,7 +274,7 @@ def level5():
     door2D.transition()
     door6L.transition()
 
-    window.render_crosshair(crosshair_state)
+    
 
     if door5U.transition_counter == 40:
         current_room = door5U.target_room
@@ -293,7 +303,6 @@ def level6():
     door6L.transition()
     door5R.transition()
 
-    window.render_crosshair(crosshair_state)
 
     if door6L.transition_counter == 40:
         current_room = door6L.target_room
@@ -345,6 +354,10 @@ def draw_gui():
 
     window.render_ui(top_bar, (0, 0))
 
+    test_button.update()
+
+    window.render_crosshair(crosshair_state)
+
 
 
 
@@ -369,9 +382,8 @@ while True:
     clock.tick(60)
     soundtrack.tick()
 
-
-
     # INPUT
+    input_manager.update()
     events = pygame.event.get()
     current_keys = pygame.key.get_pressed()
     current_mouse = pygame.mouse.get_pressed()
