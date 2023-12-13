@@ -9,20 +9,20 @@ from item.boss import *
 #----- ROOMS -----#
 # NAME: room_roomID
 
-room3  = item.room.Room(room3_sprite, 59, 132,  3)
-room4  = item.room.Room(room3_sprite, 59, 132,  4)
-room5  = item.room.Room(room3_sprite, 59, 132,  5)
-room6  = item.room.Room(room3_sprite, 59, 132,  6)
-room7  = item.room.Room(room3_sprite, 59, 132,  7)
-room8  = item.room.Room(room3_sprite, 59, 132,  8)
-room9  = item.room.Room(room3_sprite, 59, 132,  9)
-room10 = item.room.Room(room3_sprite, 59, 132, 10)
-room11 = item.room.Room(room3_sprite, 59, 132, 11)
-room12 = item.room.Room(room3_sprite, 59, 132, 12)
-room13 = item.room.Room(room3_sprite, 59, 132, 13)
-room14 = item.room.Room(room3_sprite, 59, 132, 14)
-room15 = item.room.Room(room3_sprite, 59, 132, 15)
-room16 = item.room.Room(room3_sprite, 59, 132, 16)
+room3  = item.room.Room(room3_sprite,  59,  132,   3)
+room4  = item.room.Room(room4_sprite,  50,  110,   4)
+room5  = item.room.Room(room5_sprite,  28,  110,   5)
+room6  = item.room.Room(room6_sprite,  22,   92,   6)
+room7  = item.room.Room(room7_sprite,   0,   87,   7)
+room8  = item.room.Room(room8_sprite,   0,   46,   8)
+room9  = item.room.Room(room9_sprite,   86, 112,   9)
+room10 = item.room.Room(room10_sprite, 130, 108,  10)
+room11 = item.room.Room(room11_sprite, 124,  86,  11)
+room12 = item.room.Room(room12_sprite, 132,  61,  12)
+room13 = item.room.Room(room13_sprite,  56,  90,  13)
+room14 = item.room.Room(room14_sprite,  52,  46,  14)
+room15 = item.room.Room(room15_sprite,  54,  18,  15)
+room16 = item.room.Room(room16_sprite,  59,   0,  16)
 
 
 
@@ -33,18 +33,18 @@ room16 = item.room.Room(room3_sprite, 59, 132, 16)
 
 door3U  = item.door.Door( 67, 136, 1,  3,  room4)
 
-door4U  = item.door.Door( 66, 115, 1,  4, room13)
+door4U  = item.door.Door( 66, 114, 1,  4, room13)
 door4L  = item.door.Door( 52, 120, 2,  4,  room5)
 door4R  = item.door.Door( 81, 120, 3,  4,  room9)
 door4D  = item.door.Door( 67, 127, 4,  4,  room3)
 
-door5U  = item.door.Door( 37, 115, 1,  5,  room6)
+door5U  = item.door.Door( 37, 114, 1,  5,  room6)
 door5R  = item.door.Door( 45, 120, 3,  5,  room4)
 
 door6L  = item.door.Door( 24, 103, 2,  6,  room7)
 door6D  = item.door.Door( 37, 105, 4,  6,  room5)
 
-door7U  = item.door.Door(  9,  92, 1,  7,  room8)
+door7U  = item.door.Door(  9,  91, 1,  7,  room8)
 door7R  = item.door.Door( 17, 103, 3,  7,  room6)
 
 door8D  = item.door.Door(  9,  82, 4,  8,  room7)
@@ -52,21 +52,21 @@ door8D  = item.door.Door(  9,  82, 4,  8,  room7)
 door9L  = item.door.Door( 88, 120, 2,  9,  room4)
 door9R  = item.door.Door(125, 122, 3,  9, room10)
 
-door10U = item.door.Door(138, 113, 1, 10, room11)
+door10U = item.door.Door(138, 112, 1, 10, room11)
 door10L = item.door.Door(132, 122, 2, 10,  room9)
 
-door11U = item.door.Door(138,  91, 1, 11, room12)
+door11U = item.door.Door(138,  90, 1, 11, room12)
 door11D = item.door.Door(138, 103, 4, 11, room10)
 
 door12D = item.door.Door(138,  81, 4, 12, room11)
 
-door13U = item.door.Door( 66,  95, 1, 13, room14)
+door13U = item.door.Door( 66,  94, 1, 13, room14)
 door13D = item.door.Door( 66, 105, 4, 13,  room4)
 
-door14U = item.door.Door( 66,  51, 1, 14, room15)
+door14U = item.door.Door( 66,  50, 1, 14, room15)
 door14D = item.door.Door( 66,  85, 4, 14, room13)
 
-door15U = item.door.Door( 66,  23, 1, 15, room16)
+door15U = item.door.Door( 66,  22, 1, 15, room16)
 door15D = item.door.Door( 66,  41, 4, 15, room14)
 
 door16D = item.door.Door( 66,  13, 4, 16, room15)

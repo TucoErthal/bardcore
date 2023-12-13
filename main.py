@@ -658,7 +658,6 @@ while True:
     elif current_room.id == 16:
         level16()
 
-    print(current_room.id)
 
 
     draw_gui()
