@@ -10,30 +10,30 @@ from gui import *
 
 test_button = Button(16, 64, 129, 16, "FODA", lambda: print("foda"))
 
-enemies2 = []
-enemies3 = []
-enemies4 = []
-enemies5 = []
-enemies6 = []
+enemies3  = []
+enemies4  = []
+enemies5  = []
+enemies6  = []
+enemies7  = []
+enemies8  = []
+enemies9  = []
+enemies10 = []
+enemies11 = []
+enemies12 = []
+enemies13 = []
+enemies14 = []
+enemies15 = []
+enemies16 = []
 
 #listname.append(item.enemylist.Bell(500,500))
 
 def spawnEnemies():
-    enemies2.append(item.enemylist.Ghost(3,35))
-    enemies3.append(item.enemylist.Bell(68,30))
-    enemies4.append(item.enemylist.Fireguy(38,6))
-    enemies4.append(item.enemylist.Fireguy(41,6))
-    enemies5.append(item.enemylist.Skelly(3,50))
-    enemies5.append(item.enemylist.Skelly(18,50))
-    enemies5.append(item.enemylist.Bell(10,63))
-    enemies6.append(item.enemylist.Mage(32,57))
-    enemies6.append(item.enemylist.Mage(32,63))
-    enemies6.append(item.enemylist.Mage(40,57))
-    enemies6.append(item.enemylist.Mage(40,63))
+    #enemiesX.append(item.enemylist.Name(x,y))
+    ...
 
 spawnEnemies()
 
-current_room = room1
+current_room = room3 # CHANGE LATER
 projectiles = []
 frame_state = 0
 crosshair_state = 1
@@ -112,142 +112,65 @@ def levelX():
 
 
 
-
-def level1():
-    global current_room
-    room1.draw()
-
-    door1U.draw(1)
-    door1L.draw(1)
-    door1R.draw(1)
-    door2R.draw(1)
-    door3L.draw(1)
-    door4D.draw(1)
-
-    cD1.draw()
-    cD2.draw()
-    cD3.draw()
-    cR1.draw()
-    cR2.draw()
-    cR3.draw()
-    cU1.draw()
-    cU2.draw()
-    cU3.draw()
-    cL1.draw()
-    cL2.draw()
-    cL3.draw()
-
-    spkTrap1_1.draw()
-
-    wallTrapL.draw(room1)
-    wallTrapD.draw(room1)
-    wallTrapU.draw(room1)
-    wallTrapR.draw(room1)
-
-    player.draw()
-
-    torch1_1.draw()
-    torch1_2.draw()
-    torch1_3.draw()
-
-    boss.draw()
-
-    projDraw(enemies2)
-
-    door1U.transition()
-    door1L.transition()
-    door1R.transition()
-    door4D.transition()
-    door2R.transition()
-    door3L.transition()
-
-    
-
-    if door1U.transition_counter == 40:
-        current_room = door1U.target_room
-    elif door1L.transition_counter == 40:
-        current_room = door1L.target_room
-    elif door1R.transition_counter == 40:
-        current_room = door1R.target_room
-
-
-
-def level2():
-    global current_room
-    room2.draw()
-
-    door2R.draw(2)
-    door2D.draw(2)
-    door1L.draw(2)
-    door5U.draw(2)
-
-    enemyDraw(enemies2)
-
-    player.draw()
-
-    torch2_1.draw()
-    torch2_2.draw()
-    torch2_3.draw()
-    torch2_4.draw()
-    torch2_5.draw()
-
-    projDraw(enemies2)
-
-    door2R.transition()
-    door2D.transition()
-    door1L.transition()
-    door5U.transition()
-
-
-    if door2R.transition_counter == 40:
-        current_room = door2R.target_room
-    elif door2D.transition_counter == 40:
-        current_room = door2D.target_room
-
 def level3():
     global current_room
     room3.draw()
 
-    door3L.draw(3)
-    door1R.draw(3)
-
-    enemyDraw(enemies3)
+    door3U.draw(3)
+    door4D.draw(3)
 
     player.draw()
+    enemyDraw(enemies3)
+    projDraw(enemies3)
 
     torch3_1.draw()
     torch3_2.draw()
 
-    projDraw(enemies3)
+    door3U.transition()
+    door4D.transition()
 
-    door3L.transition()
-    door1R.transition()
-
-
-    if door3L.transition_counter == 40:
-        current_room = door3L.target_room
+    if door3U.transition_counter == 40:
+        current_room = door3U.target_room
 
 
 def level4():
     global current_room
     room4.draw()
-    
-    door4D.draw(4)
-    door1U.draw(4)
 
-    enemyDraw(enemies4)
+    door4U.draw(4)
+    door4L.draw(4)
+    door4R.draw(4)
+    door4D.draw(4)
+    door3U.draw(4)
+    door5R.draw(4)
+    door9L.draw(4)
+    door13D.draw(4)
 
     player.draw()
-
-    torch4_1.draw()
-
+    enemyDraw(enemies4)
     projDraw(enemies4)
 
+    torch4_1.draw()
+    torch4_2.draw()
+    torch4_3.draw()
+    torch4_4.draw()
+
+    door4U.transition()
+    door4L.transition()
+    door4R.transition()
     door4D.transition()
-    door1U.transition()
+    door3U.transition()
+    door5R.transition()
+    door9L.transition()
+    door13D.transition()
 
-
-    if door4D.transition_counter == 40:
+    if door4U.transition_counter == 40:
+        current_room = door4U.target_room
+    elif door4L.transition_counter == 40:
+        current_room = door4L.target_room
+    elif door4R.transition_counter == 40:
+        current_room = door4R.target_room
+    elif door4D.transition_counter == 40:
         current_room = door4D.target_room
 
 
@@ -257,24 +180,20 @@ def level5():
 
     door5U.draw(5)
     door5R.draw(5)
-    door2D.draw(5)
-    door6L.draw(5)
-
-    enemyDraw(enemies5)
+    door4L.draw(5)
+    door6D.draw(5)
 
     player.draw()
+    enemyDraw(enemies5)
+    projDraw(enemies5)
 
     torch5_1.draw()
     torch5_2.draw()
 
-    projDraw(enemies5)
-
     door5U.transition()
     door5R.transition()
-    door2D.transition()
-    door6L.transition()
-
-    
+    door4L.transition()
+    door6D.transition()
 
     if door5U.transition_counter == 40:
         current_room = door5U.target_room
@@ -287,25 +206,287 @@ def level6():
     room6.draw()
 
     door6L.draw(6)
-    door5R.draw(6)
-
-    enemyDraw(enemies6)
+    door6D.draw(6)
+    door5U.draw(6)
+    door7R.draw(6)
 
     player.draw()
+    enemyDraw(enemies6)
+    projDraw(enemies6)
 
     torch6_1.draw()
     torch6_2.draw()
     torch6_3.draw()
     torch6_4.draw()
 
-    projDraw(enemies6)
-
     door6L.transition()
-    door5R.transition()
-
+    door6D.transition()
+    door5U.transition()
+    door7R.transition()
 
     if door6L.transition_counter == 40:
         current_room = door6L.target_room
+    elif door6D.transition_counter == 40:
+        current_room = door6D.target_room
+
+
+def level7():
+    global current_room
+    room7.draw()
+
+    door7U.draw(7)
+    door7R.draw(7)
+    door6L.draw(7)
+    door8D.draw(7)
+
+    player.draw()
+    enemyDraw(enemies7)
+    projDraw(enemies7)
+
+    torch7_1.draw()
+    torch7_2.draw()
+
+    door7U.transition()
+    door7R.transition()
+    door6L.transition()
+    door8D.transition()
+
+    if door7U.transition_counter == 40:
+        current_room = door7U.target_room
+    elif door7R.transition_counter == 40:
+        current_room = door7R.target_room
+
+
+def level8():
+    global current_room
+    room8.draw()
+
+    door8D.draw(8)
+    door7U.draw(8)
+
+    player.draw()
+    enemyDraw(enemies8)
+    projDraw(enemies8)
+
+    torch8_1.draw()
+    torch8_2.draw()
+
+    door8D.transition()
+    door7U.transition()
+
+    if door8D.transition_counter == 40:
+        current_room = door8D.target_room
+
+
+def level9():
+    global current_room
+    room9.draw()
+
+    door9L.draw(9)
+    door9R.draw(9)
+    door4R.draw(9)
+    door10L.draw(9)
+
+    player.draw()
+    enemyDraw(enemies9)
+    projDraw(enemies9)
+
+    torch9_1.draw()
+    torch9_2.draw()
+    torch9_3.draw()
+    torch9_4.draw()
+    torch9_5.draw()
+    torch9_6.draw()
+
+    door9L.transition()
+    door9R.transition()
+    door4R.transition()
+    door10L.transition()
+
+    if door9L.transition_counter == 40:
+        current_room = door9L.target_room
+    elif door9R.transition_counter == 40:
+        current_room = door9R.target_room
+
+
+def level10():
+    global current_room
+    room10.draw()
+
+    door10U.draw(10)
+    door10L.draw(10)
+    door9R.draw(10)
+    door11D.draw(10)
+
+    player.draw()
+    enemyDraw(enemies4)
+    projDraw(enemies4)
+
+    torch10_1.draw()
+    torch10_2.draw()
+
+    door10U.transition()
+    door10L.transition()
+    door9R.transition()
+    door11D.transition()
+
+    if door10U.transition_counter == 40:
+        current_room = door10U.target_room
+    elif door10L.transition_counter == 40:
+        current_room = door10L.target_room
+
+
+def level11():
+    global current_room
+    room11.draw()
+
+    door11U.draw(11)
+    door11D.draw(11)
+    door10U.draw(11)
+    door12D.draw(11)
+
+    player.draw()
+    enemyDraw(enemies11)
+    projDraw(enemies11)
+
+    torch11_1.draw()
+    torch11_2.draw()
+    torch11_3.draw()
+    torch11_4.draw()
+
+    door11U.transition()
+    door11D.transition()
+    door10U.transition()
+    door12D.transition()
+
+    if door11U.transition_counter == 40:
+        current_room = door11U.target_room
+    elif door11D.transition_counter == 40:
+        current_room = door11D.target_room
+
+
+def level12():
+    global current_room
+    room12.draw()
+
+    door12D.draw(12)
+    door11U.draw(12)
+
+    player.draw()
+    enemyDraw(enemies12)
+    projDraw(enemies12)
+
+    torch12_1.draw()
+    torch12_2.draw()
+
+    door12D.transition()
+    door11U.transition()
+
+    if door12D.transition_counter == 40:
+        current_room = door12D.target_room
+
+
+def level13():
+    global current_room
+    room13.draw()
+
+    door13U.draw(13)
+    door13D.draw(13)
+    door4U.draw(13)
+    door14D.draw(13)
+
+    player.draw()
+    enemyDraw(enemies13)
+    projDraw(enemies13)
+
+    door13U.transition()
+    door13D.transition()
+    door4U.transition()
+    door14D.transition()
+
+    if door13U.transition_counter == 40:
+        current_room = door13U.target_room
+    elif door13D.transition_counter == 40:
+        current_room = door13D.target_room
+
+
+def level14():
+    global current_room
+    room14.draw()
+
+    door14U.draw(14)
+    door14D.draw(14)
+    door13U.draw(14)
+    door15D.draw(14)
+
+    player.draw()
+    enemyDraw(enemies14)
+    projDraw(enemies14)
+
+    torch14_1.draw()
+    torch14_2.draw()
+    torch14_3.draw()
+    torch14_4.draw()
+
+    door14U.transition()
+    door14D.transition()
+    door13U.transition()
+    door15D.transition()
+
+    if door14U.transition_counter == 40:
+        current_room = door14U.target_room
+    elif door14D.transition_counter == 40:
+        current_room = door14D.target_room
+
+
+def level15():
+    global current_room
+    room15.draw()
+
+    door15U.draw(15)
+    door15D.draw(15)
+    door14U.draw(15)
+    door16D.draw(15)
+
+    player.draw()
+    enemyDraw(enemies15)
+    projDraw(enemies15)
+
+    torch15_1.draw()
+    torch15_2.draw()
+    torch15_3.draw()
+    torch15_4.draw()
+
+    door15U.transition()
+    door15D.transition()
+    door14U.transition()
+    door16D.transition()
+
+    if door15U.transition_counter == 40:
+        current_room = door15U.target_room
+    elif door15D.transition_counter == 40:
+        current_room = door15D.target_room
+
+
+def level16():
+    global current_room
+    room16.draw()
+
+    door16D.draw(16)
+    door15U.draw(16)
+
+    player.draw()
+    enemyDraw(enemies16)
+    projDraw(enemies16)
+
+    torch16_1.draw()
+    torch16_1.draw()
+
+    door16D.transition()
+    door15U.transition()
+
+    if door16D.transition_counter == 40:
+        current_room = door16D.target_room
 
 
 
@@ -448,24 +629,37 @@ while True:
 
 
     # DRAW SCREEN #
-    if current_room.id == 1:
-        level1()
-
-    elif current_room.id == 2:
-        level2()
-        
-    elif current_room.id == 3:
+    if current_room.id   == 3:
         level3()
-
     elif current_room.id == 4:
         level4()
-
     elif current_room.id == 5:
         level5()
-
     elif current_room.id == 6:
         level6()
+    elif current_room.id == 7:
+        level7()
+    elif current_room.id == 8:
+        level8()
+    elif current_room.id == 9:
+        level9()
+    elif current_room.id == 10:
+        level10()
+    elif current_room.id == 11:
+        level11()
+    elif current_room.id == 12:
+        level12()
+    elif current_room.id == 13:
+        level13()
+    elif current_room.id == 14:
+        level14()
+    elif current_room.id == 15:
+        level15()
+    elif current_room.id == 16:
+        level16()
+
+    print(current_room.id)
+
 
     draw_gui()
-
     window.update()

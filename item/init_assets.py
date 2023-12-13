@@ -126,12 +126,22 @@ torch3 = pygame.image.load("assets/textures/torch3.png")
 
 # ROOM SPRITES
 
-room1_sprite = pygame.image.load("assets/maps/room1.png").convert_alpha()
-room2_sprite = pygame.image.load("assets/maps/room2.png").convert_alpha()
-room3_sprite = pygame.image.load("assets/maps/room3.png").convert_alpha()
-room4_sprite = pygame.image.load("assets/maps/room4.png").convert_alpha()
-room5_sprite = pygame.image.load("assets/maps/room5.png").convert_alpha()
-room6_sprite = pygame.image.load("assets/maps/room6.png").convert_alpha()
+room1_sprite  = pygame.image.load("assets/maps/room1.png").convert_alpha()
+room2_sprite  = pygame.image.load("assets/maps/room2.png").convert_alpha()
+room3_sprite  = pygame.image.load("assets/maps/room3.png").convert_alpha()
+room4_sprite  = pygame.image.load("assets/maps/room4.png").convert_alpha()
+room5_sprite  = pygame.image.load("assets/maps/room5.png").convert_alpha()
+room6_sprite  = pygame.image.load("assets/maps/room6.png").convert_alpha()
+room7_sprite  = pygame.image.load("assets/maps/room7.png").convert_alpha()
+room8_sprite  = pygame.image.load("assets/maps/room8.png").convert_alpha()
+room9_sprite  = pygame.image.load("assets/maps/room9.png").convert_alpha()
+room10_sprite = pygame.image.load("assets/maps/room10.png").convert_alpha()
+room11_sprite = pygame.image.load("assets/maps/room11.png").convert_alpha()
+room12_sprite = pygame.image.load("assets/maps/room12.png").convert_alpha()
+room13_sprite = pygame.image.load("assets/maps/room13.png").convert_alpha()
+room14_sprite = pygame.image.load("assets/maps/room14.png").convert_alpha()
+room15_sprite = pygame.image.load("assets/maps/room15.png").convert_alpha()
+room16_sprite = pygame.image.load("assets/maps/room16.png").convert_alpha()
 
 
 # GUI
