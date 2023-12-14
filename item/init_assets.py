@@ -51,11 +51,11 @@ skelly_dmg_sprite = pygame.image.load("assets/textures/Skellydmg.png").convert_a
 
 # BOSS
 
-boss_idle1 = pygame.image.load("assets/textures/boss_Idle.png")
-boss_Impact = pygame.image.load("assets/textures/boss_Impact.png")
+boss_idle1   = pygame.image.load("assets/textures/boss_Idle.png")
+boss_dmg     = pygame.image.load("assets/textures/boss_dmg.png")
+boss_Impact  = pygame.image.load("assets/textures/boss_Impact.png")
 boss_PreJump = pygame.image.load("assets/textures/boss_PreJump.png")
-boss_Jump = pygame.image.load("assets/textures/boss_PreJump.png")
-boss_Shadow = pygame.image.load("assets/textures/boss_Shadow.png")
+boss_Attack  = pygame.image.load("assets/textures/boss_Attack.png")
 
 
 # DOOR SPRITES

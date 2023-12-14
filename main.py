@@ -10,7 +10,7 @@ from gui import *
 
 test_button = Button(16, 64, 129, 16, "FODA", lambda: print("foda"))
 
-enemies3  = []
+enemies3  = [boss]
 enemies4  = []
 enemies5  = []
 enemies6  = []
@@ -46,7 +46,7 @@ pygame.mouse.set_visible(False)
 def enemyDraw(enemy_list):
     for enemy in enemy_list:
         enemy.draw()
-        enemy.follow()
+        enemy.update()
         if enemy.dead_time < 0:
             enemy_list.remove(enemy)
         if enemy.hp > 0:
@@ -119,9 +119,10 @@ def level3():
     door3U.draw(3)
     door4D.draw(3)
 
-    player.draw()
     enemyDraw(enemies3)
+    player.draw()
     projDraw(enemies3)
+
 
     torch3_1.draw()
     torch3_2.draw()

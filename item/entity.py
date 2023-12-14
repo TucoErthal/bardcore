@@ -116,7 +116,6 @@ player = Player(624, 496, 16, 16)
 # When initializing enemies, go to their specific room!
 
 class Enemy(Entity):
-
         def __init__(self, sprite, dmg_sprite, x, y, speed, hp):
             super().__init__()
             self.x = x * 16

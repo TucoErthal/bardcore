@@ -153,8 +153,8 @@ wallTrapD = item.traps.WallTrap(36, 42, 'd')
 wallTrapU = item.traps.WallTrap(36, 35, 'u')
 wallTrapR = item.traps.WallTrap(40, 39, 'r')
 
-boss = item.boss.Boss(40, 39)
 
 #---- CONVEYOR BELTS ----#
 # NAME: c + direction + roomIDs
 '''
+boss = item.boss.Boss( 67, 139) 
