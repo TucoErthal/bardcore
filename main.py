@@ -59,11 +59,11 @@ crosshair_timer = 0
 def enemyDraw(enemy_list):
     for enemy in enemy_list:
         enemy.draw()
-        enemy.update()
+        #enemy.update(current_room)
         if enemy.dead_time < 0:
             enemy_list.remove(enemy)
         if enemy.hp > 0:
-            enemy.update()
+            enemy.update(current_room)
 
 def projDraw(enemy_list):
     for note in projectiles:
@@ -672,7 +672,7 @@ while True:
             cos = (window.camera_x + window.mouse_x - item.entity.player.x)
             angle = math.atan2(sin, cos)
 
-            projectiles.append(Projectile(item.entity.player.x, item.entity.player.y, 8, 8, 3, angle, 200))
+            projectiles.append(Projectile(item.entity.player.x, item.entity.player.y, 3, angle, 200))
             
             random.choice([shoot_sfx1, shoot_sfx2, shoot_sfx3]).play()
         else:

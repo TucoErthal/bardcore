@@ -17,6 +17,7 @@ class Point():
 
         return p
 
+
     def add(self, other):
         p = Point(self.x, self.y)
         p.x += other.x

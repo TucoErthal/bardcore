@@ -32,7 +32,7 @@ class Path():
         self.cords_List.append(cord)
         self.max_index += 1
         
-
+ 
     @staticmethod
     def interpolate_2d(origin: Point, destiny: Point, franc):
         if franc > 1:
@@ -44,6 +44,8 @@ class Path():
         resp = origin.add(dif)
 
         return resp
+
+
 
     def setTarget(self, targ: Point):
         self.target = targ

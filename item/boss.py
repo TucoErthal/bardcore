@@ -16,6 +16,8 @@ class Boss(Enemy):
         self.follow_distance = 70
         self.defalt_follow_distance = self.follow_distance
 
+        self.isShooter = True
+
         self.gx = self.x 
         self.gy = self.y - 48
 
@@ -36,6 +38,8 @@ class Boss(Enemy):
 
         self.state = ATTACK
         self.hitbox = True
+
+        self.canShoot = True
 
     def set_target(self):
         tx = player.x-16
@@ -84,12 +88,27 @@ class Boss(Enemy):
         if distance > self.follow_distance:
             self.move()
 
-    def update(self):
+    def update(self, room):
+        if self.isShooter:
+            if self.t_shoot.ringing() and self.canShoot:
+                self.t_shoot.start()
+                self.shoot()
+
+            for t in self.projectiles:
+                t.update()
+                t.check_collision(player)
+                t.check_wall_collision(room)
+
+                if t.lifetime <= 0:
+                    self.projectiles.remove(t)
+
+
         if self.state == ATTACK:
             self.goTo_target()
             if self.t_attack.ringing():
                 self.attack2Follow()
         elif self.state == FOLLOW:
+            self.canShoot = True
             self.follow()
             if self.t_follow.ringing():
                 self.follow2Attack()
@@ -100,6 +119,7 @@ class Boss(Enemy):
                 self.t_impact.start()
                 self.state = FOLLOW
         elif self.state == PREPERING:
+            self.canShoot = False
             if self.t_prepare.ringing():
                 self.sprite = self.spt_attack
                 self.t_prepare.start()
@@ -137,3 +157,6 @@ class Boss(Enemy):
                 window.render(explosion_sprite_3, (self.gx,self.gy))
             else:
                 window.render(explosion_sprite_4, (self.gx,self.gy))
+
+        for t in self.projectiles:
+            t.draw()

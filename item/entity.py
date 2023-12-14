@@ -2,7 +2,9 @@ import math
 import item.obj
 from item.init_assets import *
 from item.timer import Timer
+from item.projectile import Projectile
 
+import pygame
 
 class Entity(item.obj.GameObject):
     def __init__(self, x = 0, y = 0, w = 0, h = 0):
@@ -31,10 +33,11 @@ class Player(Entity):
     def __init__(self, x = 0, y = 0, w = 0, h = 0):
         super().__init__(x, y, w, h)
         self.hp = 10
-        self.x_velocity = 0
-        self.y_velocity = 0
+        self.velocity = pygame.math.Vector2()
         self.dash_timer = 0
         self.isDead = False
+
+        
 
         self.player_sprite_left = item.init_assets.player_sprite_left
         self.player_sprite_right = item.init_assets.player_sprite_right
@@ -59,25 +62,29 @@ class Player(Entity):
     def input(self, current_keys):
         if self.can_control:
             if current_keys[pygame.K_s]:
-                self.y_velocity += 1
+                self.velocity.y += 1
             
             if current_keys[pygame.K_w]:
-                self.y_velocity -= 1
+                self.velocity.y -= 1
                 
             if current_keys[pygame.K_d]:
-                self.x_velocity += 1
+                self.velocity.x += 1
             
             if current_keys[pygame.K_a]:
-                self.x_velocity -= 1
+                self.velocity.x -= 1
 
+            try:
+                self.velocity = self.velocity.normalize()
+            except:
+                pass
         if self.dash_timer > 0:
             self.x_velocity *= (1.15 *self.dash_timer)
             self.y_velocity *= (1.15 * self.dash_timer)
         self.dash_timer -= 1
 
-        self.x += self.x_velocity
-        self.y += self.y_velocity
-        self.x_velocity, self.y_velocity = 0, 0
+        self.x += self.velocity.x
+        self.y += self.velocity.y
+        self.velocity.x, self.velocity.y = 0, 0
 
         self.dash_timer
 
@@ -183,6 +190,15 @@ class Enemy(Entity):
 
             self.dead_time = 120
 
+            self.isShooter = False
+
+            self.projectiles = []
+            self.t_shoot = Timer(0.3)
+
+            self.sin = (player.y - self.y)
+            self.cos = (player.x - self.x)
+            self.angle = math.atan2(self.sin, self.cos)
+
         # Go to where the player is but stops at a distance
         def follow(self):
             self.sin = (player.y - self.y)
@@ -199,13 +215,28 @@ class Enemy(Entity):
             self.y += self.speed * math.sin(self.angle)
 
 
-        def update(self):
+        def update(self, room):
             self.follow()
+
+            if self.isShooter:
+                if self.t_shoot.ringing():
+                    self.t_shoot.start()
+                    self.shoot()
+
+                for t in self.projectiles:
+                    t.update()
+                    t.check_collision(player)
+                    t.check_wall_collision(room)
+
+                    if t.lifetime <= 0:
+                        self.projectiles.remove(t)
 
             if self.collided(player):
                 player.get_hit()
                 
-                
+        def shoot(self):
+            p = Projectile(self.x+(self.w/2), self.y+(self.h/2), angle = self.angle)
+            self.projectiles.append(p)
 
         def draw(self):
             if self.hp > 0:    
@@ -230,5 +261,8 @@ class Enemy(Entity):
                     window.render(explosion_sprite_3, (self.x,self.y))
                 else:
                     window.render(explosion_sprite_4, (self.x,self.y))
+
+            for t in self.projectiles:
+                t.draw()
 
 
