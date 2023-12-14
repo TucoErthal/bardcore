@@ -12,11 +12,12 @@ class Button:
         self.text = text
         self.function = function
 
-        self.sprite_index = 0 #0 = neutral, 1 = highlighted, 2 = clicked
+        self.selected = False
         self.surface = pygame.surface.Surface((width, height))
 
     def update(self):
         if input_manager.current_cursor_over(self.x, self.y, self.width, self.height):
+            self.selected = True
 
             if input_manager.mouse1_pressed():
                 print("press")
@@ -32,11 +33,13 @@ class Button:
                 self.surface.fill((127, 127, 255))
                 
         else:
+            self.selected = False
             self.surface.fill((127, 127, 127))
 
         text_surface = font.render(self.text, False, (255, 255, 255))
         self.surface.blit(text_surface, ((self.surface.get_width() - text_surface.get_width())/2, (self.surface.get_height() - text_surface.get_height())/2))
         window.render_ui(self.surface, (self.x, self.y))
+        if self.selected: window.render_ui(select_sprite, (self.x-10, self.y))
 
     def render_text(self, text):
         pygame.font.SysFont()

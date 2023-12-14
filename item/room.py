@@ -38,3 +38,17 @@ class Room():
         
         if item.entity.player.y > self.y2:
             item.entity.player.y = self.y2
+
+    def draw_menu(self):
+        window.render_ui(self.room_img,(self.x,self.y))
+        if item.entity.player.x <= self.x1:
+            item.entity.player.x = self.x1
+            
+        if item.entity.player.x > self.x2:
+            item.entity.player.x = self.x2
+            
+        if item.entity.player.y < self.y1:
+            item.entity.player.y = self.y1
+        
+        if item.entity.player.y > self.y2:
+            item.entity.player.y = self.y2

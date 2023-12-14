@@ -154,6 +154,7 @@ room16_sprite = pygame.image.load("assets/maps/room16.png").convert_alpha()
 
 
 # GUI
+select_sprite = pygame.image.load("assets/textures/gui/select.png")
 rhythm_bar_bg = pygame.image.load("assets/textures/gui/rhythm_bar_bg.png")
 rhythm_bar_0  = pygame.image.load("assets/textures/gui/rhythm_bar_0.png")
 rhythm_bar_1  = pygame.image.load("assets/textures/gui/rhythm_bar_1.png")

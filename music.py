@@ -28,8 +28,8 @@ class Track:
         self.current_beat_progress = self.current_beat % 1
         self.current_beat_progress_with_latency = self.current_beat % 1 - self.latency_beats
 
-    def is_on_beat(self):
-        if self.current_beat_progress_with_latency < self.forgiveness or self.current_beat_progress_with_latency > (1 - self.forgiveness):
+    def is_on_beat(self, subdivision = 1):
+        if (self.current_beat_progress_with_latency * subdivision) % 1 < self.forgiveness or (self.current_beat_progress_with_latency * subdivision) % 1 > (1 - self.forgiveness):
             return True
         else:
             return False

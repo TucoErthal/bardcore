@@ -10,8 +10,8 @@ from item.enemylist import *
 from item.cutscene import *
 from gui import *
 
-play_button = Button(16,  96, 112, 32, "PLAY", lambda: changeroom(room1))
-quit_button = Button(16, 144, 112, 32, "QUIT", lambda: pygame.QUIT())
+play_button = Button(16,  96, 80, 24, "PLAY", lambda: changeroom(room1))
+quit_button = Button(16, 144, 80, 24, "QUIT", lambda: pygame.QUIT())
 
 def changeroom(roomarg):
     global current_room
@@ -97,7 +97,7 @@ def projDraw(enemy_list):
 
 def level0():
     global current_room
-    room0.draw()
+    room0.draw_menu()
 
     play_button.update()
     quit_button.update()
@@ -648,14 +648,28 @@ while True:
     player.input(current_keys)
 
 
+    if player.can_control:
+        if current_keys[pygame.K_SPACE] and not(last_keys[pygame.K_SPACE]):
+            if soundtrack.is_on_beat():
+                player.dash_timer = 8
+                dash_sfx.play()
+            else:
+                window.screenshake(20,8)
+                crosshair_timer = 60
 
-    if current_keys[pygame.K_SPACE] and not(last_keys[pygame.K_SPACE]):
-        if soundtrack.is_on_beat():
-            player.dash_timer = 8
-            dash_sfx.play()
-        else:
-            window.screenshake(20,8)
-            crosshair_timer = 60
+        if current_mouse[0] and not(last_mouse[0]):
+            if soundtrack.is_on_beat(2):
+                sin = (window.camera_y + window.mouse_y - item.entity.player.y)
+                cos = (window.camera_x + window.mouse_x - item.entity.player.x)
+                angle = math.atan2(sin, cos)
+
+                projectiles.append(Projectile(item.entity.player.x, item.entity.player.y, 3, angle, 200))
+                
+                random.choice([shoot_sfx1, shoot_sfx2, shoot_sfx3]).play()
+            else:
+                window.screenshake(20,8)
+                whiff_sfx.play()
+                crosshair_timer = 60
     
     if current_keys[pygame.K_ESCAPE]:
         sys.exit()
@@ -666,19 +680,6 @@ while True:
     else:
         crosshair_state = 1
 
-    if current_mouse[0] and not(last_mouse[0]):
-        if soundtrack.is_on_beat():
-            sin = (window.camera_y + window.mouse_y - item.entity.player.y)
-            cos = (window.camera_x + window.mouse_x - item.entity.player.x)
-            angle = math.atan2(sin, cos)
-
-            projectiles.append(Projectile(item.entity.player.x, item.entity.player.y, 3, angle, 200))
-            
-            random.choice([shoot_sfx1, shoot_sfx2, shoot_sfx3]).play()
-        else:
-            window.screenshake(20,8)
-            whiff_sfx.play()
-            crosshair_timer = 60
 
     last_keys = current_keys
     last_mouse = current_mouse
