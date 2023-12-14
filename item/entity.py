@@ -2,7 +2,7 @@ import math
 import item.obj
 from item.init_assets import *
 from item.timer import Timer
-
+from item.projectile import Projectile
 
 class Entity(item.obj.GameObject):
     def __init__(self, x = 0, y = 0, w = 0, h = 0):
@@ -135,6 +135,15 @@ class Enemy(Entity):
 
             self.dead_time = 120
 
+            self.isShooter = False
+
+            self.projectiles = []
+            self.t_shoot = Timer(0.3)
+
+            self.sin = (player.y - self.y)
+            self.cos = (player.x - self.x)
+            self.angle = math.atan2(self.sin, self.cos)
+
         # Go to where the player is but stops at a distance
         def follow(self):
             self.sin = (player.y - self.y)
@@ -151,13 +160,28 @@ class Enemy(Entity):
             self.y += self.speed * math.sin(self.angle)
 
 
-        def update(self):
+        def update(self, room):
             self.follow()
+
+            if self.isShooter:
+                if self.t_shoot.ringing():
+                    self.t_shoot.start()
+                    self.shoot()
+
+                for t in self.projectiles:
+                    t.update()
+                    t.check_collision(player)
+                    t.check_wall_collision(room)
+
+                    if t.lifetime <= 0:
+                        self.projectiles.remove(t)
 
             if self.collided(player):
                 player.get_hit()
                 
-                
+        def shoot(self):
+            p = Projectile(self.x+(self.w/2), self.y+(self.h/2), angle = self.angle)
+            self.projectiles.append(p)
 
         def draw(self):
             if self.hp > 0:    
@@ -182,5 +206,8 @@ class Enemy(Entity):
                     window.render(explosion_sprite_3, (self.x,self.y))
                 else:
                     window.render(explosion_sprite_4, (self.x,self.y))
+
+            for t in self.projectiles:
+                t.draw()
 
 

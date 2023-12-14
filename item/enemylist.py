@@ -18,6 +18,8 @@ class Mage(Enemy):
     def __init__(self, x, y):
         super().__init__(mage_sprite, mage_dmg_sprite, x, y, 0.5, 10)
 
+        self.isShooter = True
+ 
 class Fireguy(Enemy):
     def __init__(self, x, y):
         super().__init__(fire_sprite, fire_dmg_sprite, x, y, 1, 4)

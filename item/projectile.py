@@ -3,14 +3,17 @@ import math
 from item.init_assets import projectile_sprite
 from item.init_assets import window
 
-class Projectile:
-    def __init__(self, x, y, w, h, speed, angle, lifetime):
+class Projectile():
+    def __init__(self, x, y, speed =3, angle = 0, lifetime = 200, isReverse = False):
         self.x = x
         self.y = y
-        self.w = w
-        self.h = h
+
+        self.isReverse = isReverse
 
         self.curr_sprite = projectile_sprite
+
+        self.w = self.curr_sprite.get_rect().width
+        self.h = self.curr_sprite.get_rect().height
 
         self.center_x = self.x + self.w/2
         self.center_y = self.y + self.h/2
@@ -24,8 +27,12 @@ class Projectile:
         window.render(self.curr_sprite, (self.x, self.y))
 
     def update(self):
-        self.x += self.speed * self.direction[0]
-        self.y += self.speed * self.direction[1]
+        if self.isReverse:
+            self.x -= self.speed * self.direction[0]
+            self.y -= self.speed * self.direction[1]
+        else:
+            self.x += self.speed * self.direction[0]
+            self.y += self.speed * self.direction[1]
 
     def check_collision(self, target):
         if self.x > target.x and self.x < target.x + target.w:
