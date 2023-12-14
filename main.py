@@ -22,7 +22,7 @@ def changeroom(roomarg):
 
 in_game = False
 enemies2  = []
-enemies3  = []
+enemies3  = [boss]
 enemies4  = []
 enemies5  = []
 enemies6  = []
