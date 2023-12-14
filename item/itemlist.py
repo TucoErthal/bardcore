@@ -1,10 +1,15 @@
 import item.room
 import item.door
 import item.torch
+import item.musicstring
 from item.init_assets import *
 from item.traps import *
 from item.boss import *
 
+#---- STRINGS ----#
+
+string1 = item.musicstring.String(  8, 53)
+string2 = item.musicstring.String(138, 68)
 
 #----- ROOMS -----#
 # NAME: room_roomID
@@ -60,7 +65,7 @@ door11D = item.door.Door(138, 103, 4, 11, room10)
 
 door12D = item.door.Door(138,  81, 4, 12, room11)
 
-door13U = item.door.Door( 66,  94, 1, 13, room14)
+door13U = item.door.Door( 66,  94, 1, 13, room14, 'string')
 door13D = item.door.Door( 66, 105, 4, 13,  room4)
 
 door14U = item.door.Door( 66,  50, 1, 14, room15)
