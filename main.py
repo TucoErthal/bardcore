@@ -1,6 +1,7 @@
 from item.projectile import *
 import sys
 import math
+import random
 import item.enemylist
 from item.entity import *
 from item.itemlist import *
@@ -630,8 +631,9 @@ while True:
             cos = (window.camera_x + window.mouse_x - item.entity.player.x)
             angle = math.atan2(sin, cos)
 
-            projectiles.append(Projectile(item.entity.player.x, item.entity.player.y, 3, angle, 200))
-            shoot_sfx.play()
+            projectiles.append(Projectile(item.entity.player.x, item.entity.player.y, 8, 8, 3, angle, 200))
+            
+            random.choice([shoot_sfx1, shoot_sfx2, shoot_sfx3]).play()
         else:
             window.screenshake(20,8)
             whiff_sfx.play()
