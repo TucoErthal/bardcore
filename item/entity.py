@@ -48,10 +48,16 @@ class Player(Entity):
 
         self.curr_sprite = self.player_sprite_down
         self.lest_sprite = self.curr_sprite
-        self.can_control = True
+        self.can_control = False
 
         self.w = self.curr_sprite.get_rect().width
         self.h = self.curr_sprite.get_rect().height
+
+        self.counter = 0
+        self.timer = 0
+        self.scene_delay = False
+        self.transition_counter = 0
+        self.transition_frame = transparent
 
     def input(self, current_keys):
         if self.can_control:
@@ -72,8 +78,8 @@ class Player(Entity):
             except:
                 pass
         if self.dash_timer > 0:
-            self.velocity.x *= (2 *self.dash_timer)
-            self.velocity.y *= (2 * self.dash_timer)
+            self.x_velocity *= (1.15 *self.dash_timer)
+            self.y_velocity *= (1.15 * self.dash_timer)
         self.dash_timer -= 1
 
         self.x += self.velocity.x
@@ -100,6 +106,48 @@ class Player(Entity):
         self.can_control = False
         self.curr_sprite = self.player_sprite_dead
 
+        if self.counter < 120:
+                self.counter += 1
+
+        if self.counter == 120:
+            self.transition_frame = transparent
+
+            if self.scene_delay == False:
+                self.timer = pygame.time.get_ticks()
+                self.scene_delay = True
+                self.transition_counter = 180
+
+            if self.transition_counter < 60:
+                player.x = 66*16
+                player.y = 175*16
+        else:
+            self.warp = False
+
+        if self.transition_counter == 0:
+            self.scene_delay = False
+
+        if self.transition_counter > 0:
+            self.transition_counter -= 1
+
+        if self.scene_delay == True and pygame.time.get_ticks() - self.timer >= 500:
+            if self.transition_counter > 160:
+                pass
+            elif self.transition_counter > 150:
+                self.transition_frame = trans1
+            elif self.transition_counter > 140:
+                self.transition_frame = trans2
+            elif self.transition_counter > 130:
+                self.transition_frame = trans3
+            elif self.transition_counter > 30:
+                self.transition_frame = trans4
+            elif self.transition_counter > 20:
+                self.transition_frame = trans3
+            elif self.transition_counter > 10:
+                self.transition_frame = trans2
+            elif self.transition_counter > 0:
+                self.transition_frame = trans1        
+                player.can_control = True
+
     def draw(self):
         sin = (window.camera_y + window.mouse_y - item.entity.player.y)
         cos = (window.camera_x + window.mouse_x - item.entity.player.x)
@@ -115,7 +163,7 @@ class Player(Entity):
 
         super().draw(self.curr_sprite)
 
-player = Player(624, 496, 16, 16)
+player = Player(200, 200, 16, 16)
 
 
 # DO NOT TOUCH

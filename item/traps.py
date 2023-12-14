@@ -4,11 +4,7 @@ from item.init_assets import *
 from item.obj import GameObject
 from item.timer import Timer
 from item.projectile import *
-### TRAP IDEAS ###
-# Spike floor -> damage when stepped on                                         Feita
-# Flamethrower -> turret that periodically shoots out fire                      Feita
-# Blade disc -> runs across the walls of a room
-# Ping pong of death -> bounces around the room (maybe shooting projectiles?)
+
 
 UP = 'u'
 RIGHT = 'r'
@@ -23,7 +19,7 @@ player = item.entity.player
 # Atiram no ritimo da musica
 # Sprites sao place holder
 #update dentro de draw para consistencia com o resto do codigo
-class WallTrap(GameObject):
+class wallTrap(GameObject):
     def __init__(self, x, y, dire = RIGHT):
         super().__init__()
         
@@ -90,7 +86,7 @@ class WallTrap(GameObject):
         elif self.direction == RIGHT:
             angle = 3.14159 # 180°
 
-        tiro = Projectile(self.tiro_spawn[0]-2, self.tiro_spawn[1]-2, 12, 12, 3, angle, 200)
+        tiro = Projectile(self.tiro_spawn[0]-2, self.tiro_spawn[1]-2, 12, 12, 2, angle, 200)
 
         if self.direction == UP:
             tiro.curr_sprite = fireball_D
@@ -179,10 +175,10 @@ class conveyorBelt():
 
         if (player.x+8 > self.x and player.x+8 < self.x+17) and (player.y+12 > self.y and player.y+12 < self.y+17):
             if self.direction == 1:
-                player.y -= 1
+                player.y -= 1.8
             elif self.direction == 2:
-                player.x -= 1
+                player.x -= 1.8
             elif self.direction == 3:
-                player.x += 1
+                player.x += 1.8
             elif self.direction == 4:
-                player.y += 1
+                player.y += 1.8
