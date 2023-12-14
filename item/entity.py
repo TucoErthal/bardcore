@@ -78,8 +78,8 @@ class Player(Entity):
             except:
                 pass
         if self.dash_timer > 0:
-            self.x_velocity *= (1.15 *self.dash_timer)
-            self.y_velocity *= (1.15 * self.dash_timer)
+            self.velocity.x *= (1.15 *self.dash_timer)
+            self.velocity.y *= (1.15 * self.dash_timer)
         self.dash_timer -= 1
 
         self.x += self.velocity.x
