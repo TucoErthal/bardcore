@@ -86,7 +86,7 @@ class wallTrap(GameObject):
         elif self.direction == RIGHT:
             angle = 3.14159 # 180°
 
-        tiro = Projectile(self.tiro_spawn[0]-2, self.tiro_spawn[1]-2, 12, 12, 2, angle, 200)
+        tiro = Projectile(self.tiro_spawn[0]-2, self.tiro_spawn[1]-2, 2, angle, 200)
 
         if self.direction == UP:
             tiro.curr_sprite = fireball_D
