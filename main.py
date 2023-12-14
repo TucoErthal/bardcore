@@ -7,13 +7,24 @@ from item.entity import *
 from item.itemlist import *
 from item.init_assets import *
 from item.enemylist import *
+from item.cutscene import *
 from gui import *
 
-test_button = Button(16, 64, 129, 16, "FODA", lambda: print("foda"))
+play_button = Button(16,  96, 112, 32, "PLAY", lambda: changeroom(room1))
+quit_button = Button(16, 144, 112, 32, "QUIT", lambda: pygame.QUIT())
 
-enemies3  = [boss]
+def changeroom(roomarg):
+    global current_room
+    current_room = roomarg
+    pygame.mouse.set_visible(False)
+    player.x = 46*16
+    player.y = 175*16
+
+in_game = False
+enemies2  = []
+enemies3  = []
 enemies4  = []
-enemies5  = [Mage(39,120)]
+enemies5  = []
 enemies6  = []
 enemies7  = []
 enemies8  = []
@@ -36,13 +47,12 @@ def spawnEnemies():
 
 spawnEnemies()
 
-current_room = room3 # CHANGE LATER
+current_room = room0
 projectiles = []
 frame_state = 0
 crosshair_state = 1
 crosshair_timer = 0
 
-pygame.mouse.set_visible(False)
 
 #----- ENEMIES -----#
 
@@ -85,34 +95,53 @@ def projDraw(enemy_list):
 
 #---------- LEVELS ----------#
 
-# level template:
-'''
-def levelX():
+def level0():
     global current_room
-    roomX.draw()
+    room0.draw()
 
-    doors.draw(X)
+    play_button.update()
+    quit_button.update()
 
-    enemyDraw(enemiesX)
+
+def level1():
+    global current_room
+    room1.draw()
 
     player.draw()
 
-    torches.draw()
+    torch1_1.draw()
 
-    projDraw(enemiesX)
+    intro.logic()
+    intro.transition()
 
-    doors.transition()
-
-    window.render_crosshair(crosshair_state)
-
-    if doors.transition_counter == 40:
-        current_room = doors.target_room
-'''
+    if intro.transition_counter == 40:
+        current_room = room2
 
 
+def level2():
+    global current_room
+    global in_game
+    in_game = 1
+    room2.draw()
 
+    door2U.draw(2)
+    door3D.draw(2)
 
+    player.draw()
+    projDraw(enemies2)
 
+    torch2_1.draw()
+
+    door2U.transition()
+    door3D.transition()
+
+    intro.logic()
+    intro.transition()
+
+    if door2U.transition_counter == 40:
+        current_room = door2U.target_room
+
+    
 
 
 def level3():
@@ -120,7 +149,9 @@ def level3():
     room3.draw()
 
     door3U.draw(3,enemies3)
+    door3D.draw(3,enemies3)
     door4D.draw(3)
+    door2U.draw(3)
 
     enemyDraw(enemies3)
     player.draw()
@@ -131,10 +162,14 @@ def level3():
     torch3_2.draw()
 
     door3U.transition()
+    door3D.transition()
     door4D.transition()
+    door2U.transition()
 
     if door3U.transition_counter == 40:
         current_room = door3U.target_room
+    if door3D.transition_counter == 40:
+        current_room = door3D.target_room
 
 
 def level4():
@@ -218,6 +253,11 @@ def level6():
     door5U.draw(6)
     door7R.draw(6)
 
+    for i in room6conveyors:
+        i.draw()
+    for i in room6spikes:
+        i.draw()
+
     player.draw()
     enemyDraw(enemies6)
     projDraw(enemies6)
@@ -246,6 +286,9 @@ def level7():
     door7R.draw(7,enemies7)
     door6L.draw(7)
     door8D.draw(7)
+
+    for i in room7fire:
+        i.draw(room7)
 
     player.draw()
     enemyDraw(enemies7)
@@ -556,8 +599,6 @@ def draw_gui():
 
     window.render_ui(top_bar, (0, 0))
 
-    test_button.update()
-
     window.render_crosshair(crosshair_state)
 
 
@@ -651,19 +692,25 @@ while True:
 
 
     # DRAW SCREEN #
-    if current_room.id   == 3:
+    if current_room.id    == 0:
+        level0()
+    elif current_room.id  == 1:
+        level1()
+    elif current_room.id  == 2:
+        level2()
+    elif current_room.id  == 3:
         level3()
-    elif current_room.id == 4:
+    elif current_room.id  == 4:
         level4()
-    elif current_room.id == 5:
+    elif current_room.id  == 5:
         level5()
-    elif current_room.id == 6:
+    elif current_room.id  == 6:
         level6()
-    elif current_room.id == 7:
+    elif current_room.id  == 7:
         level7()
-    elif current_room.id == 8:
+    elif current_room.id  == 8:
         level8()
-    elif current_room.id == 9:
+    elif current_room.id  == 9:
         level9()
     elif current_room.id == 10:
         level10()
@@ -681,6 +728,6 @@ while True:
         level16()
 
 
-
-    draw_gui()
+    if in_game:
+        draw_gui()
     window.update()
