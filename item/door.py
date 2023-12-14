@@ -10,33 +10,39 @@ from item.init_assets import *
 # 1 = UP, 2 = LEFT, 3 = RIGHT, 4 = DOWN
 
 class Door():
-    def __init__(self, x, y, direction, current_id, target_room):
+    def __init__(self, x, y, direction, current_id, target_room, door_type = 'lock'):
         self.x = x * 16
         self.y = y * 16
+        self.door_type = door_type
 
         if direction == 1:
             self.destination_x = 0
             self.destination_y = -16*12
             self.img1 = door_sprite
             self.img2 = door_open_sprite
+            self.img3 = door_lock_sprite
 
         elif direction == 2:
             self.destination_x = -16*9
             self.destination_y = 0
             self.img1 = door_left_sprite
             self.img2 = door_left_open_sprite
+            self.img3 = door_left_lock_sprite
             
         elif direction == 3:
             self.destination_x = 16*9
             self.destination_y = 0
             self.img1 = door_right_sprite
             self.img2 = door_right_open_sprite
+            self.img3 = door_right_lock_sprite
 
         else:
             self.destination_x = 0
             self.destination_y = 16*12
             self.img1 = door_down_sprite
             self.img2 = door_down_open_sprite
+            self.img3 = door_down_lock_sprite
+
 
 
 
@@ -51,27 +57,43 @@ class Door():
         self.target_room = target_room
         self.current_id = current_id
 
-    def draw(self, room_id):
+    def draw(self, room_id, unlock_method = []):
+
+        self.unlock_method = unlock_method
+
+        if self.door_type == 'lock':
+            self.current_img = self.img3
+            if len(self.unlock_method) == 0:
+                self.door_type = 'unlocked'
+                self.current_img = self.img1
+        elif self.door_type == 'string':
+            self.current_img = self.img3
+            if len(self.unlock_method) == 2:
+                self.door_type = 'unlocked'
+                self.current_img = self.img1
+
         if room_id == self.current_id:
             window.render(self.current_img, (self.x, self.y))
 
-        if item.entity.player.x+16 > self.x and item.entity.player.x+16 < self.x + self.width:
-            if item.entity.player.y+8 > self.y and item.entity.player.y+8 < self.y + self.height:
-                item.entity.player.can_control = False
-                self.transition_frame = transparent
+        if self.door_type == 'unlocked':
+            if item.entity.player.x+16 > self.x and item.entity.player.x+16 < self.x + self.width:
+                if item.entity.player.y+8 > self.y and item.entity.player.y+8 < self.y + self.height:
+                    item.entity.player.can_control = False
+                    self.transition_frame = transparent
 
-                if self.door_delay == False:
-                    self.current_img = self.img2
-                    self.timer = pygame.time.get_ticks()
-                    self.door_delay = True
-                    self.transition_counter = 120
+                    if self.door_delay == False:
+                        self.current_img = self.img2
+                        self.timer = pygame.time.get_ticks()
+                        door_sfx.play()
+                        self.door_delay = True
+                        self.transition_counter = 120
 
-                if self.transition_counter < 60:
-                    item.entity.player.x += self.destination_x
-                    item.entity.player.y += self.destination_y
-                    self.current_img = self.img1
-        else:
-            self.warp = False
+                    if self.transition_counter < 60:
+                        item.entity.player.x += self.destination_x
+                        item.entity.player.y += self.destination_y
+                        self.current_img = self.img1
+            else:
+                self.warp = False
 
 
         if self.transition_counter == 0:

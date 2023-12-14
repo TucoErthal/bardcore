@@ -12,7 +12,7 @@ test_button = Button(16, 64, 129, 16, "FODA", lambda: print("foda"))
 
 enemies3  = []
 enemies4  = []
-enemies5  = []
+enemies5  = [Mage(39,120)]
 enemies6  = []
 enemies7  = []
 enemies8  = []
@@ -24,6 +24,8 @@ enemies13 = []
 enemies14 = []
 enemies15 = []
 enemies16 = []
+
+strings_collected = []
 
 #listname.append(item.enemylist.Bell(500,500))
 
@@ -116,7 +118,7 @@ def level3():
     global current_room
     room3.draw()
 
-    door3U.draw(3)
+    door3U.draw(3,enemies3)
     door4D.draw(3)
 
     player.draw()
@@ -137,14 +139,16 @@ def level4():
     global current_room
     room4.draw()
 
-    door4U.draw(4)
-    door4L.draw(4)
-    door4R.draw(4)
-    door4D.draw(4)
+    door4U.draw(4,enemies4)
+    door4L.draw(4,enemies4)
+    door4R.draw(4,enemies4)
+    door4D.draw(4,enemies4)
     door3U.draw(4)
     door5R.draw(4)
     door9L.draw(4)
     door13D.draw(4)
+    string1.draw()
+    string2.draw()
 
     player.draw()
     enemyDraw(enemies4)
@@ -163,6 +167,8 @@ def level4():
     door5R.transition()
     door9L.transition()
     door13D.transition()
+    string1.transition()
+    string2.transition()
 
     if door4U.transition_counter == 40:
         current_room = door4U.target_room
@@ -178,8 +184,8 @@ def level5():
     global current_room
     room5.draw()
 
-    door5U.draw(5)
-    door5R.draw(5)
+    door5U.draw(5,enemies5)
+    door5R.draw(5,enemies5)
     door4L.draw(5)
     door6D.draw(5)
 
@@ -205,8 +211,8 @@ def level6():
     global current_room
     room6.draw()
 
-    door6L.draw(6)
-    door6D.draw(6)
+    door6L.draw(6,enemies6)
+    door6D.draw(6,enemies6)
     door5U.draw(6)
     door7R.draw(6)
 
@@ -234,8 +240,8 @@ def level7():
     global current_room
     room7.draw()
 
-    door7U.draw(7)
-    door7R.draw(7)
+    door7U.draw(7,enemies7)
+    door7R.draw(7,enemies7)
     door6L.draw(7)
     door8D.draw(7)
 
@@ -261,28 +267,35 @@ def level8():
     global current_room
     room8.draw()
 
-    door8D.draw(8)
+    door8D.draw(8,enemies8)
     door7U.draw(8)
 
     player.draw()
     enemyDraw(enemies8)
     projDraw(enemies8)
 
+    if 1 not in strings_collected:
+        string1.draw()
+
     torch8_1.draw()
     torch8_2.draw()
 
     door8D.transition()
     door7U.transition()
+    string1.transition()
 
     if door8D.transition_counter == 40:
         current_room = door8D.target_room
+    if string1.transition_counter == 40:
+        current_room = room4
+        strings_collected.append(1)
 
 
 def level9():
     global current_room
     room9.draw()
 
-    door9L.draw(9)
+    door9L.draw(9,enemies9)
     door9R.draw(9)
     door4R.draw(9)
     door10L.draw(9)
@@ -313,8 +326,8 @@ def level10():
     global current_room
     room10.draw()
 
-    door10U.draw(10)
-    door10L.draw(10)
+    door10U.draw(10,enemies10)
+    door10L.draw(10,enemies10)
     door9R.draw(10)
     door11D.draw(10)
 
@@ -340,8 +353,8 @@ def level11():
     global current_room
     room11.draw()
 
-    door11U.draw(11)
-    door11D.draw(11)
+    door11U.draw(11,enemies11)
+    door11D.draw(11,enemies11)
     door10U.draw(11)
     door12D.draw(11)
 
@@ -369,12 +382,15 @@ def level12():
     global current_room
     room12.draw()
 
-    door12D.draw(12)
+    door12D.draw(12,enemies12)
     door11U.draw(12)
 
     player.draw()
     enemyDraw(enemies12)
     projDraw(enemies12)
+
+    if 2 not in strings_collected:
+        string2.draw()
 
     torch12_1.draw()
     torch12_2.draw()
@@ -384,14 +400,17 @@ def level12():
 
     if door12D.transition_counter == 40:
         current_room = door12D.target_room
+    if string2.transition_counter == 40:
+        current_room = room4
+        strings_collected.append(2)
 
 
 def level13():
     global current_room
     room13.draw()
 
-    door13U.draw(13)
-    door13D.draw(13)
+    door13U.draw(13,strings_collected)
+    door13D.draw(13,enemies13)
     door4U.draw(13)
     door14D.draw(13)
 
@@ -414,8 +433,8 @@ def level14():
     global current_room
     room14.draw()
 
-    door14U.draw(14)
-    door14D.draw(14)
+    door14U.draw(14,enemies14)
+    door14D.draw(14,enemies14)
     door13U.draw(14)
     door15D.draw(14)
 
@@ -443,8 +462,8 @@ def level15():
     global current_room
     room15.draw()
 
-    door15U.draw(15)
-    door15D.draw(15)
+    door15U.draw(15,enemies15)
+    door15D.draw(15,enemies15)
     door14U.draw(15)
     door16D.draw(15)
 
@@ -472,7 +491,7 @@ def level16():
     global current_room
     room16.draw()
 
-    door16D.draw(16)
+    door16D.draw(16,enemies16)
     door15U.draw(16)
 
     player.draw()

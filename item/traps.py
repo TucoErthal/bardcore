@@ -179,10 +179,10 @@ class conveyorBelt():
 
         if (player.x+8 > self.x and player.x+8 < self.x+17) and (player.y+12 > self.y and player.y+12 < self.y+17):
             if self.direction == 1:
-                player.y -= 1/2
+                player.y -= 1
             elif self.direction == 2:
-                player.x -= 1/2
+                player.x -= 1
             elif self.direction == 3:
-                player.x += 1/2
+                player.x += 1
             elif self.direction == 4:
-                player.y += 1/2
+                player.y += 1
