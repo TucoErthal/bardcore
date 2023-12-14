@@ -8,6 +8,11 @@ from item.boss import *
 from item.cutscene import *
 
 intro = Cutscene()
+transition_to_game = Cutscene()
+transition_to_game.audio = 0
+transition_to_game.limit = 30
+transition_to_game.warp_player = 0
+transition_to_game.give_control = 0
 
 #---- STRINGS ----#
 
@@ -152,40 +157,73 @@ torch16_2 = item.torch.Torch( 68,   2)
 # NAME: c + direction + conveyorID + roomID
 # ex: cD1_3
 
-cR1_6  = conveyorBelt(34,101,3)
-cR2_6  = conveyorBelt(35,101,3)
-cR3_6  = conveyorBelt(34,102,3)
-cR4_6  = conveyorBelt(35,102,3)
-cR5_6  = conveyorBelt(34,103,3)
-cR6_6  = conveyorBelt(35,103,3)
-cR7_6  = conveyorBelt(34,104,3)
-cR8_6  = conveyorBelt(35,104,3)
-cR9_6  = conveyorBelt(34,105,3)
-cR10_6 = conveyorBelt(35,105,3)
+cU1_5 = conveyorBelt(32,117,1)
+cU2_5 = conveyorBelt(32,118,1)
+cU3_5 = conveyorBelt(32,119,1)
+cU4_5 = conveyorBelt(32,120,1)
+cU5_5 = conveyorBelt(32,121,1)
+cU6_5 = conveyorBelt(32,122,1)
+cU7_5 = conveyorBelt(32,123,1)
+cU8_5 = conveyorBelt(32,124,1)
+cU9_5 = conveyorBelt(32,125,1)
+cU10_5 = conveyorBelt(33,117,1)
+cU11_5 = conveyorBelt(33,118,1)
+cU12_5 = conveyorBelt(33,119,1)
+cU13_5 = conveyorBelt(33,120,1)
+cU14_5 = conveyorBelt(33,121,1)
+cU15_5 = conveyorBelt(33,122,1)
+cU16_5 = conveyorBelt(33,123,1)
+cU17_5 = conveyorBelt(33,124,1)
+cU18_5 = conveyorBelt(33,125,1)
 
-cD1_6  = conveyorBelt(34,99,4)
-cD2_6  = conveyorBelt(34,100,4)
-cD3_6  = conveyorBelt(35,99,4)
-cD4_6  = conveyorBelt(35,100,4)
-cD5_6  = conveyorBelt(36,99,4)
-cD6_6  = conveyorBelt(36,100,4)
-cD7_6  = conveyorBelt(37,99,4)
-cD8_6  = conveyorBelt(37,100,4)
-cD9_6  = conveyorBelt(38,99,4)
-cD10_6 = conveyorBelt(38,100,4)
-cD11_6 = conveyorBelt(39,99,4)
-cD12_6 = conveyorBelt(39,100,4)
-cD13_6 = conveyorBelt(40,99,4)
-cD14_6 = conveyorBelt(40,100,4)
-cD15_6 = conveyorBelt(41,99,4)
-cD16_6 = conveyorBelt(41,100,4)
+cR1_5 = conveyorBelt(39,116,3)
+cR2_5 = conveyorBelt(39,117,3)
+cR3_5 = conveyorBelt(39,118,3)
+cR4_5 = conveyorBelt(39,119,3)
+cR5_5 = conveyorBelt(39,120,3)
+cR6_5 = conveyorBelt(39,121,3)
+cR7_5 = conveyorBelt(39,122,3)
+cR8_5 = conveyorBelt(39,123,3)
+cR9_5 = conveyorBelt(39,124,3)
+cR10_5 = conveyorBelt(40,117,3)
+cR11_5 = conveyorBelt(40,118,3)
+cR12_5 = conveyorBelt(40,119,3)
+cR13_5 = conveyorBelt(40,120,3)
+cR14_5 = conveyorBelt(40,121,3)
+cR15_5 = conveyorBelt(40,122,3)
+cR16_5 = conveyorBelt(40,123,3)
+cR17_5 = conveyorBelt(40,124,3)
+cR18_5 = conveyorBelt(40,116,3)
 
-room6conveyors = [cR1_6,cR2_6,cR3_6,cR4_6,cR5_6,cR6_6,cR7_6,cR8_6,cR9_6,cR10_6,
-                  cD1_6,cD2_6,cD3_6,cD4_6,cD5_6,cD6_6,cD7_6,cD8_6,cD9_6,cD10_6,cD11_6,cD12_6,cD13_6,cD14_6,cD15_6,cD16_6,]
-
+room5conveyors = [cU1_5,cU2_5,cU3_5,cU4_5,cU5_5,cU6_5,cU7_5,cU8_5,cU9_5,
+                  cU10_5,cU11_5,cU12_5,cU13_5,cU14_5,cU15_5,cU16_5,cU17_5,cU18_5,
+                  cR1_5,cR2_5,cR3_5,cR4_5,cR5_5,cR6_5,cR7_5,cR8_5,cR9_5,
+                  cR10_5,cR11_5,cR12_5,cR13_5,cR14_5,cR15_5,cR16_5,cR17_5,cR18_5]
 
 #---- SPIKE TRAPS ----#
 # NAME: spk + roomID_TrapID
+
+spk1_5 = spikeTrap(30,117)
+spk2_5 = spikeTrap(30,118)
+spk3_5 = spikeTrap(30,119)
+spk4_5 = spikeTrap(30,120)
+spk5_5 = spikeTrap(30,121)
+spk6_5 = spikeTrap(30,122)
+spk7_5 = spikeTrap(30,123)
+spk8_5 = spikeTrap(30,124)
+spk10_5 = spikeTrap(34,117)
+spk11_5 = spikeTrap(34,118)
+spk12_5 = spikeTrap(34,119)
+spk13_5 = spikeTrap(34,120)
+spk14_5 = spikeTrap(34,121)
+spk15_5 = spikeTrap(34,122)
+spk16_5 = spikeTrap(34,123)
+spk17_5 = spikeTrap(34,124)
+spk19_5 = spikeTrap(36,124)
+spk20_5 = spikeTrap(38,124)
+
+room5spikes = [spk1_5,spk2_5,spk3_5,spk4_5,spk5_5,spk6_5,spk7_5,spk8_5,spk10_5,
+               spk11_5,spk12_5,spk13_5,spk14_5,spk15_5,spk16_5,spk17_5,spk19_5,spk20_5]
 
 spk1_6 = spikeTrap(30,97)
 spk2_6 = spikeTrap(30,98)
@@ -200,10 +238,12 @@ spk10_6 = spikeTrap(26,102)
 spk11_6 = spikeTrap(26,103)
 spk12_6 = spikeTrap(26,104)
 
-room6spikes = [spk1_6,spk2_6,spk3_6,spk4_6,spk5_6,spk6_6,spk7_6,spk8_6,spk9_6,spk10_6,spk11_6,spk12_6,]
+room6spikes = [spk1_6,spk2_6,spk3_6,spk4_6,spk5_6,spk6_6,spk7_6,spk8_6,spk9_6,spk10_6,spk11_6,spk12_6]
 
 #---- FIRE TRAPS ----#
 # NAME: fire + roomID_TrapID
+
+fire1_5 = wallTrap(32,126,'d')
 
 fire1_7 = wallTrap(16,100,'r')
 fire2_7 = wallTrap(16,96,'r')
