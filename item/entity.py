@@ -4,6 +4,8 @@ from item.init_assets import *
 from item.timer import Timer
 from item.projectile import Projectile
 
+import pygame
+
 class Entity(item.obj.GameObject):
     def __init__(self, x = 0, y = 0, w = 0, h = 0):
         super().__init__(x, y, w, h)
@@ -31,10 +33,11 @@ class Player(Entity):
     def __init__(self, x = 0, y = 0, w = 0, h = 0):
         super().__init__(x, y, w, h)
         self.hp = 10
-        self.x_velocity = 0
-        self.y_velocity = 0
+        self.velocity = pygame.math.Vector2()
         self.dash_timer = 0
         self.isDead = False
+
+        
 
         self.player_sprite_left = item.init_assets.player_sprite_left
         self.player_sprite_right = item.init_assets.player_sprite_right
@@ -53,25 +56,29 @@ class Player(Entity):
     def input(self, current_keys):
         if self.can_control:
             if current_keys[pygame.K_s]:
-                self.y_velocity += 1
+                self.velocity.y += 1
             
             if current_keys[pygame.K_w]:
-                self.y_velocity -= 1
+                self.velocity.y -= 1
                 
             if current_keys[pygame.K_d]:
-                self.x_velocity += 1
+                self.velocity.x += 1
             
             if current_keys[pygame.K_a]:
-                self.x_velocity -= 1
+                self.velocity.x -= 1
 
+            try:
+                self.velocity = self.velocity.normalize()
+            except:
+                pass
         if self.dash_timer > 0:
-            self.x_velocity *= (2 *self.dash_timer)
-            self.y_velocity *= (2 * self.dash_timer)
+            self.velocity.x *= (2 *self.dash_timer)
+            self.velocity.y *= (2 * self.dash_timer)
         self.dash_timer -= 1
 
-        self.x += self.x_velocity
-        self.y += self.y_velocity
-        self.x_velocity, self.y_velocity = 0, 0
+        self.x += self.velocity.x
+        self.y += self.velocity.y
+        self.velocity.x, self.velocity.y = 0, 0
 
         self.dash_timer
 

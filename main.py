@@ -631,7 +631,7 @@ while True:
             cos = (window.camera_x + window.mouse_x - item.entity.player.x)
             angle = math.atan2(sin, cos)
 
-            projectiles.append(Projectile(item.entity.player.x, item.entity.player.y, 8, 8, 3, angle, 200))
+            projectiles.append(Projectile(item.entity.player.x, item.entity.player.y, 3, angle, 200))
             
             random.choice([shoot_sfx1, shoot_sfx2, shoot_sfx3]).play()
         else:
