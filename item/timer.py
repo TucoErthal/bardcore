@@ -57,4 +57,7 @@ class Timer:
             return True
         
         return False
+
+    def __bool__(self):
+        return self.ringing()
         

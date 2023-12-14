@@ -11,8 +11,8 @@ from gui import *
 
 test_button = Button(16, 64, 129, 16, "FODA", lambda: print("foda"))
 
-enemies3  = [Mage(67, 139)]
-enemies4  = []
+enemies3  = []
+enemies4  = [Boss(67, 100)]
 enemies5  = [Mage(39,120)]
 enemies6  = []
 enemies7  = []

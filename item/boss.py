@@ -40,6 +40,9 @@ class Boss(Enemy):
         self.hitbox = True
 
         self.canShoot = True
+        self.spread = 0.35
+        self.projSpd = 1
+        self.t_shoot.set_max_time(0.5)
 
     def set_target(self):
         tx = player.x-16
@@ -59,6 +62,7 @@ class Boss(Enemy):
 
         self.speed = self.defalt_spd
         self.follow_distance = 0
+        
 
 
     def attack2Follow(self):
@@ -90,9 +94,12 @@ class Boss(Enemy):
 
     def update(self, room):
         if self.isShooter:
-            if self.t_shoot.ringing() and self.canShoot:
+            if self.t_shoot and self.canShoot:
                 self.t_shoot.start()
-                self.shoot()
+                if self.hp <= 5:
+                    self.spradShoot()
+                else:
+                    self.shoot()
 
             for t in self.projectiles:
                 t.update()
@@ -132,6 +139,14 @@ class Boss(Enemy):
 
         self.gx = self.x 
         self.gy = self.y - 48
+
+    def spradShoot(self):
+        p1 = Projectile(self.x+(self.w/2), self.y+(self.h/2), angle = self.angle + self.spread, speed= self.projSpd)
+        p2 = Projectile(self.x+(self.w/2), self.y+(self.h/2), angle = self.angle, speed= self.projSpd)
+        p3 = Projectile(self.x+(self.w/2), self.y+(self.h/2), angle = self.angle - self.spread, speed= self.projSpd)
+        self.projectiles.append(p1)
+        self.projectiles.append(p2)
+        self.projectiles.append(p3)
 
 
     def draw(self):
