@@ -98,6 +98,7 @@ class wallTrap(GameObject):
             tiro.curr_sprite = fireball_L
 
         self.tiros.append(tiro)
+        fireball_sfx.play()
 
 class spikeTrap(GameObject):
     def __init__(self, x, y):
