@@ -37,6 +37,7 @@ class Boss(Enemy):
         self.t_follow = Timer(5)
         self.t_impact = Timer(0.5)
         self.t_prepare = Timer(0.5)
+        self.t_radial = Timer(1)
 
         self.state = ATTACK
         self.hitbox = True
@@ -98,8 +99,12 @@ class Boss(Enemy):
         if self.isShooter:
             if self.t_shoot and self.canShoot:
                 self.t_shoot.start()
-
-                self.radiaShoot(0.4)
+                if self.hp >= 10:
+                    self.shoot()
+                elif self.hp >= 5:
+                    self.spradShoot()
+                else:
+                    self.radiaShoot(0.4)
 
             for t in self.projectiles:
                 t.update()
