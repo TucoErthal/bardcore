@@ -167,6 +167,7 @@ room14_sprite = pygame.image.load("assets/maps/room14.png").convert_alpha()
 room15_sprite = pygame.image.load("assets/maps/room15.png").convert_alpha()
 room16_sprite = pygame.image.load("assets/maps/room16.png").convert_alpha()
 
+winscene = pygame.image.load("assets/maps/winscene.png").convert_alpha()
 
 # GUI
 select_sprite = pygame.image.load("assets/textures/gui/select.png").convert_alpha()
