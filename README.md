@@ -20,33 +20,48 @@ O protagonista é um bardo misterioso que veste um chapéu por cima do capuz, re
 
 Arte conceito do Bardo, o protagonista.
 
-## Controles do jogador
-@ -52,72 +53,74 @@
 ## Interface
-
-![ScreenGDD 1](https://github.com/TucoErthal/bardcore/assets/67657590/4e5e78cb-29e9-4884-a0d7-3156af5b775d)
-
+![[Screenshot_7.png]]
 A interface gráfica contará com um medidor de vida e uma barra de ritmo, indicando quando o jogador deve agir, localizados em uma barra na parte superior da tela, como em vários jogos arcade e de NES. A câmera seguirá o jogador, tendendo levemente para direção do cursor, permitindo que o jogador controle o campo de visão com o mouse. O cursor terá o formato de uma mira, indicando a direção para a qual os projéteis irão.
 
 ## Inimigos
 
-O jogador irá navegar entre diversas salas, estas podendo ser bloqueadas até que todos os inimigos da sala são derrotados. Entre os inimigos, há aqueles que lançam projéteis na direção do jogador, ou os que tentam atacar o jogador por contato. Após uma certa quantidade de tiros acertarem um inimigo, este irá sumir do mapa. Se os inimigos derrotarem o jogador, todos os inimigos que uma vez foram derrotados irão reaparecer, porém portas que estavam trancadas irão permanecer destrancadas.
+O jogador irá navegar entre diversas salas, estas podendo ser bloqueadas até que todos os inimigos da sala são derrotados. 
+
+Entre os inimigos, há aqueles que lançam projéteis na direção do jogador, 
+![[mage.png]]  ![[Skelly 1.png]]
+ou os que tentam atacar o jogador por contato. 
+
+![[bell.png]]![[ghost 1.png]]
+
+Após uma certa quantidade de tiros acertarem um inimigo, este irá sumir do mapa. Se os inimigos derrotarem o jogador, todos os inimigos que uma vez foram derrotados irão reaparecer, porém portas que estavam trancadas irão permanecer destrancadas.
 
 Inimigos tem uma chance de, ao serem derrotados, deixarem um coração coletável para trás. Quando o jogador coleta o coração, uma pequena quantidade de vida é restaurada.
 
-Após coletar duas cordas mágicas, cada uma localizada no final de uma sequência de salas, o jogador irá desbloquear a porta central, levando à sala onde o Boss o aguarda. Este inimigo é mais poderoso que os outros, tendo 3 fases de ataque. Com vida máxima, ele atira diretamente ao jogador, e na medida que sua vida é reduzida, os ataques ficam mais intensos. Seu segundo ataque é lançar 3 tiros de uma vez, e o terceiro é lançar tiros em todas as direções. Além disso, enquanto ele atira ao jogador, tentará esmagá-lo com pulos.
+![[miniheart.png]]
+Após coletar duas cordas mágicas, 
+
+![[string.png]]
+
+cada uma localizada no final de uma sequência de salas, o jogador irá desbloquear a porta central, levando à sala onde o Boss o aguarda. Este inimigo é mais poderoso que os outros, tendo 3 fases de ataque. Com vida máxima, ele atira diretamente ao jogador, e na medida que sua vida é reduzida, os ataques ficam mais intensos. Seu segundo ataque é lançar 3 tiros de uma vez, e o terceiro é lançar tiros em todas as direções. Além disso, enquanto ele atira ao jogador, tentará esmagá-lo com pulos.
 
 Derrotado o boss, o jogador poderá prosseguir para a última sala do jogo, onde vencerá.
 
-![crosshair](https://github.com/TucoErthal/bardcore/assets/67657590/4fec7972-a142-4b22-8a94-332dc12cdf1d)
+## Armadilhas
 
+Existem 3 tipos de armadilhas
 
-![combo](https://github.com/TucoErthal/bardcore/assets/67657590/b95346f0-677f-40d5-9f7d-9ce97d347edc)
+### Spike 
+Armadilhas que ficam no chão e são ativadas quando o jogador passa por cima
 
+![[Screenshot_3.png]]
+### Flamethrower
+Armadilhas que ficam presas na parede e atiram bolas de fogo no ritmo da musica
 
-![pattern](https://github.com/TucoErthal/bardcore/assets/67657590/9eff9c1f-10a7-44e0-a866-192611daad14)
-
-
+![[Screenshot_8.png]]
+### Conveyor
+Armadilhas que empurram o jogador na direção das setas, tambem funcionam como uma barreira
+![[Screenshot_2.png]]
 ## Input
 
 W, A, S, D - teclas direcionais, serão usadas para movimentar o jogador ou tocar combos de notas com o alaúde.
