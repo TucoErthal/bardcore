@@ -35,6 +35,7 @@ class Player(Entity):
     def __init__(self, x = 0, y = 0, w = 0, h = 0):
         super().__init__(x, y, w, h)
         self.hp = 4
+        self.max_hp = self.hp
         self.velocity = pygame.math.Vector2()
         self.dash_timer = 0
         self.isDead = False
@@ -62,7 +63,8 @@ class Player(Entity):
         self.transition_frame = transparent
 
     def heal(self):
-        self.hp += 1
+        if self.max_hp >= self.hp:
+            self.hp += 1
 
     def input(self, current_keys):
         if self.can_control:

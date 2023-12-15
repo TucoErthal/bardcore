@@ -10,7 +10,7 @@ class Collectable(GameObject):
         x = x
         y = y
 
-        self.sprite = heart1
+        self.sprite = miniheart
 
         self.x = x
         self.y = y
