@@ -199,6 +199,7 @@ def level3():
     player.draw()
     projDraw(enemies3)
 
+    #hart.draw()
 
     torch3_1.draw()
     torch3_2.draw()

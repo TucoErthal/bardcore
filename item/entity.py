@@ -3,6 +3,8 @@ import item.obj
 from item.init_assets import *
 from item.timer import Timer
 from item.projectile import Projectile
+from item.collectable import *
+
 
 import pygame
 
@@ -58,6 +60,9 @@ class Player(Entity):
         self.scene_delay = False
         self.transition_counter = 0
         self.transition_frame = transparent
+
+    def heal():
+        self.hp += 1
 
     def input(self, current_keys):
         if self.can_control:
@@ -176,7 +181,7 @@ class Enemy(Entity):
             distance = math.sqrt(self.sin**2 + self.cos**2)
             if distance > self.follow_distance:
                 self.move()
-        
+         
         # Move in the direction of self.angle
         def move(self):
             self.x += self.speed * math.cos(self.angle)
@@ -236,6 +241,8 @@ class Enemy(Entity):
                     window.render(self.sprite, (self.x, self.y))
             else:
                 self.dead_time -=1
+
+                self.projectiles = []
 
                 if self.dead_time == 45:
                     explode_sfx.play()

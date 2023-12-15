@@ -114,8 +114,8 @@ class spikeTrap(GameObject):
         self.curr_sprite = self.img_0
 
         self.x = x*16
-        self.gy = y*16      # for draw fuction
-        self.y = self.gy+16       # for the collided fuction
+        self.gy = y*16              # for draw fuction
+        self.y = self.gy+16         # for the collided fuction
         self.w = self.img_0.get_rect().width
         self.h = self.img_0.get_rect().height/2
 

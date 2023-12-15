@@ -178,6 +178,8 @@ class Boss(Enemy):
         else:
             self.dead_time -=1
 
+            self.projectiles = []
+
             if self.dead_time == 45:
                 explode_sfx.play()
 

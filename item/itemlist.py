@@ -576,3 +576,5 @@ fire2_9 = wallTrap(111,117,'u')
 room9fire = [fire1_9,fire2_9]
 
 boss = item.boss.Boss(67, 139) 
+
+#hart = Colectable(67,140)
