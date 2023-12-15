@@ -11,9 +11,15 @@ input_manager = input.InputManager(window)
 
 # ENTITY SPRITES
 projectile_sprite = pygame.image.load("assets/textures/projectile.png").convert_alpha()
-crosshair         = pygame.image.load("assets/textures/gui/mouse_crosshair.png")
-miss_crosshair    = pygame.image.load("assets/textures/gui/mouse_crosshair_miss.png")
+crosshair         = pygame.image.load("assets/textures/gui/mouse_crosshair.png").convert_alpha()
+miss_crosshair    = pygame.image.load("assets/textures/gui/mouse_crosshair_miss.png").convert_alpha()
 
+heart1 = pygame.image.load("assets/textures/heart1.png").convert_alpha()
+heart2 = pygame.image.load("assets/textures/heart2.png").convert_alpha()
+heart3 = pygame.image.load("assets/textures/heart3.png").convert_alpha()
+heart4 = pygame.image.load("assets/textures/heart4.png").convert_alpha()
+heart5 = pygame.image.load("assets/textures/heart5.png").convert_alpha()
+heart6 = pygame.image.load("assets/textures/heart6.png").convert_alpha()
 
 explosion_sprite_1 = pygame.image.load("assets/textures/explosion1.png").convert_alpha()
 explosion_sprite_2 = pygame.image.load("assets/textures/explosion2.png").convert_alpha()
@@ -55,11 +61,20 @@ skelly_dmg_sprite = pygame.image.load("assets/textures/Skellydmg.png").convert_a
 
 # BOSS
 
-boss_idle1   = pygame.image.load("assets/textures/boss_Idle.png")
-boss_dmg     = pygame.image.load("assets/textures/boss_dmg.png")
-boss_Impact  = pygame.image.load("assets/textures/boss_Impact.png")
-boss_PreJump = pygame.image.load("assets/textures/boss_PreJump.png")
-boss_Attack  = pygame.image.load("assets/textures/boss_Attack.png")
+boss_idle1   = pygame.image.load("assets/textures/boss_Idle.png").convert_alpha()
+boss_dmg     = pygame.image.load("assets/textures/boss_dmg.png").convert_alpha()
+boss_Impact  = pygame.image.load("assets/textures/boss_Impact.png").convert_alpha()
+boss_PreJump = pygame.image.load("assets/textures/boss_PreJump.png").convert_alpha()
+
+boss_Attack1  = pygame.image.load("assets/textures/boss_Attack1.png").convert_alpha()
+boss_Attack2  = pygame.image.load("assets/textures/boss_Attack2.png").convert_alpha()
+boss_Attack3  = pygame.image.load("assets/textures/boss_Attack3.png").convert_alpha()
+boss_Attack4  = pygame.image.load("assets/textures/boss_Attack4.png").convert_alpha()
+boss_Attack5  = pygame.image.load("assets/textures/boss_Attack5.png").convert_alpha()
+boss_Attack6  = pygame.image.load("assets/textures/boss_Attack6.png").convert_alpha()
+boss_Attack7  = pygame.image.load("assets/textures/boss_Attack7.png").convert_alpha()
+boss_Attack8  = pygame.image.load("assets/textures/boss_Attack8.png").convert_alpha()
+boss_Attack9  = pygame.image.load("assets/textures/boss_Attack9.png").convert_alpha()
 
 
 # DOOR SPRITES
@@ -83,52 +98,52 @@ door_down_lock_sprite = pygame.image.load("assets/textures/doordownlock.png").co
 
 # TRANSITION SPRITES
 
-trans1      = pygame.image.load("assets/textures/gui/trans1.png")
-trans2      = pygame.image.load("assets/textures/gui/trans2.png")
-trans3      = pygame.image.load("assets/textures/gui/trans3.png")
-trans4      = pygame.image.load("assets/textures/gui/trans4.png")
-transparent = pygame.image.load("assets/textures/gui/transparent.png")
+trans1      = pygame.image.load("assets/textures/gui/trans1.png").convert_alpha()
+trans2      = pygame.image.load("assets/textures/gui/trans2.png").convert_alpha()
+trans3      = pygame.image.load("assets/textures/gui/trans3.png").convert_alpha()
+trans4      = pygame.image.load("assets/textures/gui/trans4.png").convert_alpha()
+transparent = pygame.image.load("assets/textures/gui/transparent.png").convert_alpha()
 
 # TRAPS
  
-spike_trap_0 = pygame.image.load("assets/textures/spike_trap_0.png")
-spike_trap_1 = pygame.image.load("assets/textures/spike_trap_1.png")
+spike_trap_0 = pygame.image.load("assets/textures/spike_trap_0.png").convert_alpha()
+spike_trap_1 = pygame.image.load("assets/textures/spike_trap_1.png").convert_alpha()
 
-templeTrap_U = pygame.image.load("assets/textures/templeTrap_U.png")
-templeTrap_D = pygame.image.load("assets/textures/templeTrap_D.png")
-templeTrap_L = pygame.image.load("assets/textures/templeTrap_L.png")
-templeTrap_R = pygame.image.load("assets/textures/templeTrap_R.png")
+templeTrap_U = pygame.image.load("assets/textures/templeTrap_U.png").convert_alpha()
+templeTrap_D = pygame.image.load("assets/textures/templeTrap_D.png").convert_alpha()
+templeTrap_L = pygame.image.load("assets/textures/templeTrap_L.png").convert_alpha()
+templeTrap_R = pygame.image.load("assets/textures/templeTrap_R.png").convert_alpha()
 
-fireball_U = pygame.image.load("assets/textures/fireballup.png")
-fireball_D = pygame.image.load("assets/textures/fireballdown.png")
-fireball_L = pygame.image.load("assets/textures/fireballleft.png")
-fireball_R = pygame.image.load("assets/textures/fireballright.png")
+fireball_U = pygame.image.load("assets/textures/fireballup.png").convert_alpha()
+fireball_D = pygame.image.load("assets/textures/fireballdown.png").convert_alpha()
+fireball_L = pygame.image.load("assets/textures/fireballleft.png").convert_alpha()
+fireball_R = pygame.image.load("assets/textures/fireballright.png").convert_alpha()
 
-convR1 = pygame.image.load("assets/textures/convR1.png")
-convR2 = pygame.image.load("assets/textures/convR2.png")
-convR3 = pygame.image.load("assets/textures/convR3.png")
+convR1 = pygame.image.load("assets/textures/convR1.png").convert_alpha()
+convR2 = pygame.image.load("assets/textures/convR2.png").convert_alpha()
+convR3 = pygame.image.load("assets/textures/convR3.png").convert_alpha()
 
-convL1 = pygame.image.load("assets/textures/convL1.png")
-convL2 = pygame.image.load("assets/textures/convL2.png")
-convL3 = pygame.image.load("assets/textures/convL3.png")
+convL1 = pygame.image.load("assets/textures/convL1.png").convert_alpha()
+convL2 = pygame.image.load("assets/textures/convL2.png").convert_alpha()
+convL3 = pygame.image.load("assets/textures/convL3.png").convert_alpha()
 
-convU1 = pygame.image.load("assets/textures/convU1.png")
-convU2 = pygame.image.load("assets/textures/convU2.png")
-convU3 = pygame.image.load("assets/textures/convU3.png")
+convU1 = pygame.image.load("assets/textures/convU1.png").convert_alpha()
+convU2 = pygame.image.load("assets/textures/convU2.png").convert_alpha()
+convU3 = pygame.image.load("assets/textures/convU3.png").convert_alpha()
 
-convD1 = pygame.image.load("assets/textures/convD1.png")
-convD2 = pygame.image.load("assets/textures/convD2.png")
-convD3 = pygame.image.load("assets/textures/convD3.png")
+convD1 = pygame.image.load("assets/textures/convD1.png").convert_alpha()
+convD2 = pygame.image.load("assets/textures/convD2.png").convert_alpha()
+convD3 = pygame.image.load("assets/textures/convD3.png").convert_alpha()
 
 
-enemyBall = pygame.image.load("assets/textures/enemy_ball.png")
+enemyBall = pygame.image.load("assets/textures/enemy_ball.png").convert_alpha()
 
 
 # TORCH SPRITES
 
-torch1 = pygame.image.load("assets/textures/torch1.png")
-torch2 = pygame.image.load("assets/textures/torch2.png")
-torch3 = pygame.image.load("assets/textures/torch3.png")
+torch1 = pygame.image.load("assets/textures/torch1.png").convert_alpha()
+torch2 = pygame.image.load("assets/textures/torch2.png").convert_alpha()
+torch3 = pygame.image.load("assets/textures/torch3.png").convert_alpha()
 
 
 
@@ -154,11 +169,11 @@ room16_sprite = pygame.image.load("assets/maps/room16.png").convert_alpha()
 
 
 # GUI
-select_sprite = pygame.image.load("assets/textures/gui/select.png")
-rhythm_bar_bg = pygame.image.load("assets/textures/gui/rhythm_bar_bg.png")
-rhythm_bar_0  = pygame.image.load("assets/textures/gui/rhythm_bar_0.png")
-rhythm_bar_1  = pygame.image.load("assets/textures/gui/rhythm_bar_1.png")
-rhythm_bar_fg = pygame.image.load("assets/textures/gui/rhythm_bar_fg.png")
+select_sprite = pygame.image.load("assets/textures/gui/select.png").convert_alpha()
+rhythm_bar_bg = pygame.image.load("assets/textures/gui/rhythm_bar_bg.png").convert_alpha()
+rhythm_bar_0  = pygame.image.load("assets/textures/gui/rhythm_bar_0.png").convert_alpha()
+rhythm_bar_1  = pygame.image.load("assets/textures/gui/rhythm_bar_1.png").convert_alpha()
+rhythm_bar_fg = pygame.image.load("assets/textures/gui/rhythm_bar_fg.png").convert_alpha()
 
 # INITIATE MUSIC
 soundtrack = music.Track("assets/audio/Bardcore.ogg", 80, 2)

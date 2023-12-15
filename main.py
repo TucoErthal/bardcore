@@ -33,7 +33,7 @@ enemies11 = []
 enemies12 = []
 enemies13 = []
 enemies14 = []
-enemies15 = []
+enemies15 = [boss]
 enemies16 = []
 
 strings_collected = []
@@ -631,6 +631,20 @@ def draw_gui():
     top_bar.blit(beat_bar, (32, 8))
 
     window.render_ui(top_bar, (0, 0))
+
+    if player.hp == 4:
+        current_heart = heart1
+    elif player.hp == 3:
+        current_heart = heart2
+    elif player.hp == 2:
+        current_heart = heart3
+    elif player.hp == 1:
+        current_heart = heart4
+    elif player.hp == 0:
+        current_heart = heart5
+    else:
+        current_heart = heart6
+    window.render_ui(current_heart,(8,8))
 
     window.render_crosshair(crosshair_state)
 

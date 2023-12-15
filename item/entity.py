@@ -32,7 +32,7 @@ class Entity(item.obj.GameObject):
 class Player(Entity):
     def __init__(self, x = 0, y = 0, w = 0, h = 0):
         super().__init__(x, y, w, h)
-        self.hp = 10
+        self.hp = 4
         self.velocity = pygame.math.Vector2()
         self.dash_timer = 0
         self.isDead = False

@@ -29,7 +29,7 @@ class Boss(Enemy):
         self.h =  self.h - 48
 
         self.spt_follow = boss_idle1
-        self.spt_attack = boss_Attack
+        self.spt_attack = boss_Attack1
         self.spt_prepare = boss_PreJump
         self.spt_impact = boss_Impact
 

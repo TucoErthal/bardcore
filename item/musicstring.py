@@ -64,6 +64,7 @@ class String():
             elif self.transition_counter > 80:
                 self.transition_frame = trans2
             elif self.transition_counter > 70:
+                self.string_img = transparent
                 self.transition_frame = trans3
             elif self.transition_counter > 30:
                 self.transition_frame = trans4
