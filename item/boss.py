@@ -13,7 +13,7 @@ PREPERING = 4
 
 class Boss(Enemy):
     def __init__(self, x, y):
-        super().__init__(boss_idle1, boss_dmg, x, y, 0.1, 16)
+        super().__init__(boss_idle1, boss_dmg, x, y, 0.1, 40)
         self.defalt_spd = self.speed
         self.follow_distance = 70
         self.defalt_follow_distance = self.follow_distance
@@ -107,9 +107,9 @@ class Boss(Enemy):
         if self.isShooter:
             if self.t_shoot and self.canShoot:
                 self.t_shoot.start()
-                if self.hp >= 10:
+                if self.hp >= 20:
                     self.shoot()
-                elif self.hp >= 5:
+                elif self.hp >= 10:
                     self.spradShoot()
                 else:
                     self.radiaShoot(0.4)
