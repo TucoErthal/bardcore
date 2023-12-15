@@ -221,7 +221,7 @@ class Enemy(Entity):
                 player.get_hit()
                 
         def shoot(self):
-            p = Projectile(self.x+(self.w/2), self.y+(self.h/2), angle = self.angle)
+            p = Projectile(self.x+(self.w/2), self.y+(self.h/2), angle = self.angle, speed=2)
             self.projectiles.append(p)
 
         def spradShoot(self):
