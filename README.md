@@ -41,7 +41,7 @@ Inimigos tem uma chance de, ao serem derrotados, deixarem um coração coletáve
 ![[miniheart.png]]
 Após coletar duas cordas mágicas, 
 
-![[string.png]]
+![string.png](https://github.com/TucoErthal/bardcore/blob/main/assets/GDD%20Images/string.png)
 
 cada uma localizada no final de uma sequência de salas, o jogador irá desbloquear a porta central, levando à sala onde o Boss o aguarda. Este inimigo é mais poderoso que os outros, tendo 3 fases de ataque. Com vida máxima, ele atira diretamente ao jogador, e na medida que sua vida é reduzida, os ataques ficam mais intensos. Seu segundo ataque é lançar 3 tiros de uma vez, e o terceiro é lançar tiros em todas as direções. Além disso, enquanto ele atira ao jogador, tentará esmagá-lo com pulos.
 
