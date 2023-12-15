@@ -29,16 +29,19 @@ A interface gráfica contará com um medidor de vida e uma barra de ritmo, indic
 O jogador irá navegar entre diversas salas, estas podendo ser bloqueadas até que todos os inimigos da sala são derrotados. 
 
 Entre os inimigos, há aqueles que lançam projéteis na direção do jogador, 
+
 ![mage.png](https://github.com/TucoErthal/bardcore/blob/main/assets/GDD%20Images/mage.png)  ![Skelly 1.png](https://github.com/TucoErthal/bardcore/blob/main/assets/GDD%20Images/Skelly%201.png)
+
 ou os que tentam atacar o jogador por contato. 
 
 ![bell.png](https://github.com/TucoErthal/bardcore/blob/main/assets/GDD%20Images/bell.png)![ghost 1.png](https://github.com/TucoErthal/bardcore/blob/main/assets/GDD%20Images/ghost%201.png)
+
 
 Após uma certa quantidade de tiros acertarem um inimigo, este irá sumir do mapa. Se os inimigos derrotarem o jogador, todos os inimigos que uma vez foram derrotados irão reaparecer, porém portas que estavam trancadas irão permanecer destrancadas.
 
 Inimigos tem uma chance de, ao serem derrotados, deixarem um coração coletável para trás. Quando o jogador coleta o coração, uma pequena quantidade de vida é restaurada.
 
-![[miniheart.png]]
+![miniheart.png](https://github.com/TucoErthal/bardcore/blob/main/assets/GDD%20Images/miniheart.png)
 Após coletar duas cordas mágicas, 
 
 ![string.png](https://github.com/TucoErthal/bardcore/blob/main/assets/GDD%20Images/string.png)
@@ -54,14 +57,14 @@ Existem 3 tipos de armadilhas
 ### Spike 
 Armadilhas que ficam no chão e são ativadas quando o jogador passa por cima
 
-![[Screenshot_3.png]]
+![Screenshot_3.png](https://github.com/TucoErthal/bardcore/blob/main/assets/GDD%20Images/Screenshot%203.png)
 ### Flamethrower
 Armadilhas que ficam presas na parede e atiram bolas de fogo no ritmo da musica
 
-![[Screenshot_8.png]]
+![Screenshot_8.png](https://github.com/TucoErthal/bardcore/blob/main/assets/GDD%20Images/Screenshot%208.png)
 ### Conveyor
 Armadilhas que empurram o jogador na direção das setas, tambem funcionam como uma barreira
-![[Screenshot_2.png]]
+![Screenshot_2.png](https://github.com/TucoErthal/bardcore/blob/main/assets/GDD%20Images/Screenshot%203.png)
 ## Input
 
 W, A, S, D - teclas direcionais, serão usadas para movimentar o jogador ou tocar combos de notas com o alaúde.
