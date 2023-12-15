@@ -46,8 +46,8 @@ class Boss(Enemy):
 
         self.canShoot = True
         self.spread = 0.40
-        self.projSpd = 1
-        self.t_shoot.set_max_time(1)
+        self.projSpd = 1.5
+        self.t_shoot.set_max_time(0.5)
 
     def set_target(self):
         tx = player.x-16

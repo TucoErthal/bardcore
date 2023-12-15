@@ -21,7 +21,7 @@ def start_game():
 
 in_game = False
 enemies2  = []
-enemies3  = [Ghost(67,140)]
+enemies3  = [Ghost(67,140), Boss(67,140)]
 enemies4  = [Ghost(61,118),Ghost(72,118)]
 enemies5  = []
 enemies6  = []
@@ -752,7 +752,7 @@ while True:
 
     if player.can_control:
         if current_keys[pygame.K_SPACE] and not(last_keys[pygame.K_SPACE]):
-            if soundtrack.is_on_beat():
+            if soundtrack.is_on_beat(2):
                 player.dash_timer = 8
                 dash_sfx.play()
             else:
