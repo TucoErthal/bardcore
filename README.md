@@ -7,14 +7,14 @@ Este projeto está sendo desenvolvido por: Arthur Macabu Erthal, Luan Lopes da S
 ---
 # 2 - Highconcept
 
-BARDCORE é um twin-stick shooter em que o jogador age no ritmo da música. Derrote inimigos e supere contratempos para restaurar e harmonia entre os reinos! 
+BARDCORE é um twin-stick shooter em que o jogador age no ritmo da música. Derrote inimigos e supere contratempos para fugir da tirania da NAÇÃO DO MAL! 
 
 ---
 # 3 - Gameplay e Enredo
 
 ## Aparência do personagem
 
-O protagonista é um menestrel misterioso que veste um chapéu por cima do capuz, revelando somente os olhos. Ele porta um alaúde mágico que tem uma única corda, e batalha contra inimigos com o poder da música.
+O protagonista é um bardo misterioso que veste um chapéu por cima do capuz, revelando somente os olhos. Ele porta um alaúde mágico e batalha contra inimigos com o poder da música.
 
 ![bard](https://github.com/TucoErthal/bardcore/assets/67657590/55b45a38-dee3-40b6-8cac-a886eda0ffa8)
 
@@ -26,19 +26,25 @@ Arte conceito do Bardo, o protagonista.
 
 ![ScreenGDD 1](https://github.com/TucoErthal/bardcore/assets/67657590/4e5e78cb-29e9-4884-a0d7-3156af5b775d)
 
-A interface gráfica contará com um medidor de vida e um indicador para o número de disparos especiais restantes, entre outras métricas, localizados em uma barra na parte superior da tela, como em vários jogos arcade e de NES. A câmera seguirá o jogador, tendendo levemente para direção do cursor, permitindo que o jogador controle o campo de visão com o mouse. O cursor terá o formato de uma mira, indicando a direção para a qual os projéteis irão, e contará com um temporizador que assiste o jogador a sincronizar seus inputs com o ritmo da música.
+A interface gráfica contará com um medidor de vida e uma barra de ritmo, indicando quando o jogador deve agir, localizados em uma barra na parte superior da tela, como em vários jogos arcade e de NES. A câmera seguirá o jogador, tendendo levemente para direção do cursor, permitindo que o jogador controle o campo de visão com o mouse. O cursor terá o formato de uma mira, indicando a direção para a qual os projéteis irão.
+
+## Inimigos
+
+O jogador irá navegar entre diversas salas, estas podendo ser bloqueadas até que todos os inimigos da sala são derrotados. Entre os inimigos, há aqueles que lançam projéteis na direção do jogador, ou os que tentam atacar o jogador por contato. Após uma certa quantidade de tiros acertarem um inimigo, este irá sumir do mapa. Se os inimigos derrotarem o jogador, todos os inimigos que uma vez foram derrotados irão reaparecer, porém portas que estavam trancadas irão permanecer destrancadas.
+
+Inimigos tem uma chance de, ao serem derrotados, deixarem um coração coletável para trás. Quando o jogador coleta o coração, uma pequena quantidade de vida é restaurada.
+
+Após coletar duas cordas mágicas, cada uma localizada no final de uma sequência de salas, o jogador irá desbloquear a porta central, levando à sala onde o Boss o aguarda. Este inimigo é mais poderoso que os outros, tendo 3 fases de ataque. Com vida máxima, ele atira diretamente ao jogador, e na medida que sua vida é reduzida, os ataques ficam mais intensos. Seu segundo ataque é lançar 3 tiros de uma vez, e o terceiro é lançar tiros em todas as direções. Além disso, enquanto ele atira ao jogador, tentará esmagá-lo com pulos.
+
+Derrotado o boss, o jogador poderá prosseguir para a última sala do jogo, onde vencerá.
+
 ![crosshair](https://github.com/TucoErthal/bardcore/assets/67657590/4fec7972-a142-4b22-8a94-332dc12cdf1d)
 
 
 ![combo](https://github.com/TucoErthal/bardcore/assets/67657590/b95346f0-677f-40d5-9f7d-9ce97d347edc)
 
-Enquanto o botão direito do mouse se mantiver pressionado, o personagem não poderá se mover, e as teclas direcionais serão convertidas em notas. O jogador poderá tocar melodias diferentes (combos) para empoderar seus próximos disparos. Novas notas são desbloqueadas à medida que o Bardo recupera as cordas do seu alaúde. Além da corda com a qual o Bardo inicia sua jornada, o jogador pode obter 3 cordas que incrementam o sistema de combos. A obtenção da quinta corda representa o final da aventura.
 
 ![pattern](https://github.com/TucoErthal/bardcore/assets/67657590/9eff9c1f-10a7-44e0-a866-192611daad14)
-
-Quando um inimigo de elite é instanciado, um padrão rítmico (que chamaremos de compasso) aleatório* é associado a ele. Esse padrão é formado por notas e pausas que correspondem, cada uma, a uma batida da música. O primeiro ataque que o jogador fizer contra o inimigo inicia a detecção do padrão. A cada batida, a instrução apropriada deve ser respeitada pelo jogador (atirar ou esperar). Se o padrão for quebrado, ele é reiniciado. Quando a sequência é completada, o inimigo perde uma vida (representada pelo círculo vermelho acima da barra de compasso). O inimigo é derrotado quando não restar nenhuma vida.
-
-* O padrão é formado por 8 notas/pausas, e sempre começa com uma nota (para que a detecção de padrão não seja iniciada em resposta a um eventual silêncio acidental do jogador.
 
 
 ## Input
@@ -47,19 +53,13 @@ W, A, S, D - teclas direcionais, serão usadas para movimentar o jogador ou toca
 
 Botão esquerdo do mouse - dispara uma nota musical onde o mouse estiver apontando.
 
-Botão direito do mouse - Usado em combinação com as teclas direcionais para tocar combos de notas.
-
-Barra de espaço / Shift - O Bardo realiza um avanço horizontal, desviando de ataques inimigos.
-
-ESC - fecha o jogo.
+Barra de espaço - O Bardo realiza um avanço horizontal, desviando de ataques inimigos.
 
 ---
 # 5 - Audio e música
-A trilha sonora do jogo consistirá em 4+ composições originais adequadas aos cenários mencionados, com inspiração nas trilhas de jogos da era NES / SNES. Usaremos efeitos sonoros de domínio público. As músicas planejadas são:
-* Tema de introdução do jogo (Abertura, tela de início)
-* Música da zona de tutorial
-* Tema de combate principal
-* Trilha de combate contra o boss.
+A trilha sonora do jogo consistirá de composições originais, com inspiração nas trilhas de jogos da era NES / SNES. Usaremos efeitos sonoros de domínio público ou geradas proceduralmente. As músicas utilizadas são:
+* Tema de introdução do jogo, que se toca no trailer
+* Tema principal
 
 ---
 # 6 - Arte Conceito e referências
@@ -78,20 +78,3 @@ Os jogos Crypt of the Necrodancer e BPM: Bullets Per Minute são as principais f
 
 O jogo Enter the Gungeon motivou a inclusão de elementos de ação que conferirão maior dinamismo ao jogo, como a perspectiva e a movimentação da câmera e do cursor.
 ![enter-the-gungeon-switch-switch-spel-nintendo-eshop-europe-wallpaper-4](https://github.com/TucoErthal/bardcore/assets/67657590/8197b617-b836-45bf-89a6-3c5b3a26aa0d)
-
-
-
----
-# 7 - Ideias adicionais e observações
-
-Muitas mecânicas ainda estão sendo avaliadas e estão sujeitas a mudanças no curso do desensolvimento do jogo. Parâmetros como a vida do jogador, quantos disparos especiais ele recebe, assim como o comportamento dos inimigos, serão ajustados de acordo com playtesting, com o intuito de criar uma experiência justa e divertida. As artes exibidas neste documento de desenvolvimento não são finais e serão refinadas e reiteradas até que os resultados sejam satisfatórios.
-
-Entre algumas das ideias que temos para o jogo, estão:
-### Algumas ideias para tipos de disparo
-- Distante --> Um disparo que vai mais longe do que o normal.
-- Explosivo --> "Explode" e dá dano em área ao impacto.
-- Múltiplo --> Atira mais de um disparo de uma vez em um cone.
-
-
-### Ideias para coletáveis
-- Item de cura --> Recupera parte da vida.
