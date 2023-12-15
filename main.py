@@ -21,7 +21,7 @@ def start_game():
 
 in_game = False
 enemies2  = []
-enemies3  = []
+enemies3  = [Ghost(67,140)]
 enemies4  = []
 enemies5  = []
 enemies6  = []
@@ -41,10 +41,38 @@ strings_collected = []
 #listname.append(item.enemylist.Bell(500,500))
 
 def spawnEnemies():
-    #enemiesX.append(item.enemylist.Name(x,y))
-    ...
+    global enemies2
+    global enemies3
+    global enemies4
+    global enemies5
+    global enemies6
+    global enemies7
+    global enemies8
+    global enemies9
+    global enemies10
+    global enemies11
+    global enemies12
+    global enemies13
+    global enemies14
+    global enemies15
+    global enemies16
 
-spawnEnemies()
+    enemies2  = []
+    enemies3  = []
+    enemies4  = []
+    enemies5  = []
+    enemies6  = []
+    enemies7  = []
+    enemies8  = []
+    enemies9  = [Bell(95,121),Bell(118,120),Bell(118,123),Mage(122,120),Mage(122,123)]
+    enemies10 = [Skelly(135,116),Skelly(140,116),Skelly(145,116),Ghost(143,123)]
+    enemies11 = [Mage(131,97),Mage(145,97)]
+    enemies12 = [Ghost(135,76),Ghost(142,76),Ghost(138,74)]
+    enemies13 = []
+    enemies14 = []
+    enemies15 = [boss]
+    enemies16 = []
+
 
 current_room = room0
 projectiles = []
@@ -418,8 +446,8 @@ def level10():
         i.draw()
 
     player.draw()
-    enemyDraw(enemies4)
-    projDraw(enemies4)
+    enemyDraw(enemies10)
+    projDraw(enemies10)
 
     torch10_1.draw()
     torch10_2.draw()
@@ -790,11 +818,18 @@ while True:
     elif current_room.id == 16:
         level16()
 
-    player.is_dead()
-    if player.transition_counter == 40:
+    if player.is_dead():
         current_room = room2
+        player.x = 66*16
+        player.y = 175*16
+        player.hp = 4
+        player.isDead = False
+        spawnEnemies()
+        player.can_control = True
+
 
     if in_game:
         draw_gui()
+
     window.update()
 

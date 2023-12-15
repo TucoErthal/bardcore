@@ -6,7 +6,7 @@ from item.path import *
 
 class Bell(Enemy):
     def __init__(self, x, y):
-        super().__init__(bell_sprite, bell_dmg_sprite, x, y, 0.2, 20)
+        super().__init__(bell_sprite, bell_dmg_sprite, x, y, 0.2, 12)
 
     def update(self, room):
         super().update(room)
@@ -30,7 +30,7 @@ class Mage(Enemy):
 
 class Ghost(Enemy):
     def __init__(self, x, y):
-        super().__init__(ghost_sprite, ghost_dmg_sprite, x, y, 0.5, 12)
+        super().__init__(ghost_sprite, ghost_dmg_sprite, x, y, 0.5, 6)
 
     def update(self, room):
         super().update(room)
@@ -41,7 +41,7 @@ class Ghost(Enemy):
 
 class Skelly(Enemy):
     def __init__(self, x, y):
-        super().__init__(skelly_sprite, skelly_dmg_sprite, x, y, 0, 16)
+        super().__init__(skelly_sprite, skelly_dmg_sprite, x, y, 0, 6)
 
         self.isShooter = True
 

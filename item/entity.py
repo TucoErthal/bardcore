@@ -108,49 +108,10 @@ class Player(Entity):
 
     def is_dead(self):
         if self.isDead == True:
-            if self.counter < 120:
-                    self.counter += 1
-
-            if self.counter == 120:
-                self.transition_frame = transparent
-
-                if self.scene_delay == False:
-                    self.timer = pygame.time.get_ticks()
-                    self.scene_delay = True
-                    self.transition_counter = 180
-
-                if self.transition_counter < 60:
-                    player.x = 66*16
-                    player.y = 175*16
-            else:
-                self.warp = False
-
-            if self.transition_counter == 0:
-                self.scene_delay = False
-
-            if self.transition_counter > 0:
-                self.transition_counter -= 1
-
-            if self.scene_delay == True and pygame.time.get_ticks() - self.timer >= 500:
-                if self.transition_counter > 160:
-                    pass
-                elif self.transition_counter > 150:
-                    self.transition_frame = trans1
-                elif self.transition_counter > 140:
-                    self.transition_frame = trans2
-                elif self.transition_counter > 130:
-                    self.transition_frame = trans3
-                elif self.transition_counter > 30:
-                    self.transition_frame = trans4
-                elif self.transition_counter > 20:
-                    self.transition_frame = trans3
-                elif self.transition_counter > 10:
-                    self.transition_frame = trans2
-                elif self.transition_counter > 0:
-                    self.transition_frame = trans1        
-                    player.can_control = True
-                    self.isDead = False
-                    player.hp = 4
+            return 1
+        else:
+            return 0
+            
 
     def draw(self):
         sin = (window.camera_y + window.mouse_y - item.entity.player.y)
@@ -193,7 +154,7 @@ class Enemy(Entity):
             self.hp = hp
 
             self.dead_time = 120
-            self.spread = 0.4
+            self.spread = 0.2
             self.projSpd = 1
 
             self.isShooter = False
@@ -241,7 +202,7 @@ class Enemy(Entity):
             if self.isSpreadShooter:
                 if self.t_shoot.ringing():
                     self.t_shoot.start()
-                    self.shoot()
+                    self.spradShoot()
 
                 for t in self.projectiles:
                     t.update()
