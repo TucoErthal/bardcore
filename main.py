@@ -638,7 +638,8 @@ def victory():
     player.can_control = False
     window.render_ui(winscene,(0,0))
     in_game = False
-
+    soundtrack.pause
+    string_sfx.play()
 
 
 
