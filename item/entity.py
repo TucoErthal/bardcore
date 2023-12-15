@@ -230,12 +230,18 @@ class Enemy(Entity):
                 
         def shoot(self):
             p = Projectile(self.x+(self.w/2), self.y+(self.h/2), angle = self.angle, speed=2)
+            p.curr_sprite = projectile2_sprite
+
             self.projectiles.append(p)
 
         def spradShoot(self):
             p1 = Projectile(self.x+(self.w/2), self.y+(self.h/2), angle = self.angle + self.spread, speed= self.projSpd)
             p2 = Projectile(self.x+(self.w/2), self.y+(self.h/2), angle = self.angle, speed= self.projSpd)
             p3 = Projectile(self.x+(self.w/2), self.y+(self.h/2), angle = self.angle - self.spread, speed= self.projSpd)
+            p1.curr_sprite = projectile2_sprite
+            p2.curr_sprite = projectile2_sprite
+            p3.curr_sprite = projectile2_sprite
+            
             self.projectiles.append(p1)
             self.projectiles.append(p2)
             self.projectiles.append(p3)

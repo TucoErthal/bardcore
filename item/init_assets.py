@@ -11,6 +11,7 @@ input_manager = input.InputManager(window)
 
 # ENTITY SPRITES
 projectile_sprite = pygame.image.load("assets/textures/projectile.png").convert_alpha()
+projectile2_sprite = pygame.image.load("assets/textures/projectile2.png").convert_alpha()
 crosshair         = pygame.image.load("assets/textures/gui/mouse_crosshair.png").convert_alpha()
 miss_crosshair    = pygame.image.load("assets/textures/gui/mouse_crosshair_miss.png").convert_alpha()
 
