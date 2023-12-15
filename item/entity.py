@@ -250,6 +250,7 @@ class Enemy(Entity):
             else:
                 self.dead_time -=1
 
+                collectables.append(Collectable(self.x, self.y))
                 self.projectiles = []
 
                 if self.dead_time == 45:

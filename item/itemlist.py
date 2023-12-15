@@ -577,4 +577,3 @@ room9fire = [fire1_9,fire2_9]
 
 boss = item.boss.Boss(67, 139) 
 
-collectables = []

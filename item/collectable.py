@@ -2,10 +2,10 @@ from item.init_assets import *
 from item.obj import GameObject
 
  
+collectables = []
 
 
-
-class Colectable(GameObject):
+class Collectable(GameObject):
     def __init__(self, x, y):
         x = x*16
         y = y*16
