@@ -158,6 +158,10 @@ class Boss(Enemy):
         p1 = Projectile(self.x+(self.w/2), self.y+(self.h/2), angle = self.angle + self.spread, speed= self.projSpd)
         p2 = Projectile(self.x+(self.w/2), self.y+(self.h/2), angle = self.angle, speed= self.projSpd)
         p3 = Projectile(self.x+(self.w/2), self.y+(self.h/2), angle = self.angle - self.spread, speed= self.projSpd)
+        p1.curr_sprite = projectile2_sprite
+        p2.curr_sprite = projectile2_sprite
+        p3.curr_sprite = projectile2_sprite
+        
         self.projectiles.append(p1)
         self.projectiles.append(p2)
         self.projectiles.append(p3)
@@ -165,6 +169,8 @@ class Boss(Enemy):
     def radiaShoot(self, stap, spread = 3.14):
         for ang in np.arange(-spread, spread, stap):
             p = Projectile(self.x+(self.w/2), self.y+(self.h/2), angle = self.angle + ang, speed= self.projSpd)
+            p.curr_sprite = projectile2_sprite
+
             self.projectiles.append(p)
 
 
@@ -177,8 +183,6 @@ class Boss(Enemy):
                 window.render(self.sprite, (self.gx, self.gy))
         else:
             self.dead_time -=1
-
-            self.projectiles = []
 
             if self.dead_time == 45:
                 explode_sfx.play()

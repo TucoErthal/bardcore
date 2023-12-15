@@ -631,13 +631,14 @@ def level16():
 
     if door16D.transition_counter == 40:
         current_room = door16D.target_room
-    if player.y > 432:
+    if player.y < 432:
         victory()
 
 def victory():
+    global in_game
     player.can_control = False
-    window.render_ui(winscene(0,0))
-
+    window.render_ui(winscene,(0,0))
+    in_game = False
 
 
 
