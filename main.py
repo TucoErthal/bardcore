@@ -21,7 +21,7 @@ def start_game():
 
 in_game = False
 enemies2  = []
-enemies3  = []
+enemies3  = [Boss(100, 100)]
 enemies4  = []
 enemies5  = []
 enemies6  = []

@@ -29,7 +29,7 @@ class Boss(Enemy):
         self.h =  self.h - 48
 
         self.spt_follow = boss_idle1
-        self.spt_attack = boss_Attack1
+        self.spt_attack = [boss_Attack1, boss_Attack2, boss_Attack3, boss_Attack4, boss_Attack5, boss_Attack6, boss_Attack7, boss_Attack8, boss_Attack9, boss_Attack8, boss_Attack7, boss_Attack6, boss_Attack5, boss_Attack4, boss_Attack3, boss_Attack2, boss_Attack1]
         self.spt_prepare = boss_PreJump
         self.spt_impact = boss_Impact
 
@@ -38,6 +38,8 @@ class Boss(Enemy):
         self.t_impact = Timer(0.5)
         self.t_prepare = Timer(0.5)
         self.t_radial = Timer(1)
+
+        self.timePerFrame_Attack = self.t_attack.max_time/17
 
         self.state = ATTACK
         self.hitbox = True
@@ -95,6 +97,12 @@ class Boss(Enemy):
         if distance > self.follow_distance:
             self.move()
 
+    def attackAnimation(self):
+        for i in range(0, 17):
+            if self.t_attack.get_time() <= i*self.timePerFrame_Attack:
+                self.sprite = self.spt_attack[i]
+                return
+
     def update(self, room):
         if self.isShooter:
             if self.t_shoot and self.canShoot:
@@ -117,6 +125,7 @@ class Boss(Enemy):
 
         if self.state == ATTACK:
             self.goTo_target()
+            self.attackAnimation()
             if self.t_attack.ringing():
                 self.attack2Follow()
         elif self.state == FOLLOW:
@@ -133,7 +142,7 @@ class Boss(Enemy):
         elif self.state == PREPERING:
             self.canShoot = False
             if self.t_prepare.ringing():
-                self.sprite = self.spt_attack
+                #self.sprite = self.spt_attack
                 self.t_prepare.start()
                 self.t_attack.start()
                 self.hitbox = False
