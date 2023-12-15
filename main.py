@@ -27,10 +27,10 @@ enemies5  = []
 enemies6  = []
 enemies7  = []
 enemies8  = []
-enemies9  = []
-enemies10 = []
-enemies11 = []
-enemies12 = []
+enemies9  = [Bell(95,121),Bell(118,120),Bell(118,123),Mage(122,120),Mage(122,123)]
+enemies10 = [Skelly(135,116),Skelly(140,116),Skelly(145,116),Ghost(143,123)]
+enemies11 = [Mage(131,97),Mage(145,97)]
+enemies12 = [Ghost(135,76),Ghost(142,76),Ghost(138,74)]
 enemies13 = []
 enemies14 = []
 enemies15 = [boss]
@@ -363,7 +363,7 @@ def level8():
     if door8D.transition_counter == 40:
         current_room = door8D.target_room
     if string1.transition_counter == 80:
-        strings_collected.append(2)
+        strings_collected.append(1)
     if string1.transition_counter == 60:
         current_room = room4
 
@@ -377,9 +377,15 @@ def level9():
     door4R.draw(9)
     door10L.draw(9)
 
+    for i in room9conveyors:
+        i.draw()
+
     player.draw()
     enemyDraw(enemies9)
     projDraw(enemies9)
+
+    for i in room9fire:
+        i.draw(room9)
 
     torch9_1.draw()
     torch9_2.draw()
@@ -408,6 +414,9 @@ def level10():
     door9R.draw(10)
     door11D.draw(10)
 
+    for i in room10spikes:
+        i.draw()
+
     player.draw()
     enemyDraw(enemies4)
     projDraw(enemies4)
@@ -434,6 +443,11 @@ def level11():
     door11D.draw(11,enemies11)
     door10U.draw(11)
     door12D.draw(11)
+
+    for i in room11conveyors:
+        i.draw()
+    for i in room11spikes:
+        i.draw()
 
     player.draw()
     enemyDraw(enemies11)
@@ -474,6 +488,7 @@ def level12():
 
     door12D.transition()
     door11U.transition()
+    string2.transition()
 
     if door12D.transition_counter == 40:
         current_room = door12D.target_room
@@ -782,3 +797,4 @@ while True:
     if in_game:
         draw_gui()
     window.update()
+

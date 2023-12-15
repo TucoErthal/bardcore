@@ -200,6 +200,207 @@ room5conveyors = [cU1_5,cU2_5,cU3_5,cU4_5,cU5_5,cU6_5,cU7_5,cU8_5,cU9_5,
                   cR1_5,cR2_5,cR3_5,cR4_5,cR5_5,cR6_5,cR7_5,cR8_5,cR9_5,
                   cR10_5,cR11_5,cR12_5,cR13_5,cR14_5,cR15_5,cR16_5,cR17_5,cR18_5]
 
+cL1_11 = conveyorBelt(88,118,2)
+cL2_11 = conveyorBelt(89,118,2)
+cL3_11 = conveyorBelt(90,118,2)
+cL4_11 = conveyorBelt(91,118,2)
+cL5_11 = conveyorBelt(92,118,2)
+cL6_11 = conveyorBelt(93,118,2)
+cL7_11 = conveyorBelt(94,118,2)
+cL8_11 = conveyorBelt(95,118,2)
+cL9_11 = conveyorBelt(96,118,2)
+cL10_11 = conveyorBelt(97,118,2)
+cL11_11 = conveyorBelt(98,118,2)
+cL12_11 = conveyorBelt(99,118,2)
+cL13_11 = conveyorBelt(100,118,2)
+cL14_11 = conveyorBelt(101,118,2)
+cL15_11 = conveyorBelt(102,118,2)
+cL16_11 = conveyorBelt(103,118,2)
+cL17_11 = conveyorBelt(104,118,2)
+cL18_11 = conveyorBelt(105,118,2)
+cL19_11 = conveyorBelt(106,118,2)
+cL20_11 = conveyorBelt(107,118,2)
+cL21_11 = conveyorBelt(108,118,2)
+cL22_11 = conveyorBelt(109,118,2)
+cL23_11 = conveyorBelt(110,118,2)
+cL24_11 = conveyorBelt(111,118,2)
+cL25_11 = conveyorBelt(112,118,2)
+cL26_11 = conveyorBelt(113,118,2)
+cL27_11 = conveyorBelt(114,118,2)
+cL28_11 = conveyorBelt(115,118,2)
+cL29_11 = conveyorBelt(116,118,2)
+cL30_11 = conveyorBelt(117,118,2)
+cL31_11 = conveyorBelt(118,118,2)
+cL32_11 = conveyorBelt(119,118,2)
+cL33_11 = conveyorBelt(120,118,2)
+cL34_11 = conveyorBelt(121,118,2)
+cL35_11 = conveyorBelt(122,118,2)
+cL36_11 = conveyorBelt(123,118,2)
+cL37_11 = conveyorBelt(124,118,2)
+cL38_11 = conveyorBelt(125,118,2)
+
+cL1_11B = conveyorBelt(88,125,2)
+cL2_11B = conveyorBelt(89,125,2)
+cL3_11B = conveyorBelt(90,125,2)
+cL4_11B = conveyorBelt(91,125,2)
+cL5_11B = conveyorBelt(92,125,2)
+cL6_11B = conveyorBelt(93,125,2)
+cL7_11B = conveyorBelt(94,125,2)
+cL8_11B = conveyorBelt(95,125,2)
+cL9_11B = conveyorBelt(96,125,2)
+cL10_11B = conveyorBelt(97,125,2)
+cL11_11B = conveyorBelt(98,125,2)
+cL12_11B = conveyorBelt(99,125,2)
+cL13_11B = conveyorBelt(100,125,2)
+cL14_11B = conveyorBelt(101,125,2)
+cL15_11B = conveyorBelt(102,125,2)
+cL16_11B = conveyorBelt(103,125,2)
+cL17_11B = conveyorBelt(104,125,2)
+cL18_11B = conveyorBelt(105,125,2)
+cL19_11B = conveyorBelt(106,125,2)
+cL20_11B = conveyorBelt(107,125,2)
+cL21_11B = conveyorBelt(108,125,2)
+cL22_11B = conveyorBelt(109,125,2)
+cL23_11B = conveyorBelt(110,125,2)
+cL24_11B = conveyorBelt(111,125,2)
+cL25_11B = conveyorBelt(112,125,2)
+cL26_11B = conveyorBelt(113,125,2)
+cL27_11B = conveyorBelt(114,125,2)
+cL28_11B = conveyorBelt(115,125,2)
+cL29_11B = conveyorBelt(116,125,2)
+cL30_11B = conveyorBelt(117,125,2)
+cL31_11B = conveyorBelt(118,125,2)
+cL32_11B = conveyorBelt(119,125,2)
+cL33_11B = conveyorBelt(120,125,2)
+cL34_11B = conveyorBelt(121,125,2)
+cL35_11B = conveyorBelt(122,125,2)
+cL36_11B = conveyorBelt(123,125,2)
+cL37_11B = conveyorBelt(124,125,2)
+cL38_11B = conveyorBelt(125,125,2)
+
+cD1_9 = conveyorBelt(101,121,4)
+cD2_9 = conveyorBelt(101,122,4)
+cD3_9 = conveyorBelt(101,123,4)
+cD4_9 = conveyorBelt(101,124,4)
+cD5_9 = conveyorBelt(102,121,4)
+cD6_9 = conveyorBelt(102,122,4)
+cD7_9 = conveyorBelt(102,123,4)
+cD8_9 = conveyorBelt(102,124,4)
+cD9_9 = conveyorBelt(109,121,4)
+cD10_9 = conveyorBelt(109,122,4)
+cD11_9 = conveyorBelt(109,123,4)
+cD12_9 = conveyorBelt(109,124,4)
+cD13_9 = conveyorBelt(110,121,4)
+cD14_9 = conveyorBelt(110,122,4)
+cD15_9 = conveyorBelt(110,123,4)
+cD16_9 = conveyorBelt(110,124,1)
+cU1_9 = conveyorBelt(105,119,1)
+cU2_9 = conveyorBelt(105,120,1)
+cU3_9 = conveyorBelt(105,121,1)
+cU4_9 = conveyorBelt(105,122,1)
+cU5_9 = conveyorBelt(106,119,1)
+cU6_9 = conveyorBelt(106,120,1)
+cU7_9 = conveyorBelt(106,121,1)
+cU8_9 = conveyorBelt(106,122,1)
+
+# YES I KNOW IT SAYS 11, I CAN'T BOTHER RETYPING EVERYTHING
+room9conveyors = [cL1_11,cL2_11,cL3_11,cL4_11,cL5_11,cL6_11,cL7_11,cL8_11,cL9_11,cL10_11,
+                  cL11_11,cL12_11,cL13_11,cL14_11,cL15_11,cL16_11,cL17_11,cL18_11,cL19_11,cL20_11,
+                  cL21_11,cL22_11,cL23_11,cL24_11,cL25_11,cL26_11,cL27_11,cL28_11,cL29_11,cL30_11,
+                  cL31_11,cL32_11,cL33_11,cL34_11,cL35_11,cL36_11,cL37_11,cL38_11,
+                  cL1_11B,cL2_11B,cL3_11B,cL4_11B,cL5_11B,cL6_11B,cL7_11B,cL8_11B,cL9_11B,cL10_11B,
+                  cL11_11B,cL12_11B,cL13_11B,cL14_11B,cL15_11B,cL16_11B,cL17_11B,cL18_11B,cL19_11B,cL20_11B,
+                  cL21_11B,cL22_11B,cL23_11B,cL24_11B,cL25_11B,cL26_11B,cL27_11B,cL28_11B,cL29_11B,cL30_11B,
+                  cL31_11B,cL32_11B,cL33_11B,cL34_11B,cL35_11B,cL36_11B,cL37_11B,cL38_11B,
+                  cD1_9,cD2_9,cD3_9,cD4_9,cD5_9,cD6_9,cD7_9,cD8_9,
+                  cD9_9,cD10_9,cD11_9,cD12_9,cD13_9,cD14_9,cD15_9,cD16_9,
+                  cU1_9,cU2_9,cU3_9,cU4_9,cU5_9,cU6_9,cU7_9,cU8_9]
+
+cR1_11C = conveyorBelt(127,93,3)
+cR2_11C = conveyorBelt(128,93,3)
+cR3_11C = conveyorBelt(129,93,3)
+cR4_11C = conveyorBelt(130,93,3)
+cR5_11C = conveyorBelt(131,93,3)
+cR6_11C = conveyorBelt(132,93,3)
+cR7_11C = conveyorBelt(133,93,3)
+cR8_11C = conveyorBelt(134,93,3)
+cR9_11C = conveyorBelt(135,93,3)
+cD1_11C = conveyorBelt(136,93,4)
+cD2_11C = conveyorBelt(136,94,4)
+cD3_11C = conveyorBelt(136,95,4)
+cD4_11C = conveyorBelt(136,96,4)
+cD5_11C = conveyorBelt(136,97,4)
+cD6_11C = conveyorBelt(136,98,4)
+cD7_11C = conveyorBelt(136,99,4)
+cD8_11C = conveyorBelt(136,100,4)
+cD9_11C = conveyorBelt(136,101,4)
+cL1_11C = conveyorBelt(136,102,2)
+cL2_11C = conveyorBelt(135,102,2)
+cL3_11C = conveyorBelt(134,102,2)
+cL4_11C = conveyorBelt(133,102,2)
+cL5_11C = conveyorBelt(132,102,2)
+cL6_11C = conveyorBelt(131,102,2)
+cL7_11C = conveyorBelt(130,102,2)
+cL8_11C = conveyorBelt(129,102,2)
+cL9_11C = conveyorBelt(128,102,2)
+cU1_11C = conveyorBelt(127,102,1)
+cU2_11C = conveyorBelt(127,101,1)
+cU3_11C = conveyorBelt(127,100,1)
+cU4_11C = conveyorBelt(127,99,1)
+cU5_11C = conveyorBelt(127,98,1)
+cU6_11C = conveyorBelt(127,97,1)
+cU7_11C = conveyorBelt(127,96,1)
+cU8_11C = conveyorBelt(127,95,1)
+cU9_11C = conveyorBelt(127,94,1)
+
+cR1_11D = conveyorBelt(141,102,3)
+cR2_11D = conveyorBelt(142,102,3)
+cR3_11D = conveyorBelt(143,102,3)
+cR4_11D = conveyorBelt(144,102,3)
+cR5_11D = conveyorBelt(145,102,3)
+cR6_11D = conveyorBelt(146,102,3)
+cR7_11D = conveyorBelt(147,102,3)
+cR8_11D = conveyorBelt(148,102,3)
+cR9_11D = conveyorBelt(149,102,3)
+cD1_11D = conveyorBelt(141,93,4)
+cD2_11D = conveyorBelt(141,94,4)
+cD3_11D = conveyorBelt(141,95,4)
+cD4_11D = conveyorBelt(141,96,4)
+cD5_11D = conveyorBelt(141,97,4)
+cD6_11D = conveyorBelt(141,98,4)
+cD7_11D = conveyorBelt(141,99,4)
+cD8_11D = conveyorBelt(141,100,4)
+cD9_11D = conveyorBelt(141,101,4)
+cL1_11D = conveyorBelt(150,93,2)
+cL2_11D = conveyorBelt(149,93,2)
+cL3_11D = conveyorBelt(148,93,2)
+cL4_11D = conveyorBelt(147,93,2)
+cL5_11D = conveyorBelt(146,93,2)
+cL6_11D = conveyorBelt(145,93,2)
+cL7_11D = conveyorBelt(144,93,2)
+cL8_11D = conveyorBelt(143,93,2)
+cL9_11D = conveyorBelt(142,93,2)
+cU1_11D = conveyorBelt(150,102,1)
+cU2_11D = conveyorBelt(150,101,1)
+cU3_11D = conveyorBelt(150,100,1)
+cU4_11D = conveyorBelt(150,99,1)
+cU5_11D = conveyorBelt(150,98,1)
+cU6_11D = conveyorBelt(150,97,1)
+cU7_11D = conveyorBelt(150,96,1)
+cU8_11D = conveyorBelt(150,95,1)
+cU9_11D = conveyorBelt(150,94,1)
+
+room11conveyors = [cR1_11C,cR2_11C,cR3_11C,cR4_11C,cR5_11C,cR6_11C,cR7_11C,cR8_11C,cR9_11C,
+                   cU1_11C,cU2_11C,cU3_11C,cU4_11C,cU5_11C,cU6_11C,cU7_11C,cU8_11C,cU9_11C,
+                   cL1_11C,cL2_11C,cL3_11C,cL4_11C,cL5_11C,cL6_11C,cL7_11C,cL8_11C,cL9_11C,
+                   cD1_11C,cD2_11C,cD3_11C,cD4_11C,cD5_11C,cD6_11C,cD7_11C,cD8_11C,cD9_11C,
+
+                   cR1_11D,cR2_11D,cR3_11D,cR4_11D,cR5_11D,cR6_11D,cR7_11D,cR8_11D,cR9_11D,
+                   cU1_11D,cU2_11D,cU3_11D,cU4_11D,cU5_11D,cU6_11D,cU7_11D,cU8_11D,cU9_11D,
+                   cL1_11D,cL2_11D,cL3_11D,cL4_11D,cL5_11D,cL6_11D,cL7_11D,cL8_11D,cL9_11D,
+                   cD1_11D,cD2_11D,cD3_11D,cD4_11D,cD5_11D,cD6_11D,cD7_11D,cD8_11D,cD9_11D]
+
+
 #---- SPIKE TRAPS ----#
 # NAME: spk + roomID_TrapID
 
@@ -300,7 +501,51 @@ spk39_8 = spikeTrap(11,60)
 room8spikes = [spk1_8,spk2_8,spk3_8,spk4_8,spk5_8,spk6_8,spk7_8,spk8_8,spk9_8,spk10_8,
                spk11_8,spk12_8,spk13_8,spk14_8,spk15_8,spk16_8,spk17_8,spk18_8,spk19_8,spk20_8,
                spk21_8,spk22_8,spk23_8,spk24_8,spk25_8,spk26_8,spk27_8,spk28_8,spk29_8,spk30_8,
-               spk31_8,spk32_8,spk33_8,spk34_8,spk35_8,spk36_8,spk37_8,spk38_8,spk39_8,]
+               spk31_8,spk32_8,spk33_8,spk34_8,spk35_8,spk36_8,spk37_8,spk38_8,spk39_8]
+
+spk1_10 = spikeTrap(132,117)
+spk2_10 = spikeTrap(134,117)
+spk3_10 = spikeTrap(136,117)
+spk4_10 = spikeTrap(138,117)
+spk5_10 = spikeTrap(140,117)
+spk6_10 = spikeTrap(142,117)
+spk7_10 = spikeTrap(144,117)
+spk8_10 = spikeTrap(146,117)
+spk9_10 = spikeTrap(132,118)
+spk10_10 = spikeTrap(134,118)
+spk11_10 = spikeTrap(136,118)
+spk12_10 = spikeTrap(138,118)
+spk13_10 = spikeTrap(140,118)
+spk14_10 = spikeTrap(142,118)
+spk15_10 = spikeTrap(144,118)
+spk16_10 = spikeTrap(146,118)
+
+room10spikes = [spk1_10,spk2_10,spk3_10,spk4_10,spk5_10,spk6_10,spk7_10,spk8_10,
+                spk9_10,spk10_10,spk11_10,spk12_10,spk13_10,spk14_10,spk15_10,spk16_10]
+
+spk1_11 = spikeTrap(129,95)
+spk2_11 = spikeTrap(129,96)
+spk3_11 = spikeTrap(129,97)
+spk4_11 = spikeTrap(129,98)
+spk5_11 = spikeTrap(133,95)
+spk6_11 = spikeTrap(133,96)
+spk7_11 = spikeTrap(133,97)
+spk8_11 = spikeTrap(133,98)
+spk9_11 = spikeTrap(143,95)
+spk10_11 = spikeTrap(143,96)
+spk11_11 = spikeTrap(143,97)
+spk12_11 = spikeTrap(143,98)
+spk13_11 = spikeTrap(147,95)
+spk14_11 = spikeTrap(147,96)
+spk15_11 = spikeTrap(147,97)
+spk16_11 = spikeTrap(147,98)
+spk17_11 = spikeTrap(131,95)
+spk18_11 = spikeTrap(131,98)
+spk19_11 = spikeTrap(145,95)
+spk20_11 = spikeTrap(145,98)
+
+room11spikes = [spk1_11,spk2_11,spk3_11,spk4_11,spk5_11,spk6_11,spk7_11,spk8_11,spk9_11,spk10_11,
+                spk11_11,spk12_11,spk13_11,spk14_11,spk15_11,spk16_11,spk17_11,spk18_11,spk19_11,spk20_11]
 
 #---- FIRE TRAPS ----#
 # NAME: fire + roomID_TrapID
@@ -325,4 +570,9 @@ fire3_8 = wallTrap(2,67,'l')
 
 room8fire = [fire1_8,fire2_8,fire3_8]
 
-boss = item.boss.Boss( 67, 139) 
+fire1_9 = wallTrap(99,117,'u')
+fire2_9 = wallTrap(111,117,'u')
+
+room9fire = [fire1_9,fire2_9]
+
+boss = item.boss.Boss(67, 139) 
