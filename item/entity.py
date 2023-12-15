@@ -150,6 +150,7 @@ class Player(Entity):
                     self.transition_frame = trans1        
                     player.can_control = True
                     self.isDead = False
+                    player.hp = 4
 
     def draw(self):
         sin = (window.camera_y + window.mouse_y - item.entity.player.y)
@@ -192,11 +193,14 @@ class Enemy(Entity):
             self.hp = hp
 
             self.dead_time = 120
+            self.spread = 0.4
+            self.projSpd = 1
 
             self.isShooter = False
+            self.isSpreadShooter = False
 
             self.projectiles = []
-            self.t_shoot = Timer(0.3)
+            self.t_shoot = Timer(1)
 
             self.sin = (player.y - self.y)
             self.cos = (player.x - self.x)
@@ -234,12 +238,33 @@ class Enemy(Entity):
                     if t.lifetime <= 0:
                         self.projectiles.remove(t)
 
+            if self.isSpreadShooter:
+                if self.t_shoot.ringing():
+                    self.t_shoot.start()
+                    self.shoot()
+
+                for t in self.projectiles:
+                    t.update()
+                    t.check_collision(player)
+                    t.check_wall_collision(room)
+
+                    if t.lifetime <= 0:
+                        self.projectiles.remove(t)
+
             if self.collided(player):
                 player.get_hit()
                 
         def shoot(self):
             p = Projectile(self.x+(self.w/2), self.y+(self.h/2), angle = self.angle)
             self.projectiles.append(p)
+
+        def spradShoot(self):
+            p1 = Projectile(self.x+(self.w/2), self.y+(self.h/2), angle = self.angle + self.spread, speed= self.projSpd)
+            p2 = Projectile(self.x+(self.w/2), self.y+(self.h/2), angle = self.angle, speed= self.projSpd)
+            p3 = Projectile(self.x+(self.w/2), self.y+(self.h/2), angle = self.angle - self.spread, speed= self.projSpd)
+            self.projectiles.append(p1)
+            self.projectiles.append(p2)
+            self.projectiles.append(p3)
 
         def draw(self):
             if self.hp > 0:    
