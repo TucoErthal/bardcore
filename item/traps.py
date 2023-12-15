@@ -90,7 +90,7 @@ class wallTrap(GameObject):
         elif self.direction == RIGHT:
             angle = 3.14159 # 180°
 
-        tiro = Projectile(self.tiro_spawn[0]-2, self.tiro_spawn[1]-2, 2, angle, 200)
+        tiro = Projectile(self.tiro_spawn[0]-2, self.tiro_spawn[1]-2, 2.5, angle, 200)
 
         if self.direction == UP:
             tiro.curr_sprite = fireball_D
@@ -130,10 +130,11 @@ class spikeTrap(GameObject):
             if self.curr_sprite != self.img_0:
                 self.curr_sprite = self.img_0
                 
-            if self.collided(player):
-                self.curr_sprite = self.img_1
-                player.get_hit()
-                self.animationTimer.restart()
+            if player.x+8 > self.x and player.x+8 < self.x+32:
+                if player.y+8 > self.y and player.y+8 < self.y+16:
+                    self.curr_sprite = self.img_1
+                    player.get_hit()
+                    self.animationTimer.restart()
             
 
 # 1 = UP, 2 = LEFT, 3 = RIGHT, 4 = DOWN

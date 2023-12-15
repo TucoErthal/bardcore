@@ -4,6 +4,8 @@ from item.timer import Timer
 from item.path import Path
 from item.point import Point
 
+import numpy as np
+
 ATTACK = 0
 FOLLOW = 1
 IMPACT = 2
@@ -35,14 +37,15 @@ class Boss(Enemy):
         self.t_follow = Timer(5)
         self.t_impact = Timer(0.5)
         self.t_prepare = Timer(0.5)
+        self.t_radial = Timer(1)
 
         self.state = ATTACK
         self.hitbox = True
 
         self.canShoot = True
-        self.spread = 0.35
+        self.spread = 0.40
         self.projSpd = 1
-        self.t_shoot.set_max_time(0.5)
+        self.t_shoot.set_max_time(1)
 
     def set_target(self):
         tx = player.x-16
@@ -96,10 +99,12 @@ class Boss(Enemy):
         if self.isShooter:
             if self.t_shoot and self.canShoot:
                 self.t_shoot.start()
-                if self.hp <= 5:
+                if self.hp >= 10:
+                    self.shoot()
+                elif self.hp >= 5:
                     self.spradShoot()
                 else:
-                    self.shoot()
+                    self.radiaShoot(0.4)
 
             for t in self.projectiles:
                 t.update()
@@ -147,6 +152,11 @@ class Boss(Enemy):
         self.projectiles.append(p1)
         self.projectiles.append(p2)
         self.projectiles.append(p3)
+
+    def radiaShoot(self, stap, spread = 3.14):
+        for ang in np.arange(-spread, spread, stap):
+            p = Projectile(self.x+(self.w/2), self.y+(self.h/2), angle = self.angle + ang, speed= self.projSpd)
+            self.projectiles.append(p)
 
 
     def draw(self):

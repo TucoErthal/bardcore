@@ -10,15 +10,14 @@ from item.enemylist import *
 from item.cutscene import *
 from gui import *
 
-play_button = Button(16,  96, 80, 24, "PLAY", lambda: changeroom(room1))
+play_button = Button(16,  96, 80, 24, "PLAY", lambda: start_game())
 quit_button = Button(16, 144, 80, 24, "QUIT", lambda: pygame.QUIT())
+start = 0
 
-def changeroom(roomarg):
-    global current_room
-    current_room = roomarg
-    pygame.mouse.set_visible(False)
-    player.x = 46*16
-    player.y = 175*16
+def start_game():
+    global start
+    start = 1
+
 
 in_game = False
 enemies2  = []
@@ -95,12 +94,24 @@ def projDraw(enemy_list):
 
 #---------- LEVELS ----------#
 
+
 def level0():
     global current_room
+    global start
     room0.draw_menu()
 
     play_button.update()
     quit_button.update()
+
+    if start == 1:
+        transition_to_game.logic()
+        pygame.mouse.set_visible(False)
+        player.x = 46*16
+        player.y = 175*16
+
+        transition_to_game.transition()
+        if transition_to_game.transition_counter == 40:
+            current_room = room1
 
 
 def level1():
@@ -112,7 +123,10 @@ def level1():
     torch1_1.draw()
 
     intro.logic()
+    transition_to_game.logic()
+
     intro.transition()
+    transition_to_game.transition()
 
     if intro.transition_counter == 40:
         current_room = room2
@@ -226,9 +240,16 @@ def level5():
     door4L.draw(5)
     door6D.draw(5)
 
+    for i in room5spikes:
+        i.draw()
+    for i in room5conveyors:
+        i.draw()
+
     player.draw()
     enemyDraw(enemies5)
     projDraw(enemies5)
+
+    fire1_5.draw(room5)
 
     torch5_1.draw()
     torch5_2.draw()
@@ -253,14 +274,15 @@ def level6():
     door5U.draw(6)
     door7R.draw(6)
 
-    for i in room6conveyors:
-        i.draw()
     for i in room6spikes:
         i.draw()
 
     player.draw()
     enemyDraw(enemies6)
     projDraw(enemies6)
+
+    for i in room6fire:
+        i.draw(room6)
 
     torch6_1.draw()
     torch6_2.draw()
@@ -287,12 +309,15 @@ def level7():
     door6L.draw(7)
     door8D.draw(7)
 
-    for i in room7fire:
-        i.draw(room7)
+    for i in room7spikes:
+        i.draw()
 
     player.draw()
     enemyDraw(enemies7)
     projDraw(enemies7)
+
+    for i in room7fire:
+        i.draw(room7)
 
     torch7_1.draw()
     torch7_2.draw()
@@ -315,9 +340,15 @@ def level8():
     door8D.draw(8,enemies8)
     door7U.draw(8)
 
+    for i in room8spikes:
+        i.draw()
+
     player.draw()
     enemyDraw(enemies8)
     projDraw(enemies8)
+
+    for i in room8fire:
+        i.draw(room8)
 
     if 1 not in strings_collected:
         string1.draw()
@@ -331,9 +362,10 @@ def level8():
 
     if door8D.transition_counter == 40:
         current_room = door8D.target_room
-    if string1.transition_counter == 40:
+    if string1.transition_counter == 80:
+        strings_collected.append(2)
+    if string1.transition_counter == 60:
         current_room = room4
-        strings_collected.append(1)
 
 
 def level9():
@@ -445,9 +477,10 @@ def level12():
 
     if door12D.transition_counter == 40:
         current_room = door12D.target_room
-    if string2.transition_counter == 40:
-        current_room = room4
+    if string2.transition_counter == 80:
         strings_collected.append(2)
+    if string2.transition_counter == 60:
+        current_room = room4
 
 
 def level13():
@@ -728,6 +761,9 @@ while True:
     elif current_room.id == 16:
         level16()
 
+    player.is_dead()
+    if player.transition_counter == 40:
+        current_room = room2
 
     if in_game:
         draw_gui()
