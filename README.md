@@ -21,7 +21,7 @@ O protagonista é um bardo misterioso que veste um chapéu por cima do capuz, re
 Arte conceito do Bardo, o protagonista.
 
 ## Interface
-![[Screenshot_7.png]]
+![Screenshot_7.png](https://github.com/TucoErthal/bardcore/blob/main/assets/GDD%20Images/Screenshot_7.png)
 A interface gráfica contará com um medidor de vida e uma barra de ritmo, indicando quando o jogador deve agir, localizados em uma barra na parte superior da tela, como em vários jogos arcade e de NES. A câmera seguirá o jogador, tendendo levemente para direção do cursor, permitindo que o jogador controle o campo de visão com o mouse. O cursor terá o formato de uma mira, indicando a direção para a qual os projéteis irão.
 
 ## Inimigos
@@ -29,10 +29,10 @@ A interface gráfica contará com um medidor de vida e uma barra de ritmo, indic
 O jogador irá navegar entre diversas salas, estas podendo ser bloqueadas até que todos os inimigos da sala são derrotados. 
 
 Entre os inimigos, há aqueles que lançam projéteis na direção do jogador, 
-![[mage.png]]  ![[Skelly 1.png]]
+![mage.png](https://github.com/TucoErthal/bardcore/blob/main/assets/GDD%20Images/mage.png)  ![Skelly 1.png](https://github.com/TucoErthal/bardcore/blob/main/assets/GDD%20Images/Skelly%201.png)
 ou os que tentam atacar o jogador por contato. 
 
-![[bell.png]]![[ghost 1.png]]
+![bell.png](https://github.com/TucoErthal/bardcore/blob/main/assets/GDD%20Images/bell.png)![ghost 1.png](https://github.com/TucoErthal/bardcore/blob/main/assets/GDD%20Images/ghost%201.png)
 
 Após uma certa quantidade de tiros acertarem um inimigo, este irá sumir do mapa. Se os inimigos derrotarem o jogador, todos os inimigos que uma vez foram derrotados irão reaparecer, porém portas que estavam trancadas irão permanecer destrancadas.
 
