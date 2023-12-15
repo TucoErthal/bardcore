@@ -63,7 +63,7 @@ class Player(Entity):
         self.transition_frame = transparent
 
     def heal(self):
-        if self.max_hp >= self.hp:
+        if self.max_hp > self.hp:
             self.hp += 1
 
     def input(self, current_keys):
