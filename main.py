@@ -80,10 +80,11 @@ frame_state = 0
 crosshair_state = 1
 crosshair_timer = 0
 
-
 #----- ENEMIES -----#
 
 def enemyDraw(enemy_list):
+    for c in collectables:
+        c.draw()
     for enemy in enemy_list:
         enemy.draw()
         #enemy.update(current_room)
@@ -107,6 +108,7 @@ def projDraw(enemy_list):
             if note.check_collision(i):
                 dmg_sfx.play()
                 note.lifetime = 0
+
 
 
 
@@ -198,8 +200,6 @@ def level3():
     enemyDraw(enemies3)
     player.draw()
     projDraw(enemies3)
-
-    #hart.draw()
 
     torch3_1.draw()
     torch3_2.draw()
