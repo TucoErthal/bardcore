@@ -89,7 +89,10 @@ def enemyDraw(enemy_list):
         enemy.draw()
         #enemy.update(current_room)
         if enemy.dead_time < 0:
-            collectables.append(Collectable(enemy.x, enemy.y))
+            r = random.randint(0, 2)
+            if r == 0:
+                collectables.append(Collectable(enemy.x, enemy.y))
+
             enemy_list.remove(enemy)
         if enemy.hp > 0:
             enemy.update(current_room)
