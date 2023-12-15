@@ -21,6 +21,7 @@ heart3 = pygame.image.load("assets/textures/heart3.png").convert_alpha()
 heart4 = pygame.image.load("assets/textures/heart4.png").convert_alpha()
 heart5 = pygame.image.load("assets/textures/heart5.png").convert_alpha()
 heart6 = pygame.image.load("assets/textures/heart6.png").convert_alpha()
+miniheart = pygame.image.load("assets/textures/miniheart.png").convert_alpha()
 
 explosion_sprite_1 = pygame.image.load("assets/textures/explosion1.png").convert_alpha()
 explosion_sprite_2 = pygame.image.load("assets/textures/explosion2.png").convert_alpha()

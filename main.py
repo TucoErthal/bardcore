@@ -634,9 +634,10 @@ def level16():
         victory()
 
 def victory():
+    global in_game
     player.can_control = False
     window.render_ui(winscene,(0,0))
-
+    in_game = False
 
 
 
