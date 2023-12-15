@@ -30,6 +30,7 @@ class wallTrap(GameObject):
 
         self.tiros = []
 
+        self.current_frame_on_beat = 0
 
 
         self.tiroCadence = Timer(0.2)
@@ -61,7 +62,10 @@ class wallTrap(GameObject):
         
 
     def update(self, room = -1):
-        if self.tiroCadence.ringing() and soundtrack.is_on_beat():
+        self.last_frame_on_beat = self.current_frame_on_beat
+        self.current_frame_on_beat = soundtrack.is_on_beat()
+
+        if self.tiroCadence.ringing() and (self.current_frame_on_beat and not(self.last_frame_on_beat)):
             self.fire()
             self.tiroCadence.restart()
 
