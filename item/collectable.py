@@ -32,5 +32,6 @@ class Collectable(GameObject):
             return
         if self.collided(player):
             player.heal()
+            heal_sfx.play()
             self.collidable = False
             self.drawable = False
