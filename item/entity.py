@@ -61,7 +61,7 @@ class Player(Entity):
         self.transition_counter = 0
         self.transition_frame = transparent
 
-    def heal():
+    def heal(self):
         self.hp += 1
 
     def input(self, current_keys):
@@ -122,10 +122,18 @@ class Player(Entity):
         sin = (window.camera_y + window.mouse_y - item.entity.player.y)
         cos = (window.camera_x + window.mouse_x - item.entity.player.x)
         
+
         if abs(sin) >= abs(cos):
-            self.curr_sprite = player_sprite_down if sin >= 0 else player_sprite_up
+            if self.dash_timer > 0:
+                self.curr_sprite = player_sprite_down_dash if sin >= 0 else player_sprite_up_dash
+            else:
+                self.curr_sprite = player_sprite_down if sin >= 0 else player_sprite_up
         else:
-            self.curr_sprite = player_sprite_right if cos >= 0 else player_sprite_left
+            if self.dash_timer > 0:
+                self.curr_sprite = player_sprite_right_dash if cos >= 0 else player_sprite_left_dash
+            else:
+                self.curr_sprite = player_sprite_right if cos >= 0 else player_sprite_left
+
 
         if self.hurt > 0:
             self.curr_sprite = self.dmg_sprite
@@ -221,7 +229,7 @@ class Enemy(Entity):
                 player.get_hit()
                 
         def shoot(self):
-            p = Projectile(self.x+(self.w/2), self.y+(self.h/2), angle = self.angle)
+            p = Projectile(self.x+(self.w/2), self.y+(self.h/2), angle = self.angle, speed=2)
             self.projectiles.append(p)
 
         def spradShoot(self):
