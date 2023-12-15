@@ -7,8 +7,8 @@ collectables = []
 
 class Collectable(GameObject):
     def __init__(self, x, y):
-        x = x*16
-        y = y*16
+        x = x
+        y = y
 
         self.sprite = heart1
 
@@ -21,13 +21,15 @@ class Collectable(GameObject):
         self.collidable = True
         self.drawable = True
 
-    def draw(self):
+    def draw(self, player = 0):
         if self.drawable:
             window.render(self.sprite, (self.x, self.y))
 
-        self.update()
+        self.update(player)
 
-    def update(self):
+    def update(self, player = 0):
+        if player == 0:
+            return
         if self.collided(player):
             player.heal()
             self.collidable = False

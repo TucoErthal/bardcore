@@ -84,11 +84,12 @@ crosshair_timer = 0
 
 def enemyDraw(enemy_list):
     for c in collectables:
-        c.draw()
+        c.draw(player)
     for enemy in enemy_list:
         enemy.draw()
         #enemy.update(current_room)
         if enemy.dead_time < 0:
+            collectables.append(Collectable(enemy.x, enemy.y))
             enemy_list.remove(enemy)
         if enemy.hp > 0:
             enemy.update(current_room)
