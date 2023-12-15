@@ -65,7 +65,10 @@ Armadilhas que ficam presas na parede e atiram bolas de fogo no ritmo da musica
 ### Conveyor
 Armadilhas que empurram o jogador na direção das setas, tambem funcionam como uma barreira
 
+
 ![Screenshot_2.png](https://github.com/TucoErthal/bardcore/blob/main/assets/GDD%20Images/Screenshot_3.png)
+
+
 ## Input
 
 W, A, S, D - teclas direcionais, serão usadas para movimentar o jogador ou tocar combos de notas com o alaúde.
