@@ -21,7 +21,7 @@ def start_game():
 
 in_game = False
 enemies2  = []
-enemies3  = [boss]
+enemies3  = []
 enemies4  = []
 enemies5  = []
 enemies6  = []
@@ -274,13 +274,15 @@ def level6():
     door5U.draw(6)
     door7R.draw(6)
 
-
     for i in room6spikes:
         i.draw()
 
     player.draw()
     enemyDraw(enemies6)
     projDraw(enemies6)
+
+    for i in room6fire:
+        i.draw(room6)
 
     torch6_1.draw()
     torch6_2.draw()
@@ -307,12 +309,15 @@ def level7():
     door6L.draw(7)
     door8D.draw(7)
 
-    for i in room7fire:
-        i.draw(room7)
+    for i in room7spikes:
+        i.draw()
 
     player.draw()
     enemyDraw(enemies7)
     projDraw(enemies7)
+
+    for i in room7fire:
+        i.draw(room7)
 
     torch7_1.draw()
     torch7_2.draw()
@@ -335,9 +340,15 @@ def level8():
     door8D.draw(8,enemies8)
     door7U.draw(8)
 
+    for i in room8spikes:
+        i.draw()
+
     player.draw()
     enemyDraw(enemies8)
     projDraw(enemies8)
+
+    for i in room8fire:
+        i.draw(room8)
 
     if 1 not in strings_collected:
         string1.draw()
@@ -351,9 +362,10 @@ def level8():
 
     if door8D.transition_counter == 40:
         current_room = door8D.target_room
+    if string1.transition_counter == 80:
+        strings_collected.append(2)
     if string1.transition_counter == 60:
         current_room = room4
-        strings_collected.append(1)
 
 
 def level9():
@@ -465,9 +477,10 @@ def level12():
 
     if door12D.transition_counter == 40:
         current_room = door12D.target_room
+    if string2.transition_counter == 80:
+        strings_collected.append(2)
     if string2.transition_counter == 60:
         current_room = room4
-        strings_collected.append(2)
 
 
 def level13():

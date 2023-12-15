@@ -237,13 +237,80 @@ spk9_6 = spikeTrap(26,101)
 spk10_6 = spikeTrap(26,102)
 spk11_6 = spikeTrap(26,103)
 spk12_6 = spikeTrap(26,104)
+spk13_6 = spikeTrap(34,99)
+spk14_6 = spikeTrap(34,100)
+spk15_6 = spikeTrap(34,101)
+spk16_6 = spikeTrap(34,102)
+spk17_6 = spikeTrap(34,103)
+spk18_6 = spikeTrap(34,104)
 
-room6spikes = [spk1_6,spk2_6,spk3_6,spk4_6,spk5_6,spk6_6,spk7_6,spk8_6,spk9_6,spk10_6,spk11_6,spk12_6]
+room6spikes = [spk1_6,spk2_6,spk3_6,spk4_6,spk5_6,spk6_6,spk7_6,spk8_6,spk9_6,
+               spk10_6,spk11_6,spk12_6,spk13_6,spk14_6,spk15_6,spk16_6,spk17_6,spk18_6]
+
+spk1_7 = spikeTrap(3,100)
+spk2_7 = spikeTrap(9,100)
+spk3_7 = spikeTrap(15,100)
+spk4_7 = spikeTrap(7,97)
+spk5_7 = spikeTrap(13,97)
+spk6_7 = spikeTrap(5,94)
+spk7_7 = spikeTrap(11,94)
+
+room7spikes = [spk1_7,spk2_7,spk3_7,spk4_7,spk5_7,spk6_7,spk7_7]
+
+spk1_8 = spikeTrap(2,78)
+spk2_8 = spikeTrap(4,78)
+spk3_8 = spikeTrap(6,78)
+spk4_8 = spikeTrap(8,78)
+spk5_8 = spikeTrap(8,77)
+spk6_8 = spikeTrap(8,76)
+spk7_8 = spikeTrap(12,78)
+spk8_8 = spikeTrap(14,78)
+spk9_8 = spikeTrap(12,77)
+spk10_8 = spikeTrap(14,77)
+spk11_8 = spikeTrap(12,76)
+spk12_8 = spikeTrap(12,75)
+spk13_8 = spikeTrap(12,74)
+spk14_8 = spikeTrap(12,73)
+spk15_8 = spikeTrap(12,72)
+spk16_8 = spikeTrap(10,72)
+spk17_8 = spikeTrap(8,72)
+spk18_8 = spikeTrap(6,72)
+spk19_8 = spikeTrap(12,73)
+spk20_8 = spikeTrap(10,73)
+spk21_8 = spikeTrap(8,73)
+spk22_8 = spikeTrap(6,73)
+spk23_8 = spikeTrap(4,68)
+spk24_8 = spikeTrap(8,68)
+spk25_8 = spikeTrap(12,68)
+spk26_8 = spikeTrap(5,63)
+spk27_8 = spikeTrap(7,63)
+spk28_8 = spikeTrap(9,63)
+spk29_8 = spikeTrap(11,63)
+spk30_8 = spikeTrap(5,59)
+spk31_8 = spikeTrap(7,59)
+spk32_8 = spikeTrap(9,59)
+spk33_8 = spikeTrap(11,59)
+spk34_8 = spikeTrap(5,62)
+spk35_8 = spikeTrap(5,61)
+spk36_8 = spikeTrap(5,60)
+spk37_8 = spikeTrap(11,62)
+spk38_8 = spikeTrap(11,61)
+spk39_8 = spikeTrap(11,60)
+
+room8spikes = [spk1_8,spk2_8,spk3_8,spk4_8,spk5_8,spk6_8,spk7_8,spk8_8,spk9_8,spk10_8,
+               spk11_8,spk12_8,spk13_8,spk14_8,spk15_8,spk16_8,spk17_8,spk18_8,spk19_8,spk20_8,
+               spk21_8,spk22_8,spk23_8,spk24_8,spk25_8,spk26_8,spk27_8,spk28_8,spk29_8,spk30_8,
+               spk31_8,spk32_8,spk33_8,spk34_8,spk35_8,spk36_8,spk37_8,spk38_8,spk39_8,]
 
 #---- FIRE TRAPS ----#
 # NAME: fire + roomID_TrapID
 
 fire1_5 = wallTrap(32,126,'d')
+
+fire1_6 = wallTrap(44,98,'r')
+fire2_6 = wallTrap(44,101,'r')
+
+room6fire = [fire1_6, fire2_6]
 
 fire1_7 = wallTrap(16,100,'r')
 fire2_7 = wallTrap(16,96,'r')
@@ -252,5 +319,10 @@ fire4_7 = wallTrap(2,94,'l')
 
 room7fire = [fire1_7,fire2_7,fire3_7,fire4_7]
 
+fire1_8 = wallTrap(14,75,'r')
+fire2_8 = wallTrap(2,70,'l')
+fire3_8 = wallTrap(2,67,'l')
+
+room8fire = [fire1_8,fire2_8,fire3_8]
 
 boss = item.boss.Boss( 67, 139) 
