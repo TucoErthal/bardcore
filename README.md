@@ -57,14 +57,14 @@ Existem 3 tipos de armadilhas
 ### Spike 
 Armadilhas que ficam no chão e são ativadas quando o jogador passa por cima
 
-![Screenshot_3.png](https://github.com/TucoErthal/bardcore/blob/main/assets/GDD%20Images/Screenshot%203.png)
+![Screenshot_3.png](https://github.com/TucoErthal/bardcore/blob/main/assets/GDD%20Images/Screenshot_3.png)
 ### Flamethrower
 Armadilhas que ficam presas na parede e atiram bolas de fogo no ritmo da musica
 
-![Screenshot_8.png](https://github.com/TucoErthal/bardcore/blob/main/assets/GDD%20Images/Screenshot%208.png)
+![Screenshot_8.png](https://github.com/TucoErthal/bardcore/blob/main/assets/GDD%20Images/Screenshot_8.png)
 ### Conveyor
 Armadilhas que empurram o jogador na direção das setas, tambem funcionam como uma barreira
-![Screenshot_2.png](https://github.com/TucoErthal/bardcore/blob/main/assets/GDD%20Images/Screenshot%203.png)
+![Screenshot_2.png](https://github.com/TucoErthal/bardcore/blob/main/assets/GDD%20Images/Screenshot_3.png)
 ## Input
 
 W, A, S, D - teclas direcionais, serão usadas para movimentar o jogador ou tocar combos de notas com o alaúde.
