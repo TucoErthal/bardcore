@@ -44,9 +44,7 @@ class String():
                     self.string_delay = True
                     self.transition_counter = 120
 
-                if self.transition_counter < 60:
-                    player.x = 66*16
-                    player.y = 122*16
+                
         else:
             self.warp = False
 

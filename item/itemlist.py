@@ -36,9 +36,9 @@ room10 = item.room.Room(room10_sprite, 130, 108,  10)
 room11 = item.room.Room(room11_sprite, 124,  86,  11)
 room12 = item.room.Room(room12_sprite, 132,  61,  12)
 room13 = item.room.Room(room13_sprite,  56,  90,  13)
-room14 = item.room.Room(room14_sprite,  52,  46,  14)
-room15 = item.room.Room(room15_sprite,  54,  18,  15)
-room16 = item.room.Room(room16_sprite,  59,   0,  16)
+room14 = item.room.Room(room14_sprite,  52,  64,  14)
+room15 = item.room.Room(room15_sprite,  54,  36,  15)
+room16 = item.room.Room(room16_sprite,  59,  18,  16)
 
 
 
@@ -81,13 +81,13 @@ door12D = item.door.Door(138,  81, 4, 12, room11)
 door13U = item.door.Door( 66,  94, 1, 13, room14, 'string')
 door13D = item.door.Door( 66, 105, 4, 13,  room4)
 
-door14U = item.door.Door( 66,  50, 1, 14, room15)
+door14U = item.door.Door( 66,  68, 1, 14, room15)
 door14D = item.door.Door( 66,  85, 4, 14, room13)
 
-door15U = item.door.Door( 66,  22, 1, 15, room16)
-door15D = item.door.Door( 66,  41, 4, 15, room14)
+door15U = item.door.Door( 66,  40, 1, 15, room16)
+door15D = item.door.Door( 66,  59, 4, 15, room14)
 
-door16D = item.door.Door( 66,  13, 4, 16, room15)
+door16D = item.door.Door( 66,  31, 4, 16, room15)
 
 
 
@@ -139,18 +139,18 @@ torch11_4 = item.torch.Torch(147,  88)
 torch12_1 = item.torch.Torch(134,  63)
 torch12_2 = item.torch.Torch(140,  63)
 
-torch14_1 = item.torch.Torch( 55,  48)
-torch14_2 = item.torch.Torch( 60,  48)
-torch14_3 = item.torch.Torch( 70,  48)
-torch14_4 = item.torch.Torch( 75,  48)
+torch14_1 = item.torch.Torch( 55,  66)
+torch14_2 = item.torch.Torch( 60,  66)
+torch14_3 = item.torch.Torch( 70,  66)
+torch14_4 = item.torch.Torch( 75,  66)
 
-torch15_1 = item.torch.Torch( 57,  20)
-torch15_2 = item.torch.Torch( 62,  20)
-torch15_3 = item.torch.Torch( 68,  20)
-torch15_4 = item.torch.Torch( 73,  20)
+torch15_1 = item.torch.Torch( 57,  38)
+torch15_2 = item.torch.Torch( 62,  38)
+torch15_3 = item.torch.Torch( 68,  38)
+torch15_4 = item.torch.Torch( 73,  38)
 
-torch16_1 = item.torch.Torch( 62,   2)
-torch16_2 = item.torch.Torch( 68,   2)
+torch16_1 = item.torch.Torch( 62,  20)
+torch16_2 = item.torch.Torch( 68,  20)
 
 
 #---- CONVEYOR BELTS ----#

@@ -22,18 +22,18 @@ def start_game():
 in_game = False
 enemies2  = []
 enemies3  = [Ghost(67,140)]
-enemies4  = []
+enemies4  = [Ghost(61,118),Ghost(72,118)]
 enemies5  = []
 enemies6  = []
 enemies7  = []
-enemies8  = []
+enemies8  = [Mage(7,62),Skelly(10,62)]
 enemies9  = [Bell(95,121),Bell(118,120),Bell(118,123),Mage(122,120),Mage(122,123)]
 enemies10 = [Skelly(135,116),Skelly(140,116),Skelly(145,116),Ghost(143,123)]
 enemies11 = [Mage(131,97),Mage(145,97)]
 enemies12 = [Ghost(135,76),Ghost(142,76),Ghost(138,74)]
 enemies13 = []
-enemies14 = []
-enemies15 = [boss]
+enemies14 = [Bell(57,76),Bell(76,76),Skelly(55,71),Skelly(78,71),Mage(60,72),Mage(73,72),Ghost(65,70),Ghost(68,70)]
+enemies15 = [Boss(66,49)]
 enemies16 = []
 
 strings_collected = []
@@ -58,19 +58,19 @@ def spawnEnemies():
     global enemies16
 
     enemies2  = []
-    enemies3  = []
-    enemies4  = []
+    enemies3  = [Ghost(67,140)]
+    enemies4  = [Ghost(61,118),Ghost(72,118)]
     enemies5  = []
     enemies6  = []
     enemies7  = []
-    enemies8  = []
+    enemies8  = [Mage(7,62),Skelly(10,62)]
     enemies9  = [Bell(95,121),Bell(118,120),Bell(118,123),Mage(122,120),Mage(122,123)]
     enemies10 = [Skelly(135,116),Skelly(140,116),Skelly(145,116),Ghost(143,123)]
     enemies11 = [Mage(131,97),Mage(145,97)]
     enemies12 = [Ghost(135,76),Ghost(142,76),Ghost(138,74)]
     enemies13 = []
-    enemies14 = []
-    enemies15 = [boss]
+    enemies14 = [Bell(57,76),Bell(76,76),Skelly(55,71),Skelly(78,71),Mage(60,72),Mage(73,72),Ghost(65,70),Ghost(68,70)]
+    enemies15 = [Boss(66,49)]
     enemies16 = []
 
 
@@ -378,8 +378,7 @@ def level8():
     for i in room8fire:
         i.draw(room8)
 
-    if 1 not in strings_collected:
-        string1.draw()
+    string1.draw()
 
     torch8_1.draw()
     torch8_2.draw()
@@ -394,6 +393,8 @@ def level8():
         strings_collected.append(1)
     if string1.transition_counter == 60:
         current_room = room4
+        player.x = 66*16
+        player.y = 122*16
 
 
 def level9():
@@ -508,8 +509,7 @@ def level12():
     enemyDraw(enemies12)
     projDraw(enemies12)
 
-    if 2 not in strings_collected:
-        string2.draw()
+    string2.draw()
 
     torch12_1.draw()
     torch12_2.draw()
@@ -524,6 +524,8 @@ def level12():
         strings_collected.append(2)
     if string2.transition_counter == 60:
         current_room = room4
+        player.x = 66*16
+        player.y = 122*16
 
 
 def level13():
@@ -832,4 +834,3 @@ while True:
         draw_gui()
 
     window.update()
-
